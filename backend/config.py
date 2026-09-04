@@ -49,7 +49,10 @@ IDX_HOLIDAYS = [
 ]
 
 # --- OUTPUT ---
-OUTPUT_JSON_PATH = "output/daily_digest.json"
+import os
+
+_BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_JSON_PATH = os.path.join(_BACKEND_DIR, "output", "daily_digest.json")
 
 # --- GOOGLE GEMINI API (gratis, tanpa kartu kredit) ---
 # Ambil API key gratis di aistudio.google.com -> "Get API key".
