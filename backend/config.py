@@ -68,4 +68,4 @@ OUTPUT_JSON_PATH = "output/daily_digest.json"
 # --- ANTHROPIC API ---
 # Model Claude yang dipakai AI agent. Diisi lewat environment variable
 # ANTHROPIC_API_KEY, jangan hardcode di sini.
-CLAUDE_MODEL = "claude-sonnet-4-6"
+CLAUDE_MODEL = "claude-sonnet-5"
