@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sinyal Harian — Analisis Saham IDX</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0A0E14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E14;
+    --surface: #11161F;
+    --surface-2: #171D28;
+    --border: #222A38;
+    --text: #E7ECF2;
+    --text-muted: #8592A6;
+    --accent: #F2A93B;
+    --accent-dim: #C98A2C;
+    --gain: #34D399;
+    --loss: #FB6B6B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 40px;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .demo-banner {
+    background: var(--accent);
+    color: #1A1200;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: center;
+    padding: 6px 12px;
+  }
+
+  header.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 18px 20px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.topbar .date { font-size: 14px; color: var(--text-muted); }
+  header.topbar .ihsg { font-size: 14px; }
+  header.topbar .ihsg .val { font-family: 'JetBrains Mono', monospace; }
+  .down { color: var(--loss); }
+  .up { color: var(--gain); }
+
+  main { max-width: 480px; margin: 0 auto; padding: 0 20px; }
+
+  .hero {
+    margin-top: 18px;
+    padding: 20px;
+    background: linear-gradient(155deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--accent-dim);
+    border-radius: 14px;
+  }
+  .hero .label { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .hero .ticker-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .hero .ticker { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; }
+  .hero .profile-tag {
+    font-size: 12px; padding: 3px 9px; border-radius: 6px;
+    background: rgba(242,169,59,0.15); color: var(--accent); font-weight: 600;
+  }
+  .hero p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--text); }
+
+  .segmented {
+    display: flex; gap: 6px; margin: 22px 0 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 4px;
+  }
+  .segmented button {
+    flex: 1; border: none; background: transparent; color: var(--text-muted);
+    padding: 9px 4px; border-radius: 7px; font-size: 13px; font-weight: 600;
+    font-family: inherit; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .segmented button.active { background: var(--accent); color: #1A1200; }
+
+  .pick-card {
+    border: 1px solid var(--border); background: var(--surface);
+    border-radius: 12px; padding: 16px; margin-bottom: 12px;
+    display: flex; gap: 12px;
+  }
+  .pick-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--text-muted);
+    width: 20px; flex-shrink: 0; padding-top: 2px;
+  }
+  .pick-body { flex: 1; min-width: 0; }
+  .pick-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+  .pick-ticker { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 700; }
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 5px;
+  }
+  .badge.buy { background: rgba(52,211,153,0.15); color: var(--gain); }
+  .badge.risk-tinggi { background: rgba(251,107,107,0.15); color: var(--loss); }
+  .badge.risk-sedang { background: rgba(242,169,59,0.15); color: var(--accent); }
+
+  .levels {
+    display: flex; gap: 14px; font-size: 12.5px; color: var(--text-muted);
+    margin-bottom: 8px; font-family: 'JetBrains Mono', monospace;
+  }
+  .levels span b { color: var(--text); font-weight: 500; }
+
+  .pick-reason { font-size: 13.5px; line-height: 1.5; color: var(--text); margin: 0 0 6px; }
+  .catalyst { font-size: 12px; color: var(--text-muted); }
+  .catalyst b { color: var(--text-muted); font-weight: 600; }
+
+  details.context {
+    margin: 24px 0 16px; border: 1px solid var(--border);
+    border-radius: 12px; background: var(--surface);
+  }
+  details.context summary {
+    padding: 14px 16px; font-size: 14px; font-weight: 600; cursor: pointer;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+  }
+  details.context summary::-webkit-details-marker { display: none; }
+  details.context summary::after { content: '+'; color: var(--text-muted); font-size: 18px; }
+  details.context[open] summary::after { content: '–'; }
+  details.context .body { padding: 0 16px 16px; font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
+
+  footer.disclaimer {
+    font-size: 11.5px; line-height: 1.6; color: var(--text-muted);
+    border-top: 1px solid var(--border); padding-top: 14px; margin-top: 20px;
+  }
+
+  .section-empty {
+    font-size: 13.5px; color: var(--text-muted); padding: 20px 0; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Mode demo — data & rekomendasi di bawah ini contoh, bukan sinyal riil</div>
+
+<header class="topbar">
+  <div class="date">Jumat, 4 Sep 2026</div>
+  <div class="ihsg">IHSG <span class="val down">7.412,5 (-0,8%)</span></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="label">Top pick hari ini</div>
+    <div class="ticker-row">
+      <span class="ticker">ADRO</span>
+      <span class="profile-tag">Swing Trade</span>
+    </div>
+    <p id="hero-reason">Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG secara umum tertekan oleh ketidakpastian politik.</p>
+  </section>
+
+  <div class="segmented" id="tabs">
+    <button class="active" data-tab="day_trade">Day Trade</button>
+    <button data-tab="swing_trade">Swing Trade</button>
+    <button data-tab="long_term">Investasi Panjang</button>
+  </div>
+
+  <div id="picks-container"></div>
+
+  <details class="context">
+    <summary>Konteks pasar, ekonomi & politik hari ini</summary>
+    <div class="body">
+      IHSG melemah tipis di tengah kehati-hatian pelaku pasar menjelang keputusan suku bunga BI
+      dan berita seputar dinamika politik domestik yang meningkatkan volatilitas jangka pendek.
+      Sektor komoditas (batu bara, nikel) relatif tahan banting berkat harga global yang stabil,
+      sementara sektor perbankan tertekan oleh sentimen rupiah. Investor asing tercatat net sell
+      tipis di pasar reguler.
+    </div>
+  </details>
+
+  <footer class="disclaimer">
+    Ini adalah hasil analisis otomatis berbasis AI, bukan nasihat investasi resmi. Selalu lakukan
+    riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa
+    menyebabkan kerugian besar, termasuk kehilangan modal.
+  </footer>
+</main>
+
+<script>
+// ==== GANTI INI dengan username & nama repo GitHub kamu ====
+const GITHUB_USER = "USERNAME_GITHUB_KAMU";
+const GITHUB_REPO = "saham-ai-agent";
+const DIGEST_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/backend/output/daily_digest.json`;
+// =============================================================
+
+// Data contoh dipakai sebagai fallback kalau DIGEST_URL belum diganti / gagal diambil.
+// Strukturnya SAMA PERSIS dengan output backend/ai_agent.py.
+const DEMO_DIGEST = {
+  date: "2026-09-04",
+  market_index: { value: 7412.5, change_pct: -0.8 },
+  market_context_summary: "IHSG melemah tipis di tengah kehati-hatian pelaku pasar menjelang keputusan suku bunga BI dan dinamika politik domestik. Sektor komoditas relatif tahan banting, sektor perbankan tertekan sentimen rupiah.",
+  top_pick_of_the_day: { ticker: "ADRO", profile: "swing_trade", reason: "Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG tertekan ketidakpastian politik." },
+  profiles: {
+    day_trade: [
+      { ticker: "BUMI", action: "BUY", entry_range: "142-146", target: "158", stop_loss: "136", risk_level: "tinggi", reason: "Breakout dari konsolidasi 5 hari dengan volume 3x rata-rata.", catalyst: "Rally harga batu bara global semalam" },
+      { ticker: "GOTO", action: "BUY", entry_range: "58-60", target: "66", stop_loss: "55", risk_level: "tinggi", reason: "Rebound teknikal dari support kuat, RSI keluar area oversold.", catalyst: "Berita rencana buyback saham" },
+      { ticker: "ARTO", action: "BUY", entry_range: "2.100-2.150", target: "2.300", stop_loss: "2.020", risk_level: "sedang", reason: "Momentum sektor bank digital positif.", catalyst: "Sentimen sektor fintech" },
+    ],
+    swing_trade: [
+      { ticker: "ADRO", action: "BUY", entry_range: "3.150-3.200", target: "3.550", stop_loss: "3.020", risk_level: "sedang", reason: "Tren naik di atas SMA20, sektor komoditas relatif tahan dari gejolak politik domestik.", catalyst: "Harga batu bara global naik" },
+      { ticker: "MDKA", action: "BUY", entry_range: "2.400-2.450", target: "2.750", stop_loss: "2.280", risk_level: "tinggi", reason: "Akumulasi asing terlihat di running trade.", catalyst: "Ekspansi proyek nikel" },
+      { ticker: "BRIS", action: "BUY", entry_range: "2.850-2.900", target: "3.150", stop_loss: "2.750", risk_level: "sedang", reason: "Pola higher-low, sektor bank syariah relatif stabil dari sentimen politik.", catalyst: "Pertumbuhan pembiayaan kuartalan" },
+    ],
+    long_term: [
+      { ticker: "BBCA", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset" },
+      { ticker: "TLKM", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi" },
+      { ticker: "AMRT", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik" },
+    ],
+  },
+  disclaimer: "Ini adalah hasil analisis otomatis berbasis AI, bukan nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi.",
+};
+
+const PROFILE_LABELS = { day_trade: "Day Trade", swing_trade: "Swing Trade", long_term: "Investasi Panjang" };
+let digest = DEMO_DIGEST;
+let isLiveData = false;
+
+function fmtDateID(iso) {
+  try {
+    return new Date(iso + "T00:00:00").toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "short", year: "numeric" });
+  } catch { return iso; }
+}
+
+function renderAll() {
+  document.querySelector(".demo-banner").textContent = isLiveData
+    ? `Data live — terakhir update ${digest.date}`
+    : "Mode demo — belum tersambung ke data asli (lihat komentar DIGEST_URL di kode)";
+  document.querySelector(".demo-banner").style.background = isLiveData ? "var(--gain)" : "var(--accent)";
+
+  document.querySelector(".topbar .date").textContent = fmtDateID(digest.date);
+  const idx = digest.market_index;
+  const ihsgEl = document.querySelector(".topbar .ihsg");
+  if (idx) {
+    const dir = idx.change_pct >= 0 ? "up" : "down";
+    const sign = idx.change_pct >= 0 ? "+" : "";
+    ihsgEl.innerHTML = `IHSG <span class="val ${dir}">${idx.value.toLocaleString("id-ID")} (${sign}${idx.change_pct}%)</span>`;
+  } else {
+    ihsgEl.innerHTML = "";
+  }
+
+  const tp = digest.top_pick_of_the_day || {};
+  document.querySelector(".hero .ticker").textContent = tp.ticker || "-";
+  document.querySelector(".hero .profile-tag").textContent = PROFILE_LABELS[tp.profile] || tp.profile || "-";
+  document.getElementById("hero-reason").textContent = tp.reason || "";
+
+  document.querySelector("details.context .body").textContent = digest.market_context_summary || "";
+  document.querySelector("footer.disclaimer").textContent = digest.disclaimer || DEMO_DIGEST.disclaimer;
+
+  renderPicks(document.querySelector("#tabs button.active").dataset.tab);
+}
+
+function renderPicks(tab) {
+  const container = document.getElementById('picks-container');
+  const items = (digest.profiles && digest.profiles[tab]) || [];
+  if (items.length === 0) {
+    container.innerHTML = `<div class="section-empty">Tidak ada rekomendasi meyakinkan untuk kategori ini hari ini.</div>`;
+    return;
+  }
+  container.innerHTML = items.map((p, i) => `
+    <div class="pick-card">
+      <div class="pick-num">${i + 1}</div>
+      <div class="pick-body">
+        <div class="pick-head">
+          <span class="pick-ticker">${p.ticker}</span>
+          <span class="badge buy">${p.action}</span>
+          <span class="badge risk-${p.risk_level}">Risiko ${p.risk_level}</span>
+        </div>
+        <div class="levels">
+          <span>Entry <b>${p.entry_range}</b></span>
+          <span>Target <b>${p.target}</b></span>
+          <span>Stop <b>${p.stop_loss}</b></span>
+        </div>
+        <p class="pick-reason">${p.reason}</p>
+        <div class="catalyst"><b>Katalis:</b> ${p.catalyst}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-tab]');
+  if (!btn) return;
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPicks(btn.dataset.tab);
+});
+
+async function loadDigest() {
+  if (GITHUB_USER === "USERNAME_GITHUB_KAMU") {
+    renderAll();  // belum dikonfigurasi, tetap tampilkan demo
+    return;
+  }
+  try {
+    const res = await fetch(DIGEST_URL + `?t=${Date.now()}`);  // cache-bust
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    digest = await res.json();
+    isLiveData = true;
+  } catch (err) {
+    console.warn("Gagal ambil data live, pakai data demo:", err);
+    digest = DEMO_DIGEST;
+    isLiveData = false;
+  }
+  renderAll();
+}
+
+loadDigest();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
