@@ -1,7 +1,8 @@
 """
 ai_agent.py
 "Otak" analisis: mengubah data mentah (harga + berita) jadi rekomendasi
-terstruktur untuk 3 profil trader, lewat panggilan ke Claude API.
+terstruktur untuk 3 profil trader, lewat panggilan ke Google Gemini API
+(gratis, tanpa kartu kredit -- lihat README untuk cara ambil API key-nya).
 
 Penting: agent ini HANYA boleh menganalisis berdasarkan data yang diberikan
 di prompt (tidak boleh mengarang harga/berita), dan wajib menyertakan
@@ -11,8 +12,10 @@ disclaimer di setiap output.
 import json
 import logging
 import os
+import time
 
-import anthropic
+from google import genai
+from google.genai import types
 
 import config
 
@@ -81,24 +84,46 @@ Hasilkan rekomendasi sesuai skema JSON yang sudah dijelaskan di system prompt.
 
 
 def run_analysis(context_bundle: dict) -> dict:
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError(
-            "ANTHROPIC_API_KEY belum di-set. Simpan sebagai environment variable, "
-            "jangan hardcode di kode."
+            "GEMINI_API_KEY belum di-set. Simpan sebagai environment variable/secret, "
+            "jangan hardcode di kode. Ambil gratis di aistudio.google.com."
         )
 
-    client = anthropic.Anthropic(api_key=api_key)
+    client = genai.Client(api_key=api_key)
 
-    log.info("Memanggil Claude API untuk analisis harian...")
-    response = client.messages.create(
-        model=config.CLAUDE_MODEL,
-        max_tokens=2000,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": build_user_prompt(context_bundle)}],
-    )
+    log.info("Memanggil Gemini API untuk analisis harian...")
 
-    raw_text = "".join(block.text for block in response.content if block.type == "text")
+    last_error = None
+    response = None
+    for attempt in range(1, 4):
+        try:
+            response = client.models.generate_content(
+                model=config.GEMINI_MODEL,
+                contents=build_user_prompt(context_bundle),
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_PROMPT,
+                    temperature=0.4,
+                    response_mime_type="application/json",
+                ),
+            )
+            last_error = None
+            break
+        except Exception as e:
+            last_error = e
+            log.warning("Percobaan %d/3 gagal manggil Gemini API: %s", attempt, e)
+            if attempt < 3:
+                time.sleep(5 * attempt)
+
+    if last_error is not None:
+        raise RuntimeError(
+            "Gagal manggil Gemini API setelah 3x percobaan. Ini bisa karena jaringan "
+            "sesaat, kunci API salah, atau jatah gratis harian abis. "
+            f"Detail asli: {last_error}"
+        ) from last_error
+
+    raw_text = response.text
 
     try:
         digest = json.loads(raw_text)
