@@ -54,4 +54,4 @@ OUTPUT_JSON_PATH = "output/daily_digest.json"
 # --- GOOGLE GEMINI API (gratis, tanpa kartu kredit) ---
 # Ambil API key gratis di aistudio.google.com -> "Get API key".
 # Model "gemini-2.5-flash" ada di jatah gratis permanen Google (bukan trial).
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-3.6-flash"
