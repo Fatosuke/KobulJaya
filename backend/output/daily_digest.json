@@ -1,0 +1,102 @@
+{
+  "date": "2026-09-04",
+  "market_context_summary": "Pasar bergerak variatif dengan mayoritas saham terkoreksi tipis, namun saham komoditas seperti TINS dan BUMI serta ritel ERAA menunjukkan momentum bullish kuat didukung volume tinggi. Sektor otomotif mendapat perhatian pasar menjelang penyelenggaraan GIIAS Bandung 2026 yang dapat menjadi katalis positif bagi saham terkait seperti ASII.",
+  "profiles": {
+    "day_trade": [
+      {
+        "ticker": "TINS",
+        "action": "BUY",
+        "entry_range": "4380 - 4420",
+        "target": "4600",
+        "stop_loss": "4250",
+        "risk_level": "tinggi",
+        "reason": "Lonjakan harga 8.07% dalam sehari disertai volume 2.01x di atas rata-rata 20 hari menunjukkan dorongan momentum beli yang sangat kuat.",
+        "catalyst": "Breakout harga ber-volume tinggi dan kenaikan signifikan 16.32% dalam 20 hari."
+      },
+      {
+        "ticker": "ERAA",
+        "action": "BUY",
+        "entry_range": "580 - 590",
+        "target": "620",
+        "stop_loss": "560",
+        "risk_level": "tinggi",
+        "reason": "Volume sangat aktif (2.4x rata-rata 20 hari) dengan retensi tren naik yang kuat setelah rally 20.9% dalam 5 hari.",
+        "catalyst": "Kombinasi volume masif dan konsolidasi sehat di atas SMA5."
+      },
+      {
+        "ticker": "BUMI",
+        "action": "BUY",
+        "entry_range": "206 - 210",
+        "target": "220",
+        "stop_loss": "200",
+        "risk_level": "tinggi",
+        "reason": "Melanjutkan tren naik (+1.94% harian, +10.53% mingguan) dan bertahan kokoh di atas SMA5 serta SMA20.",
+        "catalyst": "Momentum kelanjutan tren naik dengan posisi RSI 72.3."
+      }
+    ],
+    "swing_trade": [
+      {
+        "ticker": "TINS",
+        "action": "BUY",
+        "entry_range": "4250 - 4400",
+        "target": "4850",
+        "stop_loss": "3980",
+        "risk_level": "tinggi",
+        "reason": "Struktur tren teknikal sangat kokoh di atas SMA20 (3997) dan SMA5 (4130) dengan akumulasi volume tinggi.",
+        "catalyst": "Tren bullish jangka menengah yang terkonfirmasi oleh volume melimpah."
+      },
+      {
+        "ticker": "ERAA",
+        "action": "BUY",
+        "entry_range": "550 - 585",
+        "target": "660",
+        "stop_loss": "515",
+        "risk_level": "tinggi",
+        "reason": "Performa 20 hari menguat 29.39% dengan posisi harga jauh di atas SMA20 (485.1).",
+        "catalyst": "Strong momentum uptrend dan aktivitas transaksi di atas normal."
+      },
+      {
+        "ticker": "ASII",
+        "action": "BUY",
+        "entry_range": "4850 - 4900",
+        "target": "5250",
+        "stop_loss": "4720",
+        "risk_level": "sedang",
+        "reason": "Koreksi harian -2.97% membuka peluang buy on weakness di dekat area support SMA20 (4848).",
+        "catalyst": "Penyelenggaraan GIIAS Bandung 2026 pada September 2026 sebagai pendorong sentimen otomotif."
+      }
+    ],
+    "long_term": [
+      {
+        "ticker": "ASII",
+        "action": "BUY",
+        "entry_range": "4800 - 4900",
+        "target": "5600",
+        "stop_loss": "4550",
+        "risk_level": "sedang",
+        "reason": "Harga masih terjaga di atas SMA20 dengan valuasi menarik pasca-koreksi, cocok untuk akumulasi agresif.",
+        "catalyst": "Katalis pameran otomotif GIIAS Bandung serta potensi dampak kebijakan pembebasan BBNKB mobil bekas."
+      },
+      {
+        "ticker": "BBTN",
+        "action": "BUY",
+        "entry_range": "1220 - 1240",
+        "target": "1380",
+        "stop_loss": "1180",
+        "risk_level": "sedang",
+        "reason": "Harga stabil di atas SMA20 (1223) dengan peningkatan volume transaksi 1.47x rata-rata harian.",
+        "catalyst": "Konsolidasi positif dan akumulasi bertahap di sektor perbankan."
+      }
+    ]
+  },
+  "top_pick_of_the_day": {
+    "ticker": "TINS",
+    "profile": "day_trade",
+    "reason": "Kenaikan harga tajam 8.07% ditopang lonjakan volume 2.01x dari rata-rata 20 hari menunjukkan dominasi buyer yang sangat kuat untuk perdagangan jangka pendek."
+  },
+  "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
+  "market_index": {
+    "value": 6636.5,
+    "change_pct": -0.47
+  }
+}
