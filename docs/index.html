@@ -220,6 +220,97 @@ let digest = DEMO_DIGEST;
 let isLiveData = false;
 let lastFetchError = null;
 
+// Samakan 2 daftar ini dengan backend/config.py setiap kali diubah.
+const SCHEDULE_HOURS_WIB = [9, 13, 16];
+const IDX_HOLIDAYS = [
+  // "2026-01-01",
+];
+
+function getJakartaParts() {
+  const fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Jakarta",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit",
+    hour12: false,
+  });
+  const map = {};
+  fmt.formatToParts(new Date()).forEach(p => { if (p.type !== "literal") map[p.type] = p.value; });
+  let hour = parseInt(map.hour, 10);
+  if (hour === 24) hour = 0; // quirk Intl kadang kasih "24" utk tengah malam
+  return {
+    y: parseInt(map.year, 10), m: parseInt(map.month, 10), d: parseInt(map.day, 10),
+    hour, minute: parseInt(map.minute, 10), second: parseInt(map.second, 10),
+  };
+}
+
+function addDaysUTC(y, m, d, days) {
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + days);
+  return { y: dt.getUTCFullYear(), m: dt.getUTCMonth() + 1, d: dt.getUTCDate() };
+}
+
+function isTradingDayYMD(y, m, d) {
+  const weekday = new Date(Date.UTC(y, m - 1, d)).getUTCDay(); // 0=Min, 6=Sab
+  if (weekday === 0 || weekday === 6) return false;
+  const key = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+  return !IDX_HOLIDAYS.includes(key);
+}
+
+function jakartaToInstant(y, m, d, h, min) {
+  return new Date(Date.UTC(y, m - 1, d, h - 7, min, 0));
+}
+
+function computeNextUpdateInstant() {
+  const p = getJakartaParts();
+  const nowMinutes = p.hour * 60 + p.minute + p.second / 60;
+
+  if (isTradingDayYMD(p.y, p.m, p.d)) {
+    for (const h of SCHEDULE_HOURS_WIB) {
+      if (nowMinutes < h * 60) return jakartaToInstant(p.y, p.m, p.d, h, 0);
+    }
+  }
+  for (let i = 1; i <= 10; i++) {
+    const next = addDaysUTC(p.y, p.m, p.d, i);
+    if (isTradingDayYMD(next.y, next.m, next.d)) {
+      return jakartaToInstant(next.y, next.m, next.d, SCHEDULE_HOURS_WIB[0], 0);
+    }
+  }
+  return null;
+}
+
+function formatCountdown(ms) {
+  if (ms <= 0) return "sebentar lagi";
+  const totalSec = Math.floor(ms / 1000);
+  const h = Math.floor(totalSec / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
+  const s = totalSec % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+
+function updateStatusBanner() {
+  const banner = document.querySelector(".demo-banner");
+  const p = getJakartaParts();
+
+  if (!isTradingDayYMD(p.y, p.m, p.d)) {
+    banner.textContent = "🎮 BURSA LIBUR, WAKTUNYA MAIN MH!";
+    banner.style.background = "#6C5CE7";
+    banner.style.color = "#fff";
+    return;
+  }
+
+  if (!isLiveData) {
+    banner.textContent = `Mode demo — gagal ambil data: ${lastFetchError || "DIGEST_URL belum diganti"}`;
+    banner.style.background = "var(--accent)";
+    banner.style.color = "#1A1200";
+    return;
+  }
+
+  const msLeft = computeNextUpdateInstant() - Date.now();
+  banner.textContent = `Data live (${digest.date}) — update berikutnya dalam ${formatCountdown(msLeft)}`;
+  banner.style.background = "var(--gain)";
+  banner.style.color = "#1A1200";
+}
+
 function fmtDateID(iso) {
   try {
     return new Date(iso + "T00:00:00").toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "short", year: "numeric" });
@@ -227,11 +318,6 @@ function fmtDateID(iso) {
 }
 
 function renderAll() {
-  document.querySelector(".demo-banner").textContent = isLiveData
-    ? `Data live — terakhir update ${digest.date}`
-    : `Mode demo — gagal ambil data: ${lastFetchError || "DIGEST_URL belum diganti"}`;
-  document.querySelector(".demo-banner").style.background = isLiveData ? "var(--gain)" : "var(--accent)";
-
   document.querySelector(".topbar .date").textContent = fmtDateID(digest.date);
   const idx = digest.market_index;
   const ihsgEl = document.querySelector(".topbar .ihsg");
@@ -311,7 +397,10 @@ async function loadDigest() {
   renderAll();
 }
 
-loadDigest();
+loadDigest().then(() => {
+  updateStatusBanner();
+  setInterval(updateStatusBanner, 1000);
+});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
