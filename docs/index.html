@@ -96,6 +96,8 @@
   .pick-body { flex: 1; min-width: 0; }
   .pick-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
   .pick-ticker { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 700; }
+  .pick-price { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-muted); }
+  .hero .price { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-muted); }
   .badge {
     font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 5px;
   }
@@ -150,6 +152,7 @@
     <div class="label">Top pick hari ini</div>
     <div class="ticker-row">
       <span class="ticker">ADRO</span>
+      <span class="price">Rp3.150</span>
       <span class="profile-tag">Swing Trade</span>
     </div>
     <p id="hero-reason">Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG secara umum tertekan oleh ketidakpastian politik.</p>
@@ -194,22 +197,22 @@ const DEMO_DIGEST = {
   date: "2026-09-04",
   market_index: { value: 7412.5, change_pct: -0.8 },
   market_context_summary: "IHSG melemah tipis di tengah kehati-hatian pelaku pasar menjelang keputusan suku bunga BI dan dinamika politik domestik. Sektor komoditas relatif tahan banting, sektor perbankan tertekan sentimen rupiah.",
-  top_pick_of_the_day: { ticker: "ADRO", profile: "swing_trade", reason: "Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG tertekan ketidakpastian politik." },
+  top_pick_of_the_day: { ticker: "ADRO", profile: "swing_trade", price_at_fetch: 3180, reason: "Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG tertekan ketidakpastian politik." },
   profiles: {
     day_trade: [
-      { ticker: "BUMI", action: "BUY", entry_range: "142-146", target: "158", stop_loss: "136", risk_level: "tinggi", reason: "Breakout dari konsolidasi 5 hari dengan volume 3x rata-rata.", catalyst: "Rally harga batu bara global semalam" },
-      { ticker: "GOTO", action: "BUY", entry_range: "58-60", target: "66", stop_loss: "55", risk_level: "tinggi", reason: "Rebound teknikal dari support kuat, RSI keluar area oversold.", catalyst: "Berita rencana buyback saham" },
-      { ticker: "ARTO", action: "BUY", entry_range: "2.100-2.150", target: "2.300", stop_loss: "2.020", risk_level: "sedang", reason: "Momentum sektor bank digital positif.", catalyst: "Sentimen sektor fintech" },
+      { ticker: "BUMI", action: "BUY", price_at_fetch: 144, entry_range: "142-146", target: "158", stop_loss: "136", risk_level: "tinggi", reason: "Breakout dari konsolidasi 5 hari dengan volume 3x rata-rata.", catalyst: "Rally harga batu bara global semalam" },
+      { ticker: "GOTO", action: "BUY", price_at_fetch: 59, entry_range: "58-60", target: "66", stop_loss: "55", risk_level: "tinggi", reason: "Rebound teknikal dari support kuat, RSI keluar area oversold.", catalyst: "Berita rencana buyback saham" },
+      { ticker: "ARTO", action: "BUY", price_at_fetch: 2130, entry_range: "2.100-2.150", target: "2.300", stop_loss: "2.020", risk_level: "sedang", reason: "Momentum sektor bank digital positif.", catalyst: "Sentimen sektor fintech" },
     ],
     swing_trade: [
-      { ticker: "ADRO", action: "BUY", entry_range: "3.150-3.200", target: "3.550", stop_loss: "3.020", risk_level: "sedang", reason: "Tren naik di atas SMA20, sektor komoditas relatif tahan dari gejolak politik domestik.", catalyst: "Harga batu bara global naik" },
-      { ticker: "MDKA", action: "BUY", entry_range: "2.400-2.450", target: "2.750", stop_loss: "2.280", risk_level: "tinggi", reason: "Akumulasi asing terlihat di running trade.", catalyst: "Ekspansi proyek nikel" },
-      { ticker: "BRIS", action: "BUY", entry_range: "2.850-2.900", target: "3.150", stop_loss: "2.750", risk_level: "sedang", reason: "Pola higher-low, sektor bank syariah relatif stabil dari sentimen politik.", catalyst: "Pertumbuhan pembiayaan kuartalan" },
+      { ticker: "ADRO", action: "BUY", price_at_fetch: 3180, entry_range: "3.150-3.200", target: "3.550", stop_loss: "3.020", risk_level: "sedang", reason: "Tren naik di atas SMA20, sektor komoditas relatif tahan dari gejolak politik domestik.", catalyst: "Harga batu bara global naik" },
+      { ticker: "MDKA", action: "BUY", price_at_fetch: 2420, entry_range: "2.400-2.450", target: "2.750", stop_loss: "2.280", risk_level: "tinggi", reason: "Akumulasi asing terlihat di running trade.", catalyst: "Ekspansi proyek nikel" },
+      { ticker: "BRIS", action: "BUY", price_at_fetch: 2875, entry_range: "2.850-2.900", target: "3.150", stop_loss: "2.750", risk_level: "sedang", reason: "Pola higher-low, sektor bank syariah relatif stabil dari sentimen politik.", catalyst: "Pertumbuhan pembiayaan kuartalan" },
     ],
     long_term: [
-      { ticker: "BBCA", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset" },
-      { ticker: "TLKM", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi" },
-      { ticker: "AMRT", action: "BUY", entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik" },
+      { ticker: "BBCA", action: "BUY", price_at_fetch: 10250, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset" },
+      { ticker: "TLKM", action: "BUY", price_at_fetch: 2890, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi" },
+      { ticker: "AMRT", action: "BUY", price_at_fetch: 2760, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik" },
     ],
   },
   disclaimer: "Ini adalah hasil analisis otomatis berbasis AI, bukan nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi.",
@@ -317,6 +320,11 @@ function fmtDateID(iso) {
   } catch { return iso; }
 }
 
+function fmtRupiah(v) {
+  if (v === null || v === undefined) return "";
+  return "Rp" + Math.round(v).toLocaleString("id-ID");
+}
+
 function renderAll() {
   document.querySelector(".topbar .date").textContent = fmtDateID(digest.date);
   const idx = digest.market_index;
@@ -331,6 +339,7 @@ function renderAll() {
 
   const tp = digest.top_pick_of_the_day || {};
   document.querySelector(".hero .ticker").textContent = tp.ticker || "-";
+  document.querySelector(".hero .price").textContent = fmtRupiah(tp.price_at_fetch);
   document.querySelector(".hero .profile-tag").textContent = PROFILE_LABELS[tp.profile] || tp.profile || "-";
   document.getElementById("hero-reason").textContent = tp.reason || "";
 
@@ -353,6 +362,7 @@ function renderPicks(tab) {
       <div class="pick-body">
         <div class="pick-head">
           <span class="pick-ticker">${p.ticker}</span>
+          <span class="pick-price">${fmtRupiah(p.price_at_fetch)}</span>
           <span class="badge buy">${p.action}</span>
           <span class="badge risk-${p.risk_level}">Risiko ${p.risk_level}</span>
         </div>
