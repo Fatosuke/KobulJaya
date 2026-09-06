@@ -218,6 +218,7 @@ const DEMO_DIGEST = {
 const PROFILE_LABELS = { day_trade: "Day Trade", swing_trade: "Swing Trade", long_term: "Investasi Panjang" };
 let digest = DEMO_DIGEST;
 let isLiveData = false;
+let lastFetchError = null;
 
 function fmtDateID(iso) {
   try {
@@ -228,7 +229,7 @@ function fmtDateID(iso) {
 function renderAll() {
   document.querySelector(".demo-banner").textContent = isLiveData
     ? `Data live — terakhir update ${digest.date}`
-    : "Mode demo — belum tersambung ke data asli (lihat komentar DIGEST_URL di kode)";
+    : `Mode demo — gagal ambil data: ${lastFetchError || "DIGEST_URL belum diganti"}`;
   document.querySelector(".demo-banner").style.background = isLiveData ? "var(--gain)" : "var(--accent)";
 
   document.querySelector(".topbar .date").textContent = fmtDateID(digest.date);
@@ -290,17 +291,20 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 });
 
 async function loadDigest() {
-  if (GITHUB_USER === "Fatosuke") {
-    renderAll();  // belum dikonfigurasi, tetap tampilkan demo
+  if (GITHUB_USER === "USERNAME_GITHUB_KAMU") {
+    lastFetchError = "GITHUB_USER belum diganti dari placeholder";
+    renderAll();
     return;
   }
   try {
-    const res = await fetch(DIGEST_URL + `?t=${Date.now()}`);  // cache-bust
-    if (!res.ok) throw new Error("HTTP " + res.status);
+    const res = await fetch(DIGEST_URL + `?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} dari ${DIGEST_URL}`);
     digest = await res.json();
     isLiveData = true;
+    lastFetchError = null;
   } catch (err) {
     console.warn("Gagal ambil data live, pakai data demo:", err);
+    lastFetchError = (err && err.message) ? err.message : String(err);
     digest = DEMO_DIGEST;
     isLiveData = false;
   }
