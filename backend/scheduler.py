@@ -21,6 +21,23 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 log = logging.getLogger(__name__)
 
 
+def attach_fetch_prices(digest: dict, bundle: dict) -> dict:
+    """Tempel harga saat data diambil (harga asli, BUKAN dari AI) ke tiap
+    rekomendasi, biar selalu akurat -- tidak ada risiko AI salah tulis angka.
+    """
+    price_lookup = {d["ticker"]: d["last_close"] for d in bundle.get("all_price_data", [])}
+
+    for profile_key in ("day_trade", "swing_trade", "long_term"):
+        for pick in digest.get("profiles", {}).get(profile_key, []):
+            pick["price_at_fetch"] = price_lookup.get(pick.get("ticker"))
+
+    top_pick = digest.get("top_pick_of_the_day")
+    if top_pick:
+        top_pick["price_at_fetch"] = price_lookup.get(top_pick.get("ticker"))
+
+    return digest
+
+
 def run_daily_pipeline():
     reason = market_hours.skip_reason()
     if reason:
@@ -36,6 +53,7 @@ def run_daily_pipeline():
     # selalu akurat, tidak berisiko salah ditulis ulang oleh model.
     digest["market_index"] = bundle.get("market_index")
     digest["date"] = bundle["generated_at"][:10]
+    digest = attach_fetch_prices(digest, bundle)
 
     os.makedirs(os.path.dirname(config.OUTPUT_JSON_PATH), exist_ok=True)
     with open(config.OUTPUT_JSON_PATH, "w") as f:
