@@ -1,89 +1,100 @@
 {
   "date": "2026-09-07",
-  "market_context_summary": "Sebagian besar saham pilihan mengalami koreksi minor hari ini, namun saham komoditas seperti TINS dan BUMI mencatatkan kenaikan kuat dengan momentum volume tinggi. Di sisi berita makro/regulasi, pemerintah mengandalkan kewajiban sertifikasi halal bagi UMK sektor makanan dan minuman.",
+  "market_context_summary": "Pasar bergerak tanpa dorongan berita makro maupun politik dalam 48 jam terakhir, sehingga pergerakan sepenuhnya disetir oleh teknikal dan volume transaksi. Saham komoditas tambang serta energi seperti PTBA dan AKRA menunjukkan lonjakan momentum dan akumulasi volume yang menonjol.",
   "profiles": {
     "day_trade": [
       {
-        "ticker": "TINS",
+        "ticker": "PTBA",
         "action": "BUY",
-        "entry_range": "4380 - 4440",
-        "target": "4600",
-        "stop_loss": "4280",
+        "entry_range": "3000 - 3010",
+        "target": "3120",
+        "stop_loss": "2940",
         "risk_level": "tinggi",
-        "reason": "Lonjakan harga +8.07% disertai lonjakan volume 2.01x rata-rata 20 hari menunjukkan breakout momentum yang sangat kuat.",
-        "catalyst": "Momentum transaksi harian dan akumulasi volume signifikan.",
-        "price_at_fetch": 4420.0
+        "reason": "Memiliki lonjakan volume signifikan 1.86x dari rata-rata 20 hari dengan penguatan 4.51%. Sangat ideal untuk memanfaatkan momentum cepat meskipun RSI berada di area overbought.",
+        "catalyst": "Breakout momentum didorong akumulasi volume tinggi",
+        "price_at_fetch": 3010.0
       },
       {
-        "ticker": "ERAA",
+        "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "580 - 595",
-        "target": "620",
-        "stop_loss": "565",
-        "risk_level": "tinggi",
-        "reason": "Volume perdagangan masif (2.4x rerata) dengan kenaikan 5 hari mencapai +20.9%, cocok untuk scalping/day trade memanfaatkan volatilitas tinggi.",
-        "catalyst": "Kekuatan tren naik jangka pendek dan likuiditas tinggi.",
-        "price_at_fetch": 590.0
+        "entry_range": "1410 - 1420",
+        "target": "1460",
+        "stop_loss": "1380",
+        "risk_level": "sedang",
+        "reason": "Ditutup menguat 2.53% di atas SMA5 dan SMA20 disertai lonjakan volume 1.63x. RSI di level 52.9 memberikan ruang apresiasi harga harian.",
+        "catalyst": "Penembusan garis rata-rata SMA5/SMA20 dengan dorongan volume",
+        "price_at_fetch": 1420.0
+      },
+      {
+        "ticker": "KLBF",
+        "action": "BUY",
+        "entry_range": "785 - 790",
+        "target": "815",
+        "stop_loss": "770",
+        "risk_level": "sedang",
+        "reason": "Terjadi peningkatan volume tertinggi relatif terhadap rerata (1.97x) dengan kenaikan 1.94%, berpotensi melanjutkan pembalikan arah jangka pendek.",
+        "catalyst": "Volume pendorong kenaikan yang sangat tinggi di area support",
+        "price_at_fetch": 790.0
       }
     ],
     "swing_trade": [
       {
-        "ticker": "BUMI",
-        "action": "BUY",
-        "entry_range": "204 - 212",
-        "target": "230",
-        "stop_loss": "198",
-        "risk_level": "tinggi",
-        "reason": "Tren naik konsisten di atas SMA20 dengan performa 20 hari sebesar +17.32% dan RSI 72.3 yang menunjukkan dominasi pembeli.",
-        "catalyst": "Tren akumulasi harga saham komoditas tambang.",
-        "price_at_fetch": 210.0
-      },
-      {
         "ticker": "JPFA",
         "action": "BUY",
-        "entry_range": "2270 - 2320",
-        "target": "2450",
-        "stop_loss": "2220",
+        "entry_range": "2320 - 2350",
+        "target": "2500",
+        "stop_loss": "2240",
         "risk_level": "sedang",
-        "reason": "Terjadi pullback sehat sebesar -2.94% namun posisi harga masih berada di atas SMA5 dan SMA20 dengan RSI netral (49.2).",
-        "catalyst": "Sentimen positif penguatan regulasi dan konsumsi sektor unggas/F&B.",
-        "price_at_fetch": 2310.0
+        "reason": "Konsisten bergerak dalam tren naik di atas SMA20 (naik 6.82% dalam 20 hari) dengan RSI netral (51.6), memberikan struktur swing yang sehat.",
+        "catalyst": "Keberlanjutan tren naik teknikal di atas SMA20",
+        "price_at_fetch": 2350.0
+      },
+      {
+        "ticker": "TINS",
+        "action": "BUY",
+        "entry_range": "4400 - 4490",
+        "target": "4850",
+        "stop_loss": "4200",
+        "risk_level": "tinggi",
+        "reason": "Momentum tren sangat kuat (naik 11.14% 5 hari, 16.32% 20 hari) dan bertahan kokoh di atas SMA5 serta SMA20.",
+        "catalyst": "Uptrend berkelanjutan pada grafik harian dan mingguan",
+        "price_at_fetch": 4490.0
       }
     ],
     "long_term": [
       {
-        "ticker": "ASII",
+        "ticker": "UNTR",
         "action": "BUY",
-        "entry_range": "4850 - 4920",
-        "target": "5400",
-        "stop_loss": "4700",
+        "entry_range": "25200 - 25525",
+        "target": "28000",
+        "stop_loss": "24000",
         "risk_level": "sedang",
-        "reason": "Harga bertahan di atas SMA20 (4848) setelah konsolidasi, menawarkan risk-reward ratio yang menarik untuk akumulasi.",
-        "catalyst": "Stabilitas fundamental dan posisi kepemimpinan pasar konglomerasi.",
-        "price_at_fetch": 4900.0
+        "reason": "Memiliki struktur uptrend utama yang solid (naik 7.81% dalam 20 hari) dan terus bertahan di atas SMA20 (24156.2).",
+        "catalyst": "Tren teknikal jangka menengah-panjang yang terjaga kokoh di atas SMA20",
+        "price_at_fetch": 25525.0
       },
       {
-        "ticker": "ICBP",
+        "ticker": "INDF",
         "action": "BUY",
-        "entry_range": "7200 - 7300",
-        "target": "8000",
-        "stop_loss": "6950",
+        "entry_range": "7250 - 7325",
+        "target": "7800",
+        "stop_loss": "7100",
         "risk_level": "sedang",
-        "reason": "Indikator RSI mencapai level jenuh jual relatif (38.8) akibat penurunan 5 hari sebesar -8.49%, memberikan area buy on weakness yang ideal.",
-        "catalyst": "Kepastian regulasi industri makanan-minuman dan potensi rebound dari kondisi oversold.",
-        "price_at_fetch": 7275.0
+        "reason": "Harga bertahan stabil di atas SMA20 dengan RSI di level netral 48.8, menawarkan rasio risk-to-reward yang menarik untuk disimpan.",
+        "catalyst": "Fase konsolidasi yang matang di atas garis rata-rata 20 hari",
+        "price_at_fetch": 7325.0
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "TINS",
+    "ticker": "PTBA",
     "profile": "day_trade",
-    "reason": "Memiliki lonjakan volume terbesar (2.01x rerata 20 hari) disertai kenaikan harga signifikan +8.07%, memberikan peluang trading momentum terbaik untuk profil agresif.",
-    "price_at_fetch": 4420.0
+    "reason": "Menawarkan kombinasi kenaikan harga yang kuat (+4.51%) serta lonjakan volume transaksi 1.86x rata-rata, sangat ideal bagi trader agresif untuk memanfaatkan volatilitas dan momentum intra-day.",
+    "price_at_fetch": 3010.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6636.5,
-    "change_pct": -0.47
+    "value": 6628.2,
+    "change_pct": -0.12
   }
 }
