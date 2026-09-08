@@ -136,14 +136,118 @@
   .section-empty {
     font-size: 13.5px; color: var(--text-muted); padding: 20px 0; text-align: center;
   }
+
+  /* --- Sidebar & menu --- */
+  .icon-btn {
+    background: none; border: none; color: var(--text); font-size: 20px;
+    cursor: pointer; padding: 4px 8px; line-height: 1;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 4px; }
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 40;
+  }
+  .sidebar-overlay.open { display: block; }
+  .sidebar-drawer {
+    position: fixed; top: 0; left: 0; bottom: 0; width: 78%; max-width: 300px;
+    background: var(--surface); z-index: 50; transform: translateX(-100%);
+    transition: transform .2s ease; padding: 20px 16px; overflow-y: auto;
+    border-right: 1px solid var(--border);
+  }
+  .sidebar-drawer.open { transform: translateX(0); }
+  .sidebar-header { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .sidebar-section-label {
+    font-size: 12px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .04em; margin: 18px 0 8px;
+  }
+  .budget-btn {
+    display: block; width: 100%; text-align: left; background: var(--surface-2);
+    border: 1px solid var(--border); color: var(--text); padding: 10px 12px;
+    border-radius: 8px; font-size: 14px; margin-bottom: 8px; cursor: pointer;
+    font-family: inherit;
+  }
+  .budget-btn.active { background: var(--accent); color: #1A1200; border-color: var(--accent); font-weight: 600; }
+
+  /* --- Chart button & modal --- */
+  .chart-btn {
+    font-size: 11px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text-muted); cursor: pointer; font-family: inherit;
+  }
+  .lot-info { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; }
+  .chart-modal {
+    display: none; position: fixed; inset: 0; background: var(--bg); z-index: 60;
+    flex-direction: column;
+  }
+  .chart-modal.open { display: flex; }
+  .chart-modal-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* --- Journal panel --- */
+  .journal-panel {
+    display: none; position: fixed; inset: 0; background: var(--bg); z-index: 55;
+    flex-direction: column;
+  }
+  .journal-panel.open { display: flex; }
+  .journal-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 12px; border-bottom: 1px solid var(--border);
+  }
+  .journal-title { font-weight: 700; font-size: 15px; }
+  .journal-body { flex: 1; overflow-y: auto; padding: 16px 20px; max-width: 480px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+  .journal-form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .journal-form input {
+    background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    padding: 10px 12px; border-radius: 8px; font-size: 14px; font-family: inherit;
+  }
+  .journal-form button {
+    background: var(--accent); color: #1A1200; border: none; padding: 10px;
+    border-radius: 8px; font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 4px;
+  }
+  .journal-hint { font-size: 12px; color: var(--text-muted); margin: -12px 0 4px; line-height: 1.5; }
+  .journal-entry {
+    border: 1px solid var(--border); background: var(--surface); border-radius: 12px;
+    padding: 14px; margin-bottom: 10px;
+  }
+  .journal-entry-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .journal-entry-detail { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .journal-entry-note { font-size: 12.5px; color: var(--text); margin-top: 4px; font-style: italic; }
+  .journal-entry-pnl { margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+  .pnl-positive { color: var(--gain); }
+  .pnl-negative { color: var(--loss); }
+  .pnl-unknown { color: var(--text-muted); font-size: 12px; }
+  .journal-entry-actions { display: flex; gap: 8px; margin-top: 10px; }
+  .mini-btn {
+    font-size: 12px; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text); cursor: pointer; font-family: inherit;
+  }
+  .mini-btn.danger { color: var(--loss); border-color: var(--loss); background: transparent; }
 </style>
 </head>
 <body>
 
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-header">Menu</div>
+  <div class="sidebar-section-label">Kategori harga per lot</div>
+  <button class="budget-btn active" data-budget="0">Semua Harga</button>
+  <button class="budget-btn" data-budget="50000">&le; Rp50rb / lot</button>
+  <button class="budget-btn" data-budget="100000">&le; Rp100rb / lot</button>
+  <button class="budget-btn" data-budget="150000">&le; Rp150rb / lot</button>
+  <button class="budget-btn" data-budget="200000">&le; Rp200rb / lot</button>
+  <button class="budget-btn" data-budget="500000">&le; Rp500rb / lot</button>
+  <div class="sidebar-section-label">Lainnya</div>
+  <button class="budget-btn" id="openJournalBtn">📒 Jurnal Transaksi Saya</button>
+</aside>
+
 <div class="demo-banner">Mode demo — data & rekomendasi di bawah ini contoh, bukan sinyal riil</div>
 
 <header class="topbar">
-  <div class="date">Jumat, 4 Sep 2026</div>
+  <div class="topbar-left">
+    <button class="icon-btn" id="openSidebarBtn" aria-label="Menu">☰</button>
+    <div class="date">Jumat, 4 Sep 2026</div>
+  </div>
   <div class="ihsg">IHSG <span class="val down">7.412,5 (-0,8%)</span></div>
 </header>
 
@@ -153,6 +257,7 @@
     <div class="ticker-row">
       <span class="ticker">ADRO</span>
       <span class="price">Rp3.150</span>
+      <button class="chart-btn" id="heroChartBtn">📈 Chart</button>
       <span class="profile-tag">Swing Trade</span>
     </div>
     <p id="hero-reason">Momentum naik didukung lonjakan volume 2,3x rata-rata dan sentimen positif harga batu bara, sementara IHSG secara umum tertekan oleh ketidakpastian politik.</p>
@@ -184,11 +289,46 @@
   </footer>
 </main>
 
+<div class="journal-panel" id="journalPanel">
+  <div class="journal-topbar">
+    <button class="icon-btn" id="closeJournalBtn">←</button>
+    <div class="journal-title">Jurnal Transaksi Saya</div>
+    <button class="icon-btn" id="exportJournalBtn" title="Export jurnal">⬇</button>
+  </div>
+  <div class="journal-body">
+    <form id="journalForm" class="journal-form">
+      <input type="text" id="jTicker" placeholder="Kode saham (mis. BBCA)" required maxlength="8" style="text-transform:uppercase">
+      <input type="number" id="jPrice" placeholder="Harga beli per lembar (Rp)" required min="1">
+      <input type="number" id="jLots" placeholder="Jumlah lot" required min="1" value="1">
+      <input type="date" id="jDate" required>
+      <input type="text" id="jNote" placeholder="Catatan (opsional)">
+      <button type="submit">Tambah ke Jurnal</button>
+    </form>
+    <div class="journal-hint">
+      Data tersimpan di HP ini. Kalau spreadsheet sudah disambungkan (lihat README),
+      catatan otomatis ikut terkirim ke sana supaya AI bisa belajar dari histori kamu.
+      Tombol ⬇ di atas tetap bisa dipakai untuk salin manual sebagai cadangan.
+    </div>
+    <div id="journalList"></div>
+  </div>
+</div>
+
+<div class="chart-modal" id="chartModal">
+  <div class="chart-modal-top">
+    <span id="chartModalTitle">-</span>
+    <button class="icon-btn" id="closeChartBtn">✕</button>
+  </div>
+  <div id="tvWidgetContainer" style="flex:1;"></div>
+</div>
+
 <script>
 // ==== GANTI INI dengan username & nama repo GitHub kamu ====
 const GITHUB_USER = "Fatosuke";
 const GITHUB_REPO = "KobulJaya";
 const DIGEST_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/backend/output/daily_digest.json`;
+// ==== GANTI INI dengan URL Web App Google Apps Script kamu (lihat README) ====
+// Kosongkan "" ("") kalau belum setup -- fitur jurnal tetap jalan lokal di HP.
+const JOURNAL_SHEET_URL = "";
 // =============================================================
 
 // Data contoh dipakai sebagai fallback kalau DIGEST_URL belum diganti / gagal diambil.
@@ -202,19 +342,36 @@ const DEMO_DIGEST = {
     day_trade: [
       { ticker: "BUMI", action: "BUY", price_at_fetch: 144, entry_range: "142-146", target: "158", stop_loss: "136", risk_level: "tinggi", reason: "Breakout dari konsolidasi 5 hari dengan volume 3x rata-rata.", catalyst: "Rally harga batu bara global semalam" },
       { ticker: "GOTO", action: "BUY", price_at_fetch: 59, entry_range: "58-60", target: "66", stop_loss: "55", risk_level: "tinggi", reason: "Rebound teknikal dari support kuat, RSI keluar area oversold.", catalyst: "Berita rencana buyback saham" },
+      { ticker: "PGEO", action: "BUY", price_at_fetch: 850, entry_range: "840-860", target: "920", stop_loss: "810", risk_level: "sedang", reason: "Momentum sektor energi panas bumi positif.", catalyst: "Proyek geothermal baru" },
+      { ticker: "DEWA", action: "BUY", price_at_fetch: 610, entry_range: "600-615", target: "660", stop_loss: "580", risk_level: "tinggi", reason: "Volume spike signifikan hari ini.", catalyst: "Sentimen sektor migas" },
       { ticker: "ARTO", action: "BUY", price_at_fetch: 2130, entry_range: "2.100-2.150", target: "2.300", stop_loss: "2.020", risk_level: "sedang", reason: "Momentum sektor bank digital positif.", catalyst: "Sentimen sektor fintech" },
+      { ticker: "AKRA", action: "BUY", price_at_fetch: 1450, entry_range: "1.430-1.460", target: "1.550", stop_loss: "1.380", risk_level: "sedang", reason: "Tren naik jangka pendek terjaga.", catalyst: "Ekspansi distribusi energi" },
     ],
     swing_trade: [
       { ticker: "ADRO", action: "BUY", price_at_fetch: 3180, entry_range: "3.150-3.200", target: "3.550", stop_loss: "3.020", risk_level: "sedang", reason: "Tren naik di atas SMA20, sektor komoditas relatif tahan dari gejolak politik domestik.", catalyst: "Harga batu bara global naik" },
+      { ticker: "PGAS", action: "BUY", price_at_fetch: 1720, entry_range: "1.700-1.740", target: "1.900", stop_loss: "1.620", risk_level: "sedang", reason: "Konsolidasi sehat sebelum lanjut naik.", catalyst: "Kebijakan harga gas domestik" },
       { ticker: "MDKA", action: "BUY", price_at_fetch: 2420, entry_range: "2.400-2.450", target: "2.750", stop_loss: "2.280", risk_level: "tinggi", reason: "Akumulasi asing terlihat di running trade.", catalyst: "Ekspansi proyek nikel" },
       { ticker: "BRIS", action: "BUY", price_at_fetch: 2875, entry_range: "2.850-2.900", target: "3.150", stop_loss: "2.750", risk_level: "sedang", reason: "Pola higher-low, sektor bank syariah relatif stabil dari sentimen politik.", catalyst: "Pertumbuhan pembiayaan kuartalan" },
+      { ticker: "SMGR", action: "BUY", price_at_fetch: 3550, entry_range: "3.500-3.580", target: "3.900", stop_loss: "3.380", risk_level: "sedang", reason: "Pemulihan sektor semen mulai terlihat.", catalyst: "Proyek infrastruktur pemerintah" },
+      { ticker: "CPIN", action: "BUY", price_at_fetch: 4890, entry_range: "4.850-4.950", target: "5.300", stop_loss: "4.650", risk_level: "sedang", reason: "Harga pakan ternak mulai stabil.", catalyst: "Permintaan unggas jelang musim ramai" },
     ],
     long_term: [
       { ticker: "BBCA", action: "BUY", price_at_fetch: 10250, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset" },
       { ticker: "TLKM", action: "BUY", price_at_fetch: 2890, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi" },
       { ticker: "AMRT", action: "BUY", price_at_fetch: 2760, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik" },
+      { ticker: "JPFA", action: "BUY", price_at_fetch: 1380, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Integrasi bisnis pangan menguntungkan jangka panjang.", catalyst: "Pertumbuhan konsumsi protein" },
+      { ticker: "CTRA", action: "BUY", price_at_fetch: 1050, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Land bank luas, siklus properti mulai membaik.", catalyst: "Penurunan suku bunga KPR" },
+      { ticker: "INDF", action: "BUY", price_at_fetch: 7200, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Bisnis consumer staples defensif terhadap gejolak politik.", catalyst: "Stabilitas harga pangan" },
     ],
   },
+  all_prices: [
+    { ticker: "BUMI", last_close: 144 }, { ticker: "GOTO", last_close: 59 }, { ticker: "PGEO", last_close: 850 },
+    { ticker: "DEWA", last_close: 610 }, { ticker: "ARTO", last_close: 2130 }, { ticker: "AKRA", last_close: 1450 },
+    { ticker: "ADRO", last_close: 3180 }, { ticker: "PGAS", last_close: 1720 }, { ticker: "MDKA", last_close: 2420 },
+    { ticker: "BRIS", last_close: 2875 }, { ticker: "SMGR", last_close: 3550 }, { ticker: "CPIN", last_close: 4890 },
+    { ticker: "BBCA", last_close: 10250 }, { ticker: "TLKM", last_close: 2890 }, { ticker: "AMRT", last_close: 2760 },
+    { ticker: "JPFA", last_close: 1380 }, { ticker: "CTRA", last_close: 1050 }, { ticker: "INDF", last_close: 7200 },
+  ],
   disclaimer: "Ini adalah hasil analisis otomatis berbasis AI, bukan nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi.",
 };
 
@@ -342,6 +499,7 @@ function renderAll() {
   document.querySelector(".hero .price").textContent = fmtRupiah(tp.price_at_fetch);
   document.querySelector(".hero .profile-tag").textContent = PROFILE_LABELS[tp.profile] || tp.profile || "-";
   document.getElementById("hero-reason").textContent = tp.reason || "";
+  document.getElementById("heroChartBtn").onclick = () => openChart(tp.ticker);
 
   document.querySelector("details.context .body").textContent = digest.market_context_summary || "";
   document.querySelector("footer.disclaimer").textContent = digest.disclaimer || DEMO_DIGEST.disclaimer;
@@ -349,11 +507,21 @@ function renderAll() {
   renderPicks(document.querySelector("#tabs button.active").dataset.tab);
 }
 
+let currentBudgetCap = 0; // 0 = semua harga, tanpa filter
+
 function renderPicks(tab) {
   const container = document.getElementById('picks-container');
-  const items = (digest.profiles && digest.profiles[tab]) || [];
+  let items = (digest.profiles && digest.profiles[tab]) || [];
+  if (currentBudgetCap > 0) {
+    items = items.filter(p => p.price_at_fetch && (p.price_at_fetch * 100) <= currentBudgetCap);
+  }
+  items = items.slice(0, 3);
+
   if (items.length === 0) {
-    container.innerHTML = `<div class="section-empty">Tidak ada rekomendasi meyakinkan untuk kategori ini hari ini.</div>`;
+    const msg = currentBudgetCap > 0
+      ? `Tidak ada rekomendasi yang cocok di budget &le; ${fmtRupiah(currentBudgetCap)}/lot untuk kategori ini.`
+      : "Tidak ada rekomendasi meyakinkan untuk kategori ini hari ini.";
+    container.innerHTML = `<div class="section-empty">${msg}</div>`;
     return;
   }
   container.innerHTML = items.map((p, i) => `
@@ -363,6 +531,7 @@ function renderPicks(tab) {
         <div class="pick-head">
           <span class="pick-ticker">${p.ticker}</span>
           <span class="pick-price">${fmtRupiah(p.price_at_fetch)}</span>
+          <button class="chart-btn" data-ticker="${p.ticker}">📈 Chart</button>
           <span class="badge buy">${p.action}</span>
           <span class="badge risk-${p.risk_level}">Risiko ${p.risk_level}</span>
         </div>
@@ -373,9 +542,14 @@ function renderPicks(tab) {
         </div>
         <p class="pick-reason">${p.reason}</p>
         <div class="catalyst"><b>Katalis:</b> ${p.catalyst}</div>
+        <div class="lot-info">1 lot (100 lembar) &asymp; ${fmtRupiah((p.price_at_fetch || 0) * 100)}</div>
       </div>
     </div>
   `).join('');
+
+  container.querySelectorAll('.chart-btn').forEach(btn => {
+    btn.addEventListener('click', () => openChart(btn.dataset.ticker));
+  });
 }
 
 document.getElementById('tabs').addEventListener('click', (e) => {
@@ -406,6 +580,193 @@ async function loadDigest() {
   }
   renderAll();
 }
+
+// ==== Sidebar (kategori harga per lot) ====
+const sidebarDrawer = document.getElementById('sidebarDrawer');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+function closeSidebar() {
+  sidebarDrawer.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+}
+document.getElementById('openSidebarBtn').addEventListener('click', () => {
+  sidebarDrawer.classList.add('open');
+  sidebarOverlay.classList.add('open');
+});
+sidebarOverlay.addEventListener('click', closeSidebar);
+
+document.querySelectorAll('.budget-btn[data-budget]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.budget-btn[data-budget]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentBudgetCap = parseInt(btn.dataset.budget, 10);
+    closeSidebar();
+    renderPicks(document.querySelector('#tabs button.active').dataset.tab);
+  });
+});
+
+// ==== Chart TradingView (widget resmi, gratis) ====
+let tvScriptLoaded = false;
+function loadTvScript(callback) {
+  if (tvScriptLoaded) { callback(); return; }
+  const script = document.createElement('script');
+  script.src = 'https://s3.tradingview.com/tv.js';
+  script.onload = () => { tvScriptLoaded = true; callback(); };
+  document.head.appendChild(script);
+}
+
+function openChart(ticker) {
+  document.getElementById('chartModalTitle').textContent = ticker;
+  document.getElementById('chartModal').classList.add('open');
+  const holder = document.getElementById('tvWidgetContainer');
+  holder.innerHTML = '<div id="tvWidgetInner" style="height:100%"></div>';
+  loadTvScript(() => {
+    new TradingView.widget({
+      autosize: true,
+      symbol: `IDX:${ticker}`,
+      interval: 'D',
+      timezone: 'Asia/Jakarta',
+      theme: 'dark',
+      style: '1',
+      locale: 'id',
+      toolbar_bg: '#11161F',
+      enable_publishing: false,
+      container_id: 'tvWidgetInner',
+    });
+  });
+}
+document.getElementById('closeChartBtn').addEventListener('click', () => {
+  document.getElementById('chartModal').classList.remove('open');
+});
+
+// ==== Jurnal transaksi (tersimpan di HP ini via localStorage) ====
+const JOURNAL_KEY = 'saham_journal_v1';
+
+function loadJournal() {
+  try { return JSON.parse(localStorage.getItem(JOURNAL_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveJournal(entries) {
+  localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+}
+function findCurrentPrice(ticker) {
+  const list = digest.all_prices || [];
+  const found = list.find(x => x.ticker === ticker);
+  return found ? found.last_close : null;
+}
+
+function syncToSheet(entry) {
+  if (!JOURNAL_SHEET_URL) return;
+  // Dikirim sebagai text/plain (bukan application/json) supaya browser tidak
+  // mengirim preflight request OPTIONS -- Google Apps Script Web App tidak
+  // selalu menangani preflight dengan baik. Ini pola standar untuk integrasi ini.
+  fetch(JOURNAL_SHEET_URL, { method: 'POST', body: JSON.stringify(entry) })
+    .catch(err => console.warn('Gagal sync ke spreadsheet:', err));
+}
+
+function renderJournal() {
+  const entries = loadJournal();
+  const list = document.getElementById('journalList');
+  if (entries.length === 0) {
+    list.innerHTML = `<div class="section-empty">Belum ada catatan. Tambahkan transaksi pertamamu di atas.</div>`;
+    return;
+  }
+  list.innerHTML = entries.map((e, idx) => {
+    const isClosed = e.sell_price != null;
+    const refPrice = isClosed ? e.sell_price : findCurrentPrice(e.ticker);
+    let pnlHtml = '<span class="pnl-unknown">Harga saat ini tidak tersedia untuk saham ini</span>';
+    if (refPrice != null) {
+      const pnlPerShare = refPrice - e.buy_price;
+      const pnlTotal = pnlPerShare * e.lots * 100;
+      const pnlPct = (pnlPerShare / e.buy_price) * 100;
+      const cls = pnlTotal >= 0 ? 'pnl-positive' : 'pnl-negative';
+      const sign = pnlTotal >= 0 ? '+' : '';
+      pnlHtml = `<span class="${cls}">${sign}${fmtRupiah(pnlTotal)} (${sign}${pnlPct.toFixed(1)}%)</span>`;
+    }
+    return `
+      <div class="journal-entry">
+        <div class="journal-entry-head">
+          <span class="pick-ticker">${e.ticker}</span>
+          <span class="badge ${isClosed ? 'risk-sedang' : 'buy'}">${isClosed ? 'Ditutup' : 'Terbuka'}</span>
+        </div>
+        <div class="journal-entry-detail">
+          Beli ${e.lots} lot @ ${fmtRupiah(e.buy_price)} pada ${e.buy_date}
+          ${isClosed ? `<br>Jual @ ${fmtRupiah(e.sell_price)} pada ${e.sell_date}` : ''}
+        </div>
+        ${e.note ? `<div class="journal-entry-note">${e.note}</div>` : ''}
+        <div class="journal-entry-pnl">${pnlHtml}</div>
+        <div class="journal-entry-actions">
+          ${!isClosed ? `<button class="mini-btn" data-action="close" data-idx="${idx}">Tutup Posisi</button>` : ''}
+          <button class="mini-btn danger" data-action="delete" data-idx="${idx}">Hapus</button>
+        </div>
+      </div>
+    `;
+  }).reverse().join('');
+
+  list.querySelectorAll('button[data-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.idx, 10);
+      const entries2 = loadJournal();
+      if (btn.dataset.action === 'delete') {
+        entries2.splice(idx, 1);
+        saveJournal(entries2);
+        renderJournal();
+      } else if (btn.dataset.action === 'close') {
+        const sellPrice = prompt('Harga jual per lembar (Rp)?');
+        if (sellPrice && !isNaN(sellPrice)) {
+          entries2[idx].sell_price = parseFloat(sellPrice);
+          entries2[idx].sell_date = new Date().toISOString().slice(0, 10);
+          saveJournal(entries2);
+          syncToSheet(entries2[idx]);
+          renderJournal();
+        }
+      }
+    });
+  });
+}
+
+document.getElementById('journalForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const entries = loadJournal();
+  const newEntry = {
+    id: Date.now(),
+    ticker: document.getElementById('jTicker').value.trim().toUpperCase(),
+    buy_price: parseFloat(document.getElementById('jPrice').value),
+    lots: parseInt(document.getElementById('jLots').value, 10),
+    buy_date: document.getElementById('jDate').value,
+    note: document.getElementById('jNote').value.trim(),
+    sell_price: null,
+    sell_date: null,
+  };
+  entries.push(newEntry);
+  saveJournal(entries);
+  syncToSheet(newEntry);
+  e.target.reset();
+  document.getElementById('jDate').value = new Date().toISOString().slice(0, 10);
+  renderJournal();
+});
+
+document.getElementById('openJournalBtn').addEventListener('click', () => {
+  closeSidebar();
+  if (!document.getElementById('jDate').value) {
+    document.getElementById('jDate').value = new Date().toISOString().slice(0, 10);
+  }
+  document.getElementById('journalPanel').classList.add('open');
+  renderJournal();
+});
+document.getElementById('closeJournalBtn').addEventListener('click', () => {
+  document.getElementById('journalPanel').classList.remove('open');
+});
+
+document.getElementById('exportJournalBtn').addEventListener('click', async () => {
+  const data = JSON.stringify(loadJournal(), null, 2);
+  try {
+    await navigator.clipboard.writeText(data);
+    alert('Jurnal berhasil disalin. Paste ke file backend/journal.json di GitHub kamu supaya AI ikut belajar dari catatan ini.');
+  } catch {
+    prompt('Gagal menyalin otomatis, salin teks ini manual:', data);
+  }
+});
 
 loadDigest().then(() => {
   updateStatusBanner();
