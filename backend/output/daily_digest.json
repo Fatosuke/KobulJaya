@@ -1,111 +1,111 @@
 {
-  "date": "2026-09-07",
-  "market_context_summary": "Pasar bergerak selektif ditandai lonjakan volume signifikan pada saham energi, logistik, dan media seperti AKRA, PTBA, dan MNCN yang berhasil menguat di atas SMA20. Sektor komoditas dan konsumen seperti TINS dan INDF menunjukkan tren positif, sementara saham teknologi dan ritel berada dalam fase koreksi teknikal.",
+  "date": "2026-09-08",
+  "market_context_summary": "Pasar saham Indonesia didorong oleh penguatan saham-saham komoditas dan energi seperti AKRA, PTBA, dan BUMI dengan lonjakan volume transaksi. Dari sisi makro dan domestik, berita didominasi oleh gangguan operasional penerbangan akibat abu vulkanik Gunung Anak Krakatau, sementara kondisi politik relatif kondusif tanpa ada sentimen negatif utama.",
   "profiles": {
     "day_trade": [
       {
         "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "1430 - 1450",
-        "target": "1510",
-        "stop_loss": "1390",
+        "entry_range": "1420 - 1450",
+        "target": "1500 - 1520",
+        "stop_loss": "1395",
         "risk_level": "sedang",
-        "reason": "Penguatan +4.69% disertai lonjakan volume 3.81x rerata 20 hari, dengan RSI 56.8 yang memberikan ruang kenaikan momentum signifikan.",
-        "catalyst": "Breakout harga jangka pendek yang didukung akumulasi volume sangat tinggi.",
+        "reason": "Lonjakan volume perdagangan sangat tajam hingga 3.91x rata-rata 20 hari diikuti kenaikan harga +4.69%. RSI di level 56.8 menandakan masih ada ruang penguatan sebelum overbought.",
+        "catalyst": "Breakout harga yang dikonfirmasi oleh lonjakan volume perdagangan harian secara signifikan.",
         "price_at_fetch": 1450.0
+      },
+      {
+        "ticker": "PTBA",
+        "action": "BUY",
+        "entry_range": "2980 - 3010",
+        "target": "3100 - 3150",
+        "stop_loss": "2900",
+        "risk_level": "tinggi",
+        "reason": "Momentum kenaikan harian sebesar +4.51% didukung volume 2.78x rata-rata. Meskipun RSI 91.0 sudah sangat overbought, untuk trader agresif momentum ini sangat kuat untuk trading cepat harian.",
+        "catalyst": "Arus kas/momentum beli sangat agresif pada sektor batubara.",
+        "price_at_fetch": 3010.0
       },
       {
         "ticker": "MNCN",
         "action": "BUY",
         "entry_range": "206 - 210",
-        "target": "222",
+        "target": "220 - 224",
         "stop_loss": "200",
-        "risk_level": "tinggi",
-        "reason": "Kenaikan +5.00% menembus SMA20 dengan dukungan volume transaksi 2.12x dari rata-rata harian.",
-        "catalyst": "Momentum pembalikan arah dengan lonjakan volume di atas rerata 20 hari.",
+        "risk_level": "sedang",
+        "reason": "Kenaikan +5.0% menembus SMA5 dan SMA20 disertai kenaikan volume 2.19x rata-rata 20 hari. RSI di 62.5 berada di area ekspansi ideal.",
+        "catalyst": "Breakout teknikal dari area konsolidasi jangka pendek.",
         "price_at_fetch": 210.0
-      },
-      {
-        "ticker": "PTBA",
-        "action": "BUY",
-        "entry_range": "2980 - 3020",
-        "target": "3150",
-        "stop_loss": "2900",
-        "risk_level": "tinggi",
-        "reason": "Momentum pembeli sangat kuat (+4.86%) dengan volume 2.71x rerata, meskipun RSI berada di area overbought (91.1) yang membutuhkan disiplin stop loss ketat.",
-        "catalyst": "Kenaikan beruntun berlanjut dengan dorongan volume akumulasi masif.",
-        "price_at_fetch": 3020.0
       }
     ],
     "swing_trade": [
       {
-        "ticker": "MEDC",
-        "action": "BUY",
-        "entry_range": "1450 - 1485",
-        "target": "1600",
-        "stop_loss": "1380",
-        "risk_level": "sedang",
-        "reason": "Tren naik konsisten (+13.79% dalam 20 hari) di atas SMA20 (1387.8) dengan peningkatan volume 1.25x rerata.",
-        "catalyst": "Struktur tren bullish jangka menengah terkonfirmasi dengan volume di atas rerata.",
-        "price_at_fetch": 1485.0
-      },
-      {
-        "ticker": "TINS",
-        "action": "BUY",
-        "entry_range": "4350 - 4480",
-        "target": "4850",
-        "stop_loss": "4100",
-        "risk_level": "sedang",
-        "reason": "Penguatan beruntun (+16.06% dalam 20 hari) menempatkan harga solid di atas SMA5 dan SMA20.",
-        "catalyst": "Pembentukan tren naik kuat (higher highs) yang konsisten dilindungi SMA20.",
-        "price_at_fetch": 4480.0
-      },
-      {
         "ticker": "AKRA",
         "action": "BUY",
         "entry_range": "1410 - 1450",
-        "target": "1560",
+        "target": "1550 - 1600",
         "stop_loss": "1380",
         "risk_level": "sedang",
-        "reason": "Breakout dari SMA20 dengan volume transaksi jumbo menandakan awal dari fase swing bullish baru.",
-        "catalyst": "Konfirmasi pembalikan tren menengah dari fase konsolidasi.",
+        "reason": "Tren harga konsisten berada di atas SMA20 (1399.2) dengan akumulasi volume besar. RSI 56.8 memberikan rasio risk-reward yang seimbang untuk swing beberapa hari ke depan.",
+        "catalyst": "Konfirmasi tren naik di atas MA20 didukung partisipasi volume yang tinggi.",
         "price_at_fetch": 1450.0
+      },
+      {
+        "ticker": "BUMI",
+        "action": "BUY",
+        "entry_range": "212 - 220",
+        "target": "240 - 250",
+        "stop_loss": "200",
+        "risk_level": "tinggi",
+        "reason": "Melanjutkan tren bullish (above SMA20) dengan performa 5 hari +14.58% dan 20 hari +17.65%. Volume stabil di atas rata-rata (1.84x).",
+        "catalyst": "Momentum penguatan sektor tambang batubara yang berlanjut.",
+        "price_at_fetch": 220.0
+      },
+      {
+        "ticker": "INDF",
+        "action": "BUY",
+        "entry_range": "7250 - 7350",
+        "target": "7650 - 7800",
+        "stop_loss": "7100",
+        "risk_level": "sedang",
+        "reason": "Memantul kembali ke atas SMA20 (+1.73%) dengan kenaikan volume 1.53x. RSI di 50.0 menunjukkan posisi teknikal yang netral dan siap melaju.",
+        "catalyst": "Rebound teknikal dari pola support SMA20.",
+        "price_at_fetch": 7350.0
       }
     ],
     "long_term": [
       {
         "ticker": "INDF",
         "action": "BUY",
-        "entry_range": "7250 - 7350",
+        "entry_range": "7200 - 7350",
         "target": "8000",
         "stop_loss": "6900",
         "risk_level": "sedang",
-        "reason": "Harga berada di atas SMA20 dengan RSI di area netral (50.0), memberikan titik masuk yang terukur untuk posisi jangka panjang di sektor konsumer.",
-        "catalyst": "Pembalikan arah di atas SMA20 dengan indikator teknikal yang sehat.",
+        "reason": "Fundamen bisnis barang konsumsi tahan krisis, harga kembali merangkak naik di atas SMA20 dengan RSI netral (50.0). Sangat ideal untuk akumulasi bertahap.",
+        "catalyst": "Ketahanan permintaan sektor konsumen di tengah ketidakpastian makroekonomi.",
         "price_at_fetch": 7350.0
       },
       {
         "ticker": "ITMG",
         "action": "BUY",
-        "entry_range": "25800 - 26500",
-        "target": "29000",
+        "entry_range": "25800 - 26525",
+        "target": "28500",
         "stop_loss": "24800",
-        "risk_level": "sedang",
-        "reason": "Kinerja harga secara bertahap naik (+5.47% dalam 20 hari) dan bertahan konsisten di atas SMA20 (25405).",
-        "catalyst": "Tren bullish jangka panjang yang terjaga baik di atas garis pergerakan rata-rata utama.",
-        "price_at_fetch": 26500.0
+        "risk_level": "tinggi",
+        "reason": "Saham batu bara dengan tren jangka panjang kokoh di atas SMA20 (25406.2) dan pergerakan 20 hari positif (+5.57%).",
+        "catalyst": "Kinerja arus kas dan deviden sektor energi yang atraktif bagi pemegang saham jangka panjang.",
+        "price_at_fetch": 26525.0
       }
     ]
   },
   "top_pick_of_the_day": {
     "ticker": "AKRA",
     "profile": "day_trade",
-    "reason": "Kenaikan harga +4.69% ditopang oleh lonjakan volume fantastis hingga 3.81x rerata 20 hari, sementara posisi RSI14 (56.8) belum overbought sehingga memberikan kombinasi momentum dan risk-reward paling atraktif.",
+    "reason": "AKRA menunjukkan sinyal paling ideal untuk trader agresif: lonjakan volume sangat signifikan (3.91x rata-rata 20 hari), kenaikan harga +4.69%, tren bertahan kuat di atas SMA20, serta RSI di 56.8 yang menandakan saham belum berstatus overbought sehingga menawarkan rasio risk-reward terbaik harian.",
     "price_at_fetch": 1450.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6623.9,
-    "change_pct": -0.19
+    "value": 6619.7,
+    "change_pct": -0.25
   }
 }
