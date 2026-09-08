@@ -1,122 +1,100 @@
 {
   "date": "2026-09-08",
-  "market_context_summary": "Pasar saham Indonesia didominasi tren penguatan pada sektor energi, komoditas, dan perbankan yang mayoritas bergerak di atas SMA20. Isu utama domestik meliput gangguan penerbangan akibat erupsi Gunung Anak Krakatau, namun tidak menahan momentum naik sejumlah saham ber-volume tinggi.",
+  "market_context_summary": "Pasar bergerak variatif dengan dorongan momentum positif pada saham komoditas dan konsumen. Isu domestik didominasi gangguan operasional penerbangan akibat sebaran abu vulkanik Gunung Anak Krakatau. Tidak ada sentimen berita politik utama dalam 48 jam terakhir.",
   "profiles": {
     "day_trade": [
       {
         "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "1510 - 1530",
-        "target": "1585",
-        "stop_loss": "1480",
-        "risk_level": "sedang",
-        "reason": "Lonjakan volume transaksi hingga 2,16x rata-rata 20 hari diikuti kenaikan harga +5,17% menandakan momentum pembeli yang sangat kuat.",
-        "catalyst": "Breakout harga disertai lonjakan volume signifikan di atas SMA5 dan SMA20.",
-        "price_at_fetch": 1525.0
+        "entry_range": "1500 - 1520",
+        "target": "1580",
+        "stop_loss": "1470",
+        "risk_level": "tinggi",
+        "reason": "Lonjakan volume signifikan hingga 2.85x rata-rata 20 hari diikuti kenaikan harga 4.48% yang menunjukkan dominasi pembeli.",
+        "catalyst": "Spike volume harian yang sangat tinggi dan kelanjutan tren di atas SMA5 dan SMA20.",
+        "price_at_fetch": 1515.0
       },
       {
         "ticker": "MDKA",
         "action": "BUY",
-        "entry_range": "3010 - 3040",
-        "target": "3150",
-        "stop_loss": "2950",
-        "risk_level": "sedang",
-        "reason": "Mengalami kenaikan +5,21% dalam sehari dengan lonjakan volume 1,52x dari rata-rata, mengindikasikan tekanan beli harian tinggi.",
-        "catalyst": "Penembusan ke atas level SMA5 dan SMA20 dengan konfirmasi peningkatan volume.",
-        "price_at_fetch": 3030.0
-      },
-      {
-        "ticker": "BUMI",
-        "action": "BUY",
-        "entry_range": "220 - 226",
-        "target": "236",
-        "stop_loss": "212",
+        "entry_range": "3100 - 3130",
+        "target": "3280",
+        "stop_loss": "3000",
         "risk_level": "tinggi",
-        "reason": "Saham berkecepatan tinggi dengan RSI 78,4 dan volume 1,37x di atas rata-rata, sangat ideal untuk memanfaatkan momentum intraday bagi trader agresif.",
-        "catalyst": "Dukungan momentum harian kuat dan tren jangka pendek yang sangat naik (+8,74% 5-hari).",
-        "price_at_fetch": 224.0
+        "reason": "Kenaikan tajam 8.33% dalam satu hari didukung lonjakan volume 2.63x lipat dan RSI di 67.1 yang menunjukkan momentum bullish kuat.",
+        "catalyst": "Breakout harga disertai konfirmasi volume perdagangan harian yang tinggi.",
+        "price_at_fetch": 3120.0
       }
     ],
     "swing_trade": [
       {
         "ticker": "MEDC",
         "action": "BUY",
-        "entry_range": "1530 - 1560",
-        "target": "1680",
-        "stop_loss": "1480",
+        "entry_range": "1510 - 1535",
+        "target": "1650",
+        "stop_loss": "1470",
         "risk_level": "sedang",
-        "reason": "Konsisten naik +20,08% dalam 20 hari terakhir dan kembali melanjutkan penguatan harian +4,71% di atas SMA5 dan SMA20.",
-        "catalyst": "Struktur tren naik jangka menengah yang solid dan konstan di atas SMA20.",
-        "price_at_fetch": 1555.0
+        "reason": "Tren naik bulanan yang sangat solid (+18.53% dalam 20 hari) dengan posisi harga konsisten berada di atas SMA20 dan RSI 64.1.",
+        "catalyst": "Uptrend teknikal jangka menengah yang terjaga dengan akumulasi volume di atas rata-rata.",
+        "price_at_fetch": 1535.0
       },
       {
-        "ticker": "AKRA",
+        "ticker": "JPFA",
         "action": "BUY",
-        "entry_range": "1500 - 1530",
-        "target": "1630",
-        "stop_loss": "1450",
+        "entry_range": "2380 - 2410",
+        "target": "2580",
+        "stop_loss": "2300",
         "risk_level": "sedang",
-        "reason": "Berada dalam fase reli menengah (+8,93% dalam 5 hari) yang dikonfirmasi oleh peningkatan volume besar.",
-        "catalyst": "Akselerasi harga dan volume melintasi rata-rata bergerak SMA20.",
-        "price_at_fetch": 1525.0
+        "reason": "Struktur kenaikan harga bertahap dan konsisten (+9.05% dalam 20 hari) dengan RSI di 59.4 yang masih memberikan ruang penguatan.",
+        "catalyst": "Konfirmasi tren bullish di atas SMA5 dan SMA20.",
+        "price_at_fetch": 2410.0
       },
       {
-        "ticker": "ERAA",
+        "ticker": "CPIN",
         "action": "BUY",
-        "entry_range": "580 - 595",
-        "target": "650",
-        "stop_loss": "550",
-        "risk_level": "tinggi",
-        "reason": "Gairah swing tergolong sangat kuat dengan kenaikan 20 hari mencapai +27,16%, cocok untuk gaya trading agresif memanfaatkan kelanjutan tren.",
-        "catalyst": "Posisi harga jauh di atas SMA20 (497,4) menunjukkan kondisi bullish lanjutan.",
-        "price_at_fetch": 590.0
+        "entry_range": "3300 - 3340",
+        "target": "3550",
+        "stop_loss": "3200",
+        "risk_level": "sedang",
+        "reason": "Pergerakan swing positif dengan kenaikan 9.15% dalam 5 hari terakhir, bertahan mantap di atas support SMA20.",
+        "catalyst": "Momentum pemulihan sektor perunggasan yang berlanjut.",
+        "price_at_fetch": 3340.0
       }
     ],
     "long_term": [
       {
         "ticker": "BBCA",
         "action": "BUY",
-        "entry_range": "6700 - 6775",
-        "target": "7300",
+        "entry_range": "6650 - 6725",
+        "target": "7200",
         "stop_loss": "6400",
         "risk_level": "sedang",
-        "reason": "Bluechip utama perbankan dengan tren teruji di atas SMA20 (6455,3) dan performa bulanan positif (+6,29%).",
-        "catalyst": "Stabilitas kinerja keuangan dan posisi tren teknikal jangka panjang yang terjaga.",
-        "price_at_fetch": 6750.0
+        "reason": "Saham perbankan berkualitas tinggi dengan tren harga yang stabil di atas SMA20 (+5.90% dalam 20 hari).",
+        "catalyst": "Ketahanan fundamental perbankan besar di tengah dinamika makroekonomi.",
+        "price_at_fetch": 6725.0
       },
       {
-        "ticker": "UNTR",
+        "ticker": "INDF",
         "action": "BUY",
-        "entry_range": "25500 - 25900",
-        "target": "28000",
-        "stop_loss": "24000",
+        "entry_range": "7450 - 7525",
+        "target": "8000",
+        "stop_loss": "7200",
         "risk_level": "sedang",
-        "reason": "Saham kapitalisasi besar di sektor terkait komoditas yang mempertahankan tren naik jangka panjang (+7,59% 20-hari).",
-        "catalyst": "Harga bertahan secara konsisten di atas pergerakan SMA20 (24236,2).",
-        "price_at_fetch": 25875.0
-      },
-      {
-        "ticker": "TLKM",
-        "action": "BUY",
-        "entry_range": "2620 - 2670",
-        "target": "2900",
-        "stop_loss": "2550",
-        "risk_level": "sedang",
-        "reason": "Saham telekomunikasi besar yang menunjukkan akumulasi bertahap di atas SMA20 dengan peningkatkan volume harian 1,28x.",
-        "catalyst": "Penguatan tren perlahan namun stabil dengan dukungan volume pasar di atas rata-rata.",
-        "price_at_fetch": 2660.0
+        "reason": "Saham sektor barang konsumsi defensif dengan tren pergerakan positif di atas SMA20 dan volume yang meningkat.",
+        "catalyst": "Stabilitas permintaan konsumen domestik.",
+        "price_at_fetch": 7525.0
       }
     ]
   },
   "top_pick_of_the_day": {
     "ticker": "AKRA",
     "profile": "day_trade",
-    "reason": "AKRA memiliki kombinasi terbaik antara kenaikan harga signifikan (+5,17%) dan lonjakan volume tertinggi dibanding rata-rata 20 hari (2,16x), memberikan potensi momentum kelanjutan harian paling meyakinkan.",
-    "price_at_fetch": 1525.0
+    "reason": "Kombinasi kenaikan volume tertinggi (2.85x rata-rata 20 hari) dan penguatan harga 4.48% memberikan rasio risk-reward terbaik untuk strategi momentum trading harian.",
+    "price_at_fetch": 1515.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6693.2,
-    "change_pct": 1.11
+    "value": 6684.0,
+    "change_pct": 0.97
   }
 }
