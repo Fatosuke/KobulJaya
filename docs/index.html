@@ -223,13 +223,54 @@
     background: var(--surface-2); color: var(--text); cursor: pointer; font-family: inherit;
   }
   .mini-btn.danger { color: var(--loss); border-color: var(--loss); background: transparent; }
+
+  /* --- Login screen --- */
+  .login-screen {
+    position: fixed; inset: 0; background: var(--bg); z-index: 100;
+    display: none; align-items: center; justify-content: center; padding: 24px;
+  }
+  .login-card {
+    max-width: 360px; width: 100%; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px; text-align: center;
+  }
+  .login-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .login-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+  .login-card input {
+    width: 100%; background: var(--surface-2); border: 1px solid var(--border); color: var(--text);
+    padding: 12px 14px; border-radius: 8px; font-size: 15px; font-family: inherit; margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  .login-card button {
+    width: 100%; background: var(--accent); color: #1A1200; border: none; padding: 12px;
+    border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  .sidebar-user {
+    font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
 
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-title">📊 Sinyal Saham</div>
+    <p class="login-desc">
+      Masukkan nama pengguna untuk memisahkan jurnal transaksimu dari orang lain
+      yang mungkin pakai app ini juga. Ini <b>bukan password</b>, cuma label untuk
+      memisahkan data -- jangan pakai info sensitif sebagai nama.
+    </p>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Nama pengguna (mis. fatosuke)" required maxlength="24" autocomplete="off">
+      <button type="submit">Mulai</button>
+    </form>
+  </div>
+</div>
+
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <aside class="sidebar-drawer" id="sidebarDrawer">
   <div class="sidebar-header">Menu</div>
+  <div class="sidebar-user" id="sidebarUser">Belum masuk</div>
   <div class="sidebar-section-label">Kategori harga per lot</div>
   <button class="budget-btn active" data-budget="0">Semua Harga</button>
   <button class="budget-btn" data-budget="50000">&le; Rp50rb / lot</button>
@@ -239,6 +280,7 @@
   <button class="budget-btn" data-budget="500000">&le; Rp500rb / lot</button>
   <div class="sidebar-section-label">Lainnya</div>
   <button class="budget-btn" id="openJournalBtn">📒 Jurnal Transaksi Saya</button>
+  <button class="budget-btn" id="switchUserBtn">🔁 Ganti Akun</button>
 </aside>
 
 <div class="demo-banner">Mode demo — data & rekomendasi di bawah ini contoh, bukan sinyal riil</div>
@@ -328,7 +370,7 @@ const GITHUB_REPO = "KobulJaya";
 const DIGEST_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/backend/output/daily_digest.json`;
 // ==== GANTI INI dengan URL Web App Google Apps Script kamu (lihat README) ====
 // Kosongkan "" ("") kalau belum setup -- fitur jurnal tetap jalan lokal di HP.
-const JOURNAL_SHEET_URL = "https://script.google.com/macros/s/AKfycbzXP3ILF7mmuwXty-apInc2d5ulClaNTFruom_xqurmUOGH6moDsEF8yAQ6gow6ZOwfqA/exec";
+const JOURNAL_SHEET_URL = "";
 // =============================================================
 
 // Data contoh dipakai sebagai fallback kalau DIGEST_URL belum diganti / gagal diambil.
@@ -639,15 +681,71 @@ document.getElementById('closeChartBtn').addEventListener('click', () => {
   document.getElementById('chartModal').classList.remove('open');
 });
 
+// ==== Login sederhana (username saja, bukan password beneran) ====
+const USERNAME_KEY = 'saham_username';
+let currentUsername = localStorage.getItem(USERNAME_KEY) || '';
+
+function journalKey() {
+  return 'saham_journal_v1_' + currentUsername;
+}
+
+function updateSidebarUser() {
+  document.getElementById('sidebarUser').textContent = currentUsername
+    ? ('Masuk sebagai: ' + currentUsername)
+    : 'Belum masuk';
+}
+
+function showLoginScreen() {
+  document.getElementById('loginScreen').style.display = 'flex';
+}
+function hideLoginScreen() {
+  document.getElementById('loginScreen').style.display = 'none';
+}
+
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const val = document.getElementById('loginUsername').value.trim().toLowerCase();
+  if (!val) return;
+  currentUsername = val;
+  localStorage.setItem(USERNAME_KEY, currentUsername);
+
+  // Migrasi 1x dari data lama (sebelum ada sistem akun), kalau ada & belum pernah dipindah
+  const oldData = localStorage.getItem('saham_journal_v1');
+  if (oldData && !localStorage.getItem(journalKey())) {
+    localStorage.setItem(journalKey(), oldData);
+  }
+
+  updateSidebarUser();
+  hideLoginScreen();
+});
+
+document.getElementById('switchUserBtn').addEventListener('click', () => {
+  if (confirm('Ganti akun? Kamu akan diminta masukkan nama pengguna lagi (jurnal lama tetap tersimpan, tidak hilang).')) {
+    localStorage.removeItem(USERNAME_KEY);
+    currentUsername = '';
+    updateSidebarUser();
+    closeSidebar();
+    document.getElementById('journalPanel').classList.remove('open');
+    showLoginScreen();
+  }
+});
+
+if (currentUsername) {
+  hideLoginScreen();
+} else {
+  showLoginScreen();
+}
+updateSidebarUser();
+
 // ==== Jurnal transaksi (tersimpan di HP ini via localStorage) ====
 const JOURNAL_KEY = 'saham_journal_v1';
 
 function loadJournal() {
-  try { return JSON.parse(localStorage.getItem(JOURNAL_KEY) || '[]'); }
+  try { return JSON.parse(localStorage.getItem(journalKey()) || '[]'); }
   catch { return []; }
 }
 function saveJournal(entries) {
-  localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+  localStorage.setItem(journalKey(), JSON.stringify(entries));
 }
 function findCurrentPrice(ticker) {
   const list = digest.all_prices || [];
@@ -657,11 +755,15 @@ function findCurrentPrice(ticker) {
 
 function syncToSheet(entry) {
   if (!JOURNAL_SHEET_URL) return;
-  // Dikirim sebagai text/plain (bukan application/json) supaya browser tidak
-  // mengirim preflight request OPTIONS -- Google Apps Script Web App tidak
-  // selalu menangani preflight dengan baik. Ini pola standar untuk integrasi ini.
-  fetch(JOURNAL_SHEET_URL, { method: 'POST', body: JSON.stringify(entry) })
-    .catch(err => console.warn('Gagal sync ke spreadsheet:', err));
+  // mode:'no-cors' WAJIB di sini -- ini kuirk khas Google Apps Script Web App:
+  // tanpa ini, browser sering gagal kirim POST-nya dengan benar (dianggap
+  // redirect ke GET di tengah jalan). Efek sampingnya kita jadi tidak bisa
+  // baca respons suksesnya, tapi data tetap terkirim & tersimpan ke Sheet.
+  fetch(JOURNAL_SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify(entry),
+  }).catch(err => console.warn('Gagal sync ke spreadsheet:', err));
 }
 
 function renderJournal() {
@@ -730,6 +832,7 @@ document.getElementById('journalForm').addEventListener('submit', (e) => {
   const entries = loadJournal();
   const newEntry = {
     id: Date.now(),
+    username: currentUsername,
     ticker: document.getElementById('jTicker').value.trim().toUpperCase(),
     buy_price: parseFloat(document.getElementById('jPrice').value),
     lots: parseInt(document.getElementById('jLots').value, 10),
