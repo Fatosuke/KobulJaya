@@ -1,100 +1,122 @@
 {
-  "date": "2026-09-08",
-  "market_context_summary": "Pasar bergerak variatif dengan dorongan momentum positif pada saham komoditas dan konsumen. Isu domestik didominasi gangguan operasional penerbangan akibat sebaran abu vulkanik Gunung Anak Krakatau. Tidak ada sentimen berita politik utama dalam 48 jam terakhir.",
+  "date": "2026-09-09",
+  "market_context_summary": "Pasar saham domestik diwarnai lonjakan volume signifikan pada saham-saham komoditas dan energi seperti AKRA, MDKA, dan MEDC. Sementara itu, isu erupsi Gunung Anak Krakatau berdampak pada gangguan penerbangan dan aktivitas logistik transportasi darat.",
   "profiles": {
     "day_trade": [
       {
-        "ticker": "AKRA",
-        "action": "BUY",
-        "entry_range": "1500 - 1520",
-        "target": "1580",
-        "stop_loss": "1470",
-        "risk_level": "tinggi",
-        "reason": "Lonjakan volume signifikan hingga 2.85x rata-rata 20 hari diikuti kenaikan harga 4.48% yang menunjukkan dominasi pembeli.",
-        "catalyst": "Spike volume harian yang sangat tinggi dan kelanjutan tren di atas SMA5 dan SMA20.",
-        "price_at_fetch": 1515.0
-      },
-      {
         "ticker": "MDKA",
         "action": "BUY",
-        "entry_range": "3100 - 3130",
-        "target": "3280",
-        "stop_loss": "3000",
+        "entry_range": "3050 - 3120",
+        "target": "3250 - 3300",
+        "stop_loss": "2980",
         "risk_level": "tinggi",
-        "reason": "Kenaikan tajam 8.33% dalam satu hari didukung lonjakan volume 2.63x lipat dan RSI di 67.1 yang menunjukkan momentum bullish kuat.",
-        "catalyst": "Breakout harga disertai konfirmasi volume perdagangan harian yang tinggi.",
+        "reason": "Kenaikan harga tajam +8.33% didukung lonjakan volume 2.68x rata-rata 20 hari dan RSI (67.1) yang belum memasuki zona extreme overbought.",
+        "catalyst": "Breakout momentum kuat dengan konfirmasi volume tinggi.",
         "price_at_fetch": 3120.0
+      },
+      {
+        "ticker": "AKRA",
+        "action": "BUY",
+        "entry_range": "1500 - 1525",
+        "target": "1600 - 1620",
+        "stop_loss": "1460",
+        "risk_level": "tinggi",
+        "reason": "Volume perdagangan melonjak hingga 2.95x dari rata-rata 20 hari disertai penguatan harga +5.17% menembus SMA5 dan SMA20.",
+        "catalyst": "Akumulasi volume sangat tinggi pada perdagangan harian.",
+        "price_at_fetch": 1525.0
+      },
+      {
+        "ticker": "MEDC",
+        "action": "BUY",
+        "entry_range": "1510 - 1535",
+        "target": "1600",
+        "stop_loss": "1480",
+        "risk_level": "tinggi",
+        "reason": "Melanjutkan tren naik harian +3.37% dengan dukungan volume 1.68x di atas rata-rata.",
+        "catalyst": "Momentum pergerakan harga positif di atas SMA5.",
+        "price_at_fetch": 1535.0
       }
     ],
     "swing_trade": [
       {
         "ticker": "MEDC",
         "action": "BUY",
-        "entry_range": "1510 - 1535",
-        "target": "1650",
-        "stop_loss": "1470",
+        "entry_range": "1480 - 1535",
+        "target": "1650 - 1700",
+        "stop_loss": "1420",
         "risk_level": "sedang",
-        "reason": "Tren naik bulanan yang sangat solid (+18.53% dalam 20 hari) dengan posisi harga konsisten berada di atas SMA20 dan RSI 64.1.",
-        "catalyst": "Uptrend teknikal jangka menengah yang terjaga dengan akumulasi volume di atas rata-rata.",
+        "reason": "Tren 20 hari sangat solid naik +18.53% dan konsisten bertahan jauh di atas SMA20 (1399.8) dengan RSI 64.1 yang masih sehat.",
+        "catalyst": "Tren bullish jangka menengah yang kuat.",
         "price_at_fetch": 1535.0
       },
       {
-        "ticker": "JPFA",
+        "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "2380 - 2410",
-        "target": "2580",
-        "stop_loss": "2300",
+        "entry_range": "1480 - 1525",
+        "target": "1650",
+        "stop_loss": "1400",
         "risk_level": "sedang",
-        "reason": "Struktur kenaikan harga bertahap dan konsisten (+9.05% dalam 20 hari) dengan RSI di 59.4 yang masih memberikan ruang penguatan.",
-        "catalyst": "Konfirmasi tren bullish di atas SMA5 dan SMA20.",
-        "price_at_fetch": 2410.0
-      },
-      {
-        "ticker": "CPIN",
-        "action": "BUY",
-        "entry_range": "3300 - 3340",
-        "target": "3550",
-        "stop_loss": "3200",
-        "risk_level": "sedang",
-        "reason": "Pergerakan swing positif dengan kenaikan 9.15% dalam 5 hari terakhir, bertahan mantap di atas support SMA20.",
-        "catalyst": "Momentum pemulihan sektor perunggasan yang berlanjut.",
-        "price_at_fetch": 3340.0
-      }
-    ],
-    "long_term": [
-      {
-        "ticker": "BBCA",
-        "action": "BUY",
-        "entry_range": "6650 - 6725",
-        "target": "7200",
-        "stop_loss": "6400",
-        "risk_level": "sedang",
-        "reason": "Saham perbankan berkualitas tinggi dengan tren harga yang stabil di atas SMA20 (+5.90% dalam 20 hari).",
-        "catalyst": "Ketahanan fundamental perbankan besar di tengah dinamika makroekonomi.",
-        "price_at_fetch": 6725.0
+        "reason": "Pergerakan mingguan (+8.93%) dan bulanan (+7.39%) terkonfirmasi kuat di atas SMA20, membuka ruang swing berlanjut.",
+        "catalyst": "Akselerasi harga dengan konfirmasi lonjakan volume.",
+        "price_at_fetch": 1525.0
       },
       {
         "ticker": "INDF",
         "action": "BUY",
-        "entry_range": "7450 - 7525",
-        "target": "8000",
+        "entry_range": "7350 - 7500",
+        "target": "7800 - 8000",
         "stop_loss": "7200",
         "risk_level": "sedang",
-        "reason": "Saham sektor barang konsumsi defensif dengan tren pergerakan positif di atas SMA20 dan volume yang meningkat.",
-        "catalyst": "Stabilitas permintaan konsumen domestik.",
-        "price_at_fetch": 7525.0
+        "reason": "Berhasil rebound naik ke atas SMA20 dengan kenaikan volume 1.42x rata-rata, mengindikasikan pembalikan tren swing positif.",
+        "catalyst": "Rotasi ke saham defensif/consumer dengan konfirmasi kenaikan volume.",
+        "price_at_fetch": 7500.0
+      }
+    ],
+    "long_term": [
+      {
+        "ticker": "UNTR",
+        "action": "BUY",
+        "entry_range": "25000 - 25875",
+        "target": "28000",
+        "stop_loss": "23800",
+        "risk_level": "sedang",
+        "reason": "Tren jangka panjang sangat kokoh bertahan di atas SMA20 (24236.2) dengan kenaikan 20 hari sebesar +7.59%.",
+        "catalyst": "Stabilitas fundamental dan permintaan Sektor alat berat/pertambangan.",
+        "price_at_fetch": 25875.0
+      },
+      {
+        "ticker": "INDF",
+        "action": "BUY",
+        "entry_range": "7300 - 7500",
+        "target": "8200",
+        "stop_loss": "7000",
+        "risk_level": "sedang",
+        "reason": "Valuasi defensif dengan pergerakan harga yang kembali berada di atas SMA20 dan SMA5.",
+        "catalyst": "Daya tahan sektor barang konsumsi utama terhadap fluktuasi ekonomi domestik.",
+        "price_at_fetch": 7500.0
+      },
+      {
+        "ticker": "TLKM",
+        "action": "BUY",
+        "entry_range": "2600 - 2650",
+        "target": "2900",
+        "stop_loss": "2500",
+        "risk_level": "sedang",
+        "reason": "Pergerakan harga mulai merayap naik di atas SMA20 disertai lonjakan volume 1.99x rata-rata, menandakan awal akumulasi.",
+        "catalyst": "Dominasi pasar telekomunikasi dan akumulasi volume di harga bawah.",
+        "price_at_fetch": 2650.0
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "AKRA",
+    "ticker": "MDKA",
     "profile": "day_trade",
-    "reason": "Kombinasi kenaikan volume tertinggi (2.85x rata-rata 20 hari) dan penguatan harga 4.48% memberikan rasio risk-reward terbaik untuk strategi momentum trading harian.",
-    "price_at_fetch": 1515.0
+    "reason": "MDKA mencatatkan lonjakan harga paling tinggi (+8.33%) yang dikonfirmasi oleh lonjakan volume 2.68x rata-rata harian, menawarkan peluang trading momentum paling ideal untuk profil agresif.",
+    "price_at_fetch": 3120.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6684.0,
-    "change_pct": 0.97
+    "value": 6686.4,
+    "change_pct": 1.01
   }
 }
