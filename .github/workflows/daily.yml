@@ -17,10 +17,10 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r backend/requirements.txt
-
       - name: Jalankan pipeline
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
         run: python backend/scheduler.py
 
       - name: Commit hasil digest
