@@ -1,157 +1,135 @@
 {
   "date": "2026-09-10",
-  "market_context_summary": "Pasar saham didominasi oleh pergerakan positif pada sektor tambang, energi, dan konsumer dengan peningkatan volume signifikan pada saham-saham seperti ULTJ, PTBA, dan ANTM. Sebagian besar saham pilihan bergerak di atas indikator SMA20 yang menunjukkan momentum kenaikan teknikal masih kuat, meski beberapa saham komoditas mendekati area overbought secara jangka pendek.",
+  "market_context_summary": "Pasar saham menunjukkan pergerakan selektif dengan penguatan signifikan pada sektor komoditas dan pertambangan seperti TINS, ANTM, dan PTBA. Saham-saham energi dan pertambangan mendominasi momentum kenaikan jangka pendek hingga menengah dengan ditopang kinerja fundamental yang sangat solid.",
   "profiles": {
     "day_trade": [
       {
+        "ticker": "MNCN",
+        "action": "BUY",
+        "entry_range": "208 - 212",
+        "target": "222 - 226",
+        "stop_loss": "202",
+        "risk_level": "tinggi",
+        "reason": "Lonjakan volume transaksi hingga 1,94x rata-rata 20 hari diikuti penguatan harga +3,96%. Posisi RSI 54,5 memberi ruang apresiasi lanjutan.",
+        "catalyst": "Spike volume transaksi yang tajam menandakan akumulasi agresif harian.",
+        "price_at_fetch": 210.0
+      },
+      {
         "ticker": "ANTM",
         "action": "BUY",
-        "entry_range": "3180 - 3220",
-        "target": "3320",
-        "stop_loss": "3100",
+        "entry_range": "3260 - 3320",
+        "target": "3420 - 3480",
+        "stop_loss": "3200",
         "risk_level": "sedang",
-        "reason": "Volume naik signifikan 2.16x di atas rata-rata 20 hari dengan RSI 55.4 yang masih memiliki ruang kenaikan lebar.",
-        "catalyst": "Breakout harga disertai konfirmasi volume tinggi.",
-        "price_at_fetch": 3200.0
-      },
-      {
-        "ticker": "ULTJ",
-        "action": "BUY",
-        "entry_range": "1540 - 1560",
-        "target": "1620",
-        "stop_loss": "1515",
-        "risk_level": "sedang",
-        "reason": "Lonjakan volume transaksi hingga 2.71x dibanding rata-rata 20 hari menandakan akumulasi besar.",
-        "catalyst": "Lonjakan volume harian terkuat di antara papan utama.",
-        "price_at_fetch": 1550.0
-      },
-      {
-        "ticker": "PTBA",
-        "action": "BUY",
-        "entry_range": "3080 - 3120",
-        "target": "3220",
-        "stop_loss": "2960",
-        "risk_level": "tinggi",
-        "reason": "Momentum sangat kuat (+3.33% 1 hari, +31.91% 20 hari) didukung volume 2.56x meski RSI sudah overbought (90.7).",
-        "catalyst": "Aktivitas pembeli agresif dan lonjakan volume tinggi.",
-        "price_at_fetch": 3100.0
+        "reason": "Volume perdagangan naik ke 1,53x rata-rata harian dengan tren harga di atas SMA5 dan SMA20, mengindikasikan kelanjutan momentum bullish harian.",
+        "catalyst": "Kenaikan harga disertai konfirmasi lonjakan volume.",
+        "price_at_fetch": 3300.0
       },
       {
         "ticker": "TINS",
         "action": "BUY",
-        "entry_range": "4570 - 4630",
-        "target": "4800",
-        "stop_loss": "4410",
+        "entry_range": "4750 - 4820",
+        "target": "5000 - 5100",
+        "stop_loss": "4600",
         "risk_level": "tinggi",
-        "reason": "Penguatan 4.55% harian di atas SMA5 dan SMA20, volume menguat konstan.",
-        "catalyst": "Lanjutan tren bullish jangka pendek.",
-        "price_at_fetch": 4600.0
+        "reason": "Momentum penguatan sangat kuat (+4,35% harian) berada dalam tren bullish di atas SMA20. Cocok memanfaatkan volatilitas tinggi (ATR 169,3).",
+        "catalyst": "Breakout momentum jangka pendek.",
+        "price_at_fetch": 4800.0
       },
       {
-        "ticker": "AKRA",
+        "ticker": "ISAT",
         "action": "BUY",
-        "entry_range": "1530 - 1560",
-        "target": "1620",
-        "stop_loss": "1490",
-        "risk_level": "sedang",
-        "reason": "Kenaikan bertahap dengan peningkatan volume 1.7x dan posisi di atas SMA5.",
-        "catalyst": "Momentum pergerakan harga yang konsisten naik.",
-        "price_at_fetch": 1550.0
+        "entry_range": "2420 - 2470",
+        "target": "2540 - 2580",
+        "stop_loss": "2310",
+        "risk_level": "tinggi",
+        "reason": "Potensi technical rebound dari kondisi jenuh jual (RSI 34,1) didukung kenaikan volume perdagangan 1,28x dari rata-rata.",
+        "catalyst": "Technical rebound dari kondisi oversold dengan lonjakan volume.",
+        "price_at_fetch": 2450.0
       }
     ],
     "swing_trade": [
       {
+        "ticker": "TINS",
+        "action": "BUY",
+        "entry_range": "4700 - 4820",
+        "target": "5300 - 5500",
+        "stop_loss": "4460",
+        "risk_level": "tinggi",
+        "reason": "Tren naik sangat konsisten (+25% dalam 20 hari) di atas SMA20, didukung ROE sangat tinggi (41,79%) dan DER rendah (11,6%).",
+        "catalyst": "Uptrend teknikal kuat didukung profitabilitas operasional yang sangat tinggi.",
+        "price_at_fetch": 4800.0
+      },
+      {
         "ticker": "ANTM",
         "action": "BUY",
-        "entry_range": "3150 - 3200",
-        "target": "3450",
-        "stop_loss": "3040",
+        "entry_range": "3240 - 3320",
+        "target": "3550 - 3650",
+        "stop_loss": "3130",
         "risk_level": "sedang",
-        "reason": "Tren bergerak kokoh di atas SMA20 dan SMA5, RSI 55.4 sehat untuk penguatan berlanjut.",
-        "catalyst": "Fase continuation dari tren naik jangka menengah.",
-        "price_at_fetch": 3200.0
+        "reason": "Saham bergerak stabil di atas SMA5 dan SMA20 dengan RSI 60,3 yang belum overbought ekstrim. Fundamental solid dengan ROE 26,83%.",
+        "catalyst": "Konfirmasi tren naik di atas SMA20 dengan volume pendukung.",
+        "price_at_fetch": 3300.0
       },
       {
         "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "1500 - 1550",
-        "target": "1680",
-        "stop_loss": "1455",
+        "entry_range": "1490 - 1520",
+        "target": "1620 - 1680",
+        "stop_loss": "1410",
         "risk_level": "sedang",
-        "reason": "Kenaikan 5 hari sebesar 11.11% dan 20 hari 10.32%, membentuk pola tren naik teratur.",
-        "catalyst": "Konfirmasi tren naik di atas SMA20.",
-        "price_at_fetch": 1550.0
+        "reason": "Koreksi wajar -2,26% memberi peluang buy on dip dalam struktur tren naik (+8,21% dalam 5 hari) di atas SMA20.",
+        "catalyst": "Pullback sehat pada struktur uptrend jangka menengah.",
+        "price_at_fetch": 1515.0
       },
       {
-        "ticker": "MEDC",
+        "ticker": "ELSA",
         "action": "BUY",
-        "entry_range": "1540 - 1580",
-        "target": "1720",
-        "stop_loss": "1465",
+        "entry_range": "730 - 745",
+        "target": "800 - 830",
+        "stop_loss": "685",
         "risk_level": "sedang",
-        "reason": "Tren 20 hari naik 17.54% dan bertahan konsisten di atas SMA20 (1411.5).",
-        "catalyst": "Konsistensi harga bertahan di atas MA utama.",
-        "price_at_fetch": 1575.0
-      },
-      {
-        "ticker": "TOWR",
-        "action": "BUY",
-        "entry_range": "470 - 485",
-        "target": "530",
-        "stop_loss": "449",
-        "risk_level": "sedang",
-        "reason": "Pergerakan 20 hari naik 22.84%, harga berada di atas garis SMA5 dan SMA20.",
-        "catalyst": "Pemulihan struktur tren harga jangka menengah.",
-        "price_at_fetch": 484.0
-      },
-      {
-        "ticker": "ERAA",
-        "action": "BUY",
-        "entry_range": "590 - 610",
-        "target": "670",
-        "stop_loss": "550",
-        "risk_level": "tinggi",
-        "reason": "Kenaikan pesat +33.19% dalam 20 hari, walau RSI tinggi (82.0) namun momentum tren belum patah.",
-        "catalyst": "Kuatnya akumulasi harga dan kenaikan mingguan (+17.31%).",
-        "price_at_fetch": 610.0
+        "reason": "Koreksi tipis dengan volume 1,1x di atas rata-rata, berada di atas SMA20. Valuasi sangat murah (P/E 6,61x dan DER 8,2%).",
+        "catalyst": "Konsolidasi di atas SMA20 dengan valuasi terdiskon.",
+        "price_at_fetch": 740.0
       }
     ],
     "long_term": [
       {
-        "ticker": "ULTJ",
+        "ticker": "JPFA",
         "action": "BUY",
-        "entry_range": "1520 - 1560",
-        "target": "1850",
-        "stop_loss": "1450",
-        "risk_level": "rendah",
-        "reason": "Fundamental sangat sehat dengan ROE 23.41%, DER hampir nol (0.5%), dan P/E menarik di 8.96x.",
-        "catalyst": "Kinerja keuangan solid dan neraca keuangan sangat aman.",
-        "price_at_fetch": 1550.0,
+        "entry_range": "2250 - 2320",
+        "target": "2800 - 3000",
+        "stop_loss": "2050",
+        "risk_level": "sedang",
+        "reason": "Fundamental sangat atraktif dengan ROE mencapai 29,18%, P/E murah di 5,12x, serta dividend yield menarik sebesar 5,98%.",
+        "catalyst": "Valuasi sangat murah dengan rasio profitabilitas yang luar biasa tinggi.",
+        "price_at_fetch": 2300.0,
         "fundamentals": {
-          "pe_ratio": 8.960574,
-          "pbv_ratio": 2.033315,
-          "roe_pct": 23.41,
-          "der_pct": 0.5,
-          "dividend_yield_pct": 839.0,
-          "last_dividend_value": 130.0,
-          "ex_dividend_date": "2026-05-04",
-          "cum_dividend_date": "2026-05-01",
+          "pe_ratio": 5.1219244,
+          "pbv_ratio": 1.3581004,
+          "roe_pct": 29.18,
+          "der_pct": 76.2,
+          "dividend_yield_pct": 598.0,
+          "last_dividend_value": 140.0,
+          "ex_dividend_date": "2026-05-11",
+          "cum_dividend_date": "2026-05-08",
           "data_note": null
         }
       },
       {
         "ticker": "ANTM",
         "action": "BUY",
-        "entry_range": "3100 - 3200",
-        "target": "3800",
-        "stop_loss": "2850",
+        "entry_range": "3200 - 3320",
+        "target": "4000 - 4200",
+        "stop_loss": "2950",
         "risk_level": "sedang",
-        "reason": "Profitabilitas sangat tinggi (ROE 26.83%), utang rendah (DER 15.6%), dan valuasi P/E 8.64x yang terjangkau.",
-        "catalyst": "Pertumbuhan fundamental dan profitabilitas industri logam.",
-        "price_at_fetch": 3200.0,
+        "reason": "ROE tinggi 26,83%, rasio utang sangat aman (DER 15,6%), P/E 8,9x, dan dividend yield 6,56% menjadikannya pilihan kuat investasi jangka panjang.",
+        "catalyst": "Neraca keuangan sehat dengan leverage rendah dan yield deviden tinggi.",
+        "price_at_fetch": 3300.0,
         "fundamentals": {
-          "pe_ratio": 8.635579,
-          "pbv_ratio": 2.0632796,
+          "pe_ratio": 8.90544,
+          "pbv_ratio": 2.127757,
           "roe_pct": 26.83,
           "der_pct": 15.6,
           "dividend_yield_pct": 656.0,
@@ -162,62 +140,18 @@
         }
       },
       {
-        "ticker": "PTBA",
-        "action": "BUY",
-        "entry_range": "2950 - 3100",
-        "target": "3600",
-        "stop_loss": "2700",
-        "risk_level": "sedang",
-        "reason": "Valuasi murah (P/E 7.52x, PBV 1.41x) didukung ROE tinggi 21.11% serta histori imbal hasil dividen menarik.",
-        "catalyst": "Kombinasi fundamental ber-ROE tinggi dan valuasi rendah.",
-        "price_at_fetch": 3100.0,
-        "fundamentals": {
-          "pe_ratio": 7.5244546,
-          "pbv_ratio": 1.4149895,
-          "roe_pct": 21.11,
-          "der_pct": 11.8,
-          "dividend_yield_pct": 369.0,
-          "last_dividend_value": 114.508,
-          "ex_dividend_date": "2026-06-23",
-          "cum_dividend_date": "2026-06-22",
-          "data_note": null
-        }
-      },
-      {
-        "ticker": "CPIN",
-        "action": "BUY",
-        "entry_range": "3150 - 3260",
-        "target": "3800",
-        "stop_loss": "2950",
-        "risk_level": "sedang",
-        "reason": "Return on Equity kuat (22.79%) dengan DER terjaga di 28.2% dan P/E relatif murah pada 7.18x.",
-        "catalyst": "Fundamental sektor unggas yang solid.",
-        "price_at_fetch": 3260.0,
-        "fundamentals": {
-          "pe_ratio": 7.1787195,
-          "pbv_ratio": 1.531857,
-          "roe_pct": 22.79,
-          "der_pct": 28.2,
-          "dividend_yield_pct": 552.0,
-          "last_dividend_value": 180.0,
-          "ex_dividend_date": "2026-06-03",
-          "cum_dividend_date": "2026-06-02",
-          "data_note": null
-        }
-      },
-      {
         "ticker": "TINS",
         "action": "BUY",
-        "entry_range": "4400 - 4600",
-        "target": "5400",
-        "stop_loss": "4000",
-        "risk_level": "sedang",
-        "reason": "ROE tertinggi di jajaran terpilih (41.79%) dengan DER aman 11.6% dan P/E 9.20x.",
-        "catalyst": "Efisiensi operasional dan profitabilitas sangat tinggi.",
-        "price_at_fetch": 4600.0,
+        "entry_range": "4600 - 4800",
+        "target": "5800 - 6200",
+        "stop_loss": "4200",
+        "risk_level": "tinggi",
+        "reason": "Kinerja profitabilitas terbaik di sektornya dengan ROE 41,79%, P/E 9,6x, dan DER minim 11,6%.",
+        "catalyst": "Pertumbuhan laba bersih yang solid dan tingkat pengembalian ekuitas sangat tinggi.",
+        "price_at_fetch": 4800.0,
         "fundamentals": {
-          "pe_ratio": 9.199633,
-          "pbv_ratio": 3.248216,
+          "pe_ratio": 9.599616,
+          "pbv_ratio": 3.3894427,
           "roe_pct": 41.79,
           "der_pct": 11.6,
           "dividend_yield_pct": 192.0,
@@ -228,68 +162,90 @@
         }
       },
       {
-        "ticker": "BBCA",
+        "ticker": "PTBA",
         "action": "BUY",
-        "entry_range": "6400 - 6525",
-        "target": "7500",
-        "stop_loss": "6100",
-        "risk_level": "rendah",
-        "reason": "Perbankan berkualitas tinggi dengan ROE 21.82%, konsisten memberikan kinerja jangka panjang terbaik.",
-        "catalyst": "Kekuatan fundamental perbankan terkemuka di pasar.",
-        "price_at_fetch": 6525.0,
+        "entry_range": "3050 - 3170",
+        "target": "3800 - 4000",
+        "stop_loss": "2750",
+        "risk_level": "sedang",
+        "reason": "Meski RSI harian sudah tinggi, fundamental tetap menjadi mesin kas handal dengan ROE 21,11%, P/E 7,69x, dan utang sangat rendah (DER 11,8%).",
+        "catalyst": "Arus kas operasional kuat dan rekam jejak dividen menarik.",
+        "price_at_fetch": 3170.0,
         "fundamentals": {
-          "pe_ratio": 14.144195,
-          "pbv_ratio": 2.9638722,
-          "roe_pct": 21.82,
-          "der_pct": null,
-          "dividend_yield_pct": 584.0,
-          "last_dividend_value": 25.0,
-          "ex_dividend_date": "2026-08-31",
-          "cum_dividend_date": "2026-08-28",
-          "data_note": "Data tidak lengkap dari sumber untuk: DER"
+          "pe_ratio": 7.6943617,
+          "pbv_ratio": 1.4469408,
+          "roe_pct": 21.11,
+          "der_pct": 11.8,
+          "dividend_yield_pct": 369.0,
+          "last_dividend_value": 114.508,
+          "ex_dividend_date": "2026-06-23",
+          "cum_dividend_date": "2026-06-22",
+          "data_note": null
+        }
+      },
+      {
+        "ticker": "ELSA",
+        "action": "BUY",
+        "entry_range": "720 - 745",
+        "target": "900 - 950",
+        "stop_loss": "660",
+        "risk_level": "sedang",
+        "reason": "Valuasi amat terdiskon (PBV 0,99x, P/E 6,61x) dengan ROE sehat 15,73% dan beban utang sangat aman (DER 8,2%).",
+        "catalyst": "Diskon valuasi PBV di bawah 1x serta DER sangat konservatif.",
+        "price_at_fetch": 740.0,
+        "fundamentals": {
+          "pe_ratio": 6.613047,
+          "pbv_ratio": 0.9957358,
+          "roe_pct": 15.73,
+          "der_pct": 8.2,
+          "dividend_yield_pct": 591.0,
+          "last_dividend_value": 44.29,
+          "ex_dividend_date": "2026-06-18",
+          "cum_dividend_date": "2026-06-17",
+          "data_note": null
         }
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "ANTM",
+    "ticker": "TINS",
     "profile": "swing_trade",
-    "reason": "Kombinasi ideal antara penguatan teknikal (breakout dengan volume 2.16x), indikator RSI 55.4 yang masih fleksibel untuk kenaikan, serta didukung fundamental yang sangat solid (ROE 26.83%, DER 15.6%).",
-    "price_at_fetch": 3200.0
+    "reason": "TINS menunjukkan kombinasi sempurna antara momentum teknikal bullish terkuat (naik 25% dalam 20 hari di atas SMA20) dan profil fundamental terbaik dengan ROE 41,79%, PER 9,6x, serta DER minim 11,6%.",
+    "price_at_fetch": 4800.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6678.2,
-    "change_pct": -0.12
+    "value": 6668.5,
+    "change_pct": -0.14
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 6525.0
+      "last_close": 6450.0
     },
     {
       "ticker": "BBRI",
-      "last_close": 3420.0
+      "last_close": 3370.0
     },
     {
       "ticker": "BMRI",
-      "last_close": 4390.0
+      "last_close": 4370.0
     },
     {
       "ticker": "BBNI",
-      "last_close": 3820.0
+      "last_close": 3810.0
     },
     {
       "ticker": "TLKM",
-      "last_close": 2660.0
+      "last_close": 2650.0
     },
     {
       "ticker": "ASII",
-      "last_close": 4850.0
+      "last_close": 4890.0
     },
     {
       "ticker": "UNVR",
-      "last_close": 1675.0
+      "last_close": 1660.0
     },
     {
       "ticker": "ICBP",
@@ -297,27 +253,27 @@
     },
     {
       "ticker": "INDF",
-      "last_close": 7500.0
+      "last_close": 7450.0
     },
     {
       "ticker": "KLBF",
-      "last_close": 760.0
+      "last_close": 775.0
     },
     {
       "ticker": "ADRO",
-      "last_close": 2690.0
+      "last_close": 2700.0
     },
     {
       "ticker": "PTBA",
-      "last_close": 3100.0
+      "last_close": 3170.0
     },
     {
       "ticker": "ITMG",
-      "last_close": 26550.0
+      "last_close": 26575.0
     },
     {
       "ticker": "ANTM",
-      "last_close": 3200.0
+      "last_close": 3300.0
     },
     {
       "ticker": "INCO",
@@ -325,11 +281,11 @@
     },
     {
       "ticker": "MDKA",
-      "last_close": 3110.0
+      "last_close": 3090.0
     },
     {
       "ticker": "TINS",
-      "last_close": 4600.0
+      "last_close": 4800.0
     },
     {
       "ticker": "GOTO",
@@ -337,23 +293,23 @@
     },
     {
       "ticker": "BUKA",
-      "last_close": 114.0
+      "last_close": 112.0
     },
     {
       "ticker": "EMTK",
-      "last_close": 515.0
+      "last_close": 510.0
     },
     {
       "ticker": "BRPT",
-      "last_close": 1735.0
+      "last_close": 1775.0
     },
     {
       "ticker": "TPIA",
-      "last_close": 1935.0
+      "last_close": 1970.0
     },
     {
       "ticker": "AVIA",
-      "last_close": 368.0
+      "last_close": 364.0
     },
     {
       "ticker": "AMRT",
@@ -361,63 +317,63 @@
     },
     {
       "ticker": "MAPI",
-      "last_close": 1360.0
+      "last_close": 1385.0
     },
     {
       "ticker": "CPIN",
-      "last_close": 3260.0
+      "last_close": 3230.0
     },
     {
       "ticker": "JPFA",
-      "last_close": 2340.0
+      "last_close": 2300.0
     },
     {
       "ticker": "SMGR",
-      "last_close": 1730.0
+      "last_close": 1765.0
     },
     {
       "ticker": "INTP",
-      "last_close": 5425.0
+      "last_close": 5400.0
     },
     {
       "ticker": "PGAS",
-      "last_close": 1545.0
+      "last_close": 1530.0
     },
     {
       "ticker": "MEDC",
-      "last_close": 1575.0
+      "last_close": 1595.0
     },
     {
       "ticker": "ELSA",
-      "last_close": 750.0
+      "last_close": 740.0
     },
     {
       "ticker": "PGEO",
-      "last_close": 1035.0
+      "last_close": 1030.0
     },
     {
       "ticker": "BRIS",
-      "last_close": 1775.0
+      "last_close": 1770.0
     },
     {
       "ticker": "ARTO",
-      "last_close": 1005.0
+      "last_close": 1015.0
     },
     {
       "ticker": "BBTN",
-      "last_close": 1220.0
+      "last_close": 1215.0
     },
     {
       "ticker": "AKRA",
-      "last_close": 1550.0
+      "last_close": 1515.0
     },
     {
       "ticker": "UNTR",
-      "last_close": 26000.0
+      "last_close": 26950.0
     },
     {
       "ticker": "HRUM",
-      "last_close": 980.0
+      "last_close": 960.0
     },
     {
       "ticker": "DEWA",
@@ -429,11 +385,11 @@
     },
     {
       "ticker": "ACES",
-      "last_close": 354.0
+      "last_close": 356.0
     },
     {
       "ticker": "ERAA",
-      "last_close": 610.0
+      "last_close": 600.0
     },
     {
       "ticker": "SCMA",
@@ -441,27 +397,27 @@
     },
     {
       "ticker": "MNCN",
-      "last_close": 202.0
+      "last_close": 210.0
     },
     {
       "ticker": "CTRA",
-      "last_close": 625.0
+      "last_close": 630.0
     },
     {
       "ticker": "EXCL",
-      "last_close": 2730.0
+      "last_close": 2720.0
     },
     {
       "ticker": "ISAT",
-      "last_close": 2400.0
+      "last_close": 2450.0
     },
     {
       "ticker": "TOWR",
-      "last_close": 484.0
+      "last_close": 474.0
     },
     {
       "ticker": "MTEL",
-      "last_close": 500.0
+      "last_close": 498.0
     },
     {
       "ticker": "WIKA",
@@ -469,7 +425,7 @@
     },
     {
       "ticker": "PTPP",
-      "last_close": 206.0
+      "last_close": 204.0
     },
     {
       "ticker": "MYOR",
@@ -477,23 +433,23 @@
     },
     {
       "ticker": "ULTJ",
-      "last_close": 1550.0
+      "last_close": 1540.0
     },
     {
       "ticker": "MIKA",
-      "last_close": 1890.0
+      "last_close": 1830.0
     },
     {
       "ticker": "HEAL",
-      "last_close": 670.0
+      "last_close": 680.0
     },
     {
       "ticker": "BFIN",
-      "last_close": 1010.0
+      "last_close": 1005.0
     },
     {
       "ticker": "LPPF",
-      "last_close": 1655.0
+      "last_close": 1650.0
     },
     {
       "ticker": "SRTG",
@@ -501,11 +457,11 @@
     },
     {
       "ticker": "RAJA",
-      "last_close": 825.0
+      "last_close": 830.0
     },
     {
       "ticker": "ESSA",
-      "last_close": 695.0
+      "last_close": 680.0
     },
     {
       "ticker": "KAEF",
@@ -513,7 +469,7 @@
     },
     {
       "ticker": "PANI",
-      "last_close": 5850.0
+      "last_close": 5875.0
     }
   ]
 }
