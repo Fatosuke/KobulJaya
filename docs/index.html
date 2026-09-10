@@ -258,6 +258,30 @@
     font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px; padding-bottom: 14px;
     border-bottom: 1px solid var(--border);
   }
+
+  /* --- Detail fundamental modal --- */
+  .detail-modal {
+    display: none; position: fixed; inset: 0; background: var(--bg); z-index: 65;
+    flex-direction: column;
+  }
+  .detail-modal.open { display: flex; }
+  .detail-modal-body { flex: 1; overflow-y: auto; padding: 20px; max-width: 480px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+  .fund-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .fund-row .label { color: var(--text-muted); }
+  .fund-row .value { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+  .fund-section-title {
+    font-size: 12px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .04em; margin: 20px 0 4px;
+  }
+  .fund-note {
+    margin-top: 18px; padding: 12px 14px; background: rgba(242,169,59,0.1);
+    border: 1px solid var(--accent-dim); border-radius: 10px; font-size: 12.5px;
+    color: var(--accent); line-height: 1.6;
+  }
+  .detail-btn { background: rgba(242,169,59,0.12); border-color: var(--accent-dim); color: var(--accent); }
 </style>
 </head>
 <body>
@@ -378,6 +402,14 @@
   <div id="tvWidgetContainer" style="flex:1;"></div>
 </div>
 
+<div class="detail-modal" id="detailModal">
+  <div class="chart-modal-top">
+    <span id="detailModalTitle">-</span>
+    <button class="icon-btn" id="closeDetailBtn">✕</button>
+  </div>
+  <div class="detail-modal-body" id="detailModalBody"></div>
+</div>
+
 <script>
 // ==== GANTI INI dengan username & nama repo GitHub kamu ====
 const GITHUB_USER = "Fatosuke";
@@ -413,12 +445,18 @@ const DEMO_DIGEST = {
       { ticker: "CPIN", action: "BUY", price_at_fetch: 4890, entry_range: "4.850-4.950", target: "5.300", stop_loss: "4.650", risk_level: "sedang", reason: "Harga pakan ternak mulai stabil.", catalyst: "Permintaan unggas jelang musim ramai" },
     ],
     long_term: [
-      { ticker: "BBCA", action: "BUY", price_at_fetch: 10250, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset" },
-      { ticker: "TLKM", action: "BUY", price_at_fetch: 2890, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi" },
-      { ticker: "AMRT", action: "BUY", price_at_fetch: 2760, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik" },
-      { ticker: "JPFA", action: "BUY", price_at_fetch: 1380, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Integrasi bisnis pangan menguntungkan jangka panjang.", catalyst: "Pertumbuhan konsumsi protein" },
-      { ticker: "CTRA", action: "BUY", price_at_fetch: 1050, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Land bank luas, siklus properti mulai membaik.", catalyst: "Penurunan suku bunga KPR" },
-      { ticker: "INDF", action: "BUY", price_at_fetch: 7200, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Bisnis consumer staples defensif terhadap gejolak politik.", catalyst: "Stabilitas harga pangan" },
+      { ticker: "BBCA", action: "BUY", price_at_fetch: 10250, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset",
+        fundamentals: { pe_ratio: 24.3, pbv_ratio: 4.8, roe_pct: 21.5, der_pct: 45.2, dividend_yield_pct: 2.1, last_dividend_value: 220, ex_dividend_date: "2026-07-15", cum_dividend_date: "2026-07-14", data_note: null } },
+      { ticker: "TLKM", action: "BUY", price_at_fetch: 2890, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi",
+        fundamentals: { pe_ratio: 13.8, pbv_ratio: 2.9, roe_pct: 18.2, der_pct: 78.5, dividend_yield_pct: 4.5, last_dividend_value: 132, ex_dividend_date: "2026-06-20", cum_dividend_date: "2026-06-19", data_note: null } },
+      { ticker: "AMRT", action: "BUY", price_at_fetch: 2760, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik",
+        fundamentals: { pe_ratio: 28.1, pbv_ratio: 6.2, roe_pct: 24.8, der_pct: 55.0, dividend_yield_pct: null, last_dividend_value: null, ex_dividend_date: null, cum_dividend_date: null, data_note: "Data tidak lengkap dari sumber untuk: tanggal dividen" } },
+      { ticker: "JPFA", action: "BUY", price_at_fetch: 1380, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Integrasi bisnis pangan menguntungkan jangka panjang.", catalyst: "Pertumbuhan konsumsi protein",
+        fundamentals: { pe_ratio: 9.4, pbv_ratio: 1.8, roe_pct: 19.6, der_pct: 62.3, dividend_yield_pct: 3.2, last_dividend_value: 45, ex_dividend_date: "2026-05-10", cum_dividend_date: "2026-05-08", data_note: null } },
+      { ticker: "CTRA", action: "BUY", price_at_fetch: 1050, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Land bank luas, siklus properti mulai membaik.", catalyst: "Penurunan suku bunga KPR",
+        fundamentals: { pe_ratio: 11.2, pbv_ratio: null, roe_pct: 10.5, der_pct: null, dividend_yield_pct: 1.5, last_dividend_value: 16, ex_dividend_date: "2026-08-01", cum_dividend_date: "2026-07-31", data_note: "Data tidak lengkap dari sumber untuk: PBV, DER" } },
+      { ticker: "INDF", action: "BUY", price_at_fetch: 7200, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Bisnis consumer staples defensif terhadap gejolak politik.", catalyst: "Stabilitas harga pangan",
+        fundamentals: { pe_ratio: 7.1, pbv_ratio: 1.1, roe_pct: 15.8, der_pct: 88.4, dividend_yield_pct: 3.8, last_dividend_value: 274, ex_dividend_date: "2026-06-05", cum_dividend_date: "2026-06-04", data_note: null } },
     ],
   },
   all_prices: [
@@ -565,6 +603,7 @@ function renderAll() {
 }
 
 let currentBudgetCap = 0; // 0 = semua harga, tanpa filter
+let currentRenderedItems = [];
 
 function renderPicks(tab) {
   const container = document.getElementById('picks-container');
@@ -573,6 +612,7 @@ function renderPicks(tab) {
     items = items.filter(p => p.price_at_fetch && (p.price_at_fetch * 100) <= currentBudgetCap);
   }
   items = items.slice(0, 3);
+  currentRenderedItems = items;
 
   if (items.length === 0) {
     const msg = currentBudgetCap > 0
@@ -589,6 +629,7 @@ function renderPicks(tab) {
           <span class="pick-ticker">${p.ticker}</span>
           <span class="pick-price">${fmtRupiah(p.price_at_fetch)}</span>
           <button class="chart-btn" data-ticker="${p.ticker}">📈 Chart</button>
+          ${p.fundamentals ? `<button class="chart-btn detail-btn" data-detail-idx="${i}">📋 Fundamental</button>` : ''}
           <span class="badge buy">${p.action}</span>
           <span class="badge risk-${p.risk_level}">Risiko ${p.risk_level}</span>
         </div>
@@ -604,8 +645,11 @@ function renderPicks(tab) {
     </div>
   `).join('');
 
-  container.querySelectorAll('.chart-btn').forEach(btn => {
+  container.querySelectorAll('.chart-btn[data-ticker]').forEach(btn => {
     btn.addEventListener('click', () => openChart(btn.dataset.ticker));
+  });
+  container.querySelectorAll('[data-detail-idx]').forEach(btn => {
+    btn.addEventListener('click', () => openDetail(currentRenderedItems[parseInt(btn.dataset.detailIdx, 10)]));
   });
 }
 
@@ -694,6 +738,41 @@ function openChart(ticker) {
 }
 document.getElementById('closeChartBtn').addEventListener('click', () => {
   document.getElementById('chartModal').classList.remove('open');
+});
+
+// ==== Detail fundamental (khusus pick Investasi Jangka Panjang) ====
+function openDetail(pick) {
+  const f = pick.fundamentals || {};
+  document.getElementById('detailModalTitle').textContent = pick.ticker;
+
+  const rows = [
+    ["P/E Ratio", f.pe_ratio != null ? Number(f.pe_ratio).toFixed(1) + "x" : "-"],
+    ["PBV Ratio", f.pbv_ratio != null ? Number(f.pbv_ratio).toFixed(2) + "x" : "-"],
+    ["ROE", f.roe_pct != null ? Number(f.roe_pct).toFixed(1) + "%" : "-"],
+    ["DER (Utang/Ekuitas)", f.der_pct != null ? Number(f.der_pct).toFixed(1) + "%" : "-"],
+  ];
+  const divRows = [
+    ["Dividend Yield", f.dividend_yield_pct != null ? Number(f.dividend_yield_pct).toFixed(2) + "%" : "-"],
+    ["Dividen Terakhir", f.last_dividend_value != null ? fmtRupiah(f.last_dividend_value) + "/lembar" : "-"],
+    ["Cum Date", f.cum_dividend_date || "-"],
+    ["Ex Date", f.ex_dividend_date || "-"],
+  ];
+
+  const rowHtml = (arr) => arr.map(([label, value]) =>
+    `<div class="fund-row"><span class="label">${label}</span><span class="value">${value}</span></div>`
+  ).join('');
+
+  document.getElementById('detailModalBody').innerHTML = `
+    <div class="fund-section-title">Valuasi & Fundamental</div>
+    ${rowHtml(rows)}
+    <div class="fund-section-title">Dividen</div>
+    ${rowHtml(divRows)}
+    ${f.data_note ? `<div class="fund-note">⚠️ ${f.data_note}</div>` : ''}
+  `;
+  document.getElementById('detailModal').classList.add('open');
+}
+document.getElementById('closeDetailBtn').addEventListener('click', () => {
+  document.getElementById('detailModal').classList.remove('open');
 });
 
 // ==== Login sederhana (username saja, bukan password beneran) ====
