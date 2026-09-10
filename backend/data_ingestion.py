@@ -238,9 +238,6 @@ def build_context_bundle() -> dict[str, Any]:
     top_movers = rank_top_movers(price_data)
     market_index = fetch_market_index()
 
-    log.info("Mengambil data fundamental untuk kandidat teratas...")
-    fundamentals = fetch_fundamentals_batch([m["ticker"] for m in top_movers])
-
     log.info("Mengambil berita pasar & ekonomi...")
     market_news = fetch_market_news()
 
@@ -252,7 +249,6 @@ def build_context_bundle() -> dict[str, Any]:
         "market_index": market_index,
         "all_price_data": price_data,
         "top_movers": top_movers,
-        "fundamentals": fundamentals,
         "market_news": market_news[:10],
         "politics_news": politics_news[:10],
     }

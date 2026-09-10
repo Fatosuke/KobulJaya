@@ -282,6 +282,53 @@
     color: var(--accent); line-height: 1.6;
   }
   .detail-btn { background: rgba(242,169,59,0.12); border-color: var(--accent-dim); color: var(--accent); }
+
+  /* --- Tab Investasi Jangka Panjang (riset mingguan) --- */
+  .longterm-info {
+    font-size: 12.5px; color: var(--text-muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;
+    margin-bottom: 14px; line-height: 1.6;
+  }
+  .longterm-note { color: var(--text-muted); font-style: italic; }
+  .worth-badge {
+    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 5px;
+    background: rgba(52,211,153,0.15); color: var(--gain);
+  }
+  .fund-note-block { font-size: 13px; line-height: 1.5; margin: 0 0 6px; }
+  .fund-note-block b { color: var(--text-muted); font-weight: 600; }
+
+  /* --- Bubble & panel Tanya AI --- */
+  .ai-bubble-btn {
+    position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px;
+    border-radius: 50%; background: var(--accent); color: #1A1200; border: none;
+    font-size: 24px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+    z-index: 70; display: flex; align-items: center; justify-content: center;
+  }
+  .ai-chat-panel {
+    display: none; position: fixed; inset: 0; background: var(--bg); z-index: 75;
+    flex-direction: column;
+  }
+  .ai-chat-panel.open { display: flex; }
+  .ai-chat-messages {
+    flex: 1; overflow-y: auto; padding: 16px 20px; max-width: 480px; margin: 0 auto; width: 100%;
+    box-sizing: border-box; display: flex; flex-direction: column; gap: 12px;
+  }
+  .ai-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+  .ai-msg-bot { background: var(--surface); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .ai-msg-user { background: var(--accent); color: #1A1200; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .ai-msg-loading { background: var(--surface); align-self: flex-start; color: var(--text-muted); font-style: italic; }
+  .ai-chat-input-row {
+    display: flex; gap: 8px; padding: 12px 20px; border-top: 1px solid var(--border);
+    max-width: 480px; margin: 0 auto; width: 100%; box-sizing: border-box;
+  }
+  .ai-chat-input-row input {
+    flex: 1; background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    padding: 10px 14px; border-radius: 20px; font-size: 14px; font-family: inherit;
+  }
+  .ai-chat-input-row button {
+    background: var(--accent); color: #1A1200; border: none; padding: 10px 18px;
+    border-radius: 20px; font-weight: 700; cursor: pointer; font-family: inherit;
+  }
 </style>
 </head>
 <body>
@@ -410,11 +457,28 @@
   <div class="detail-modal-body" id="detailModalBody"></div>
 </div>
 
+<button class="ai-bubble-btn" id="aiBubbleBtn" aria-label="Tanya AI">💬</button>
+
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="chart-modal-top">
+    <span>🤖 Tanya AI Seputar Saham</span>
+    <button class="icon-btn" id="closeAiChatBtn">✕</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages">
+    <div class="ai-msg ai-msg-bot">Halo! Tanya apa aja seputar saham Indonesia, istilah trading, atau pandangan umum soal suatu saham. Ini bukan nasihat investasi resmi ya 🙂</div>
+  </div>
+  <form class="ai-chat-input-row" id="aiChatForm">
+    <input type="text" id="aiChatInput" placeholder="Tanya sesuatu..." autocomplete="off" required>
+    <button type="submit">Kirim</button>
+  </form>
+</div>
+
 <script>
 // ==== GANTI INI dengan username & nama repo GitHub kamu ====
 const GITHUB_USER = "Fatosuke";
 const GITHUB_REPO = "KobulJaya";
 const DIGEST_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/backend/output/daily_digest.json`;
+const LONGTERM_DIGEST_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/backend/output/longterm_digest.json`;
 // ==== GANTI INI dengan URL Web App Google Apps Script kamu (lihat README) ====
 // Kosongkan "" ("") kalau belum setup -- fitur jurnal tetap jalan lokal di HP.
 const JOURNAL_SHEET_URL = "";
@@ -444,20 +508,6 @@ const DEMO_DIGEST = {
       { ticker: "SMGR", action: "BUY", price_at_fetch: 3550, entry_range: "3.500-3.580", target: "3.900", stop_loss: "3.380", risk_level: "sedang", reason: "Pemulihan sektor semen mulai terlihat.", catalyst: "Proyek infrastruktur pemerintah" },
       { ticker: "CPIN", action: "BUY", price_at_fetch: 4890, entry_range: "4.850-4.950", target: "5.300", stop_loss: "4.650", risk_level: "sedang", reason: "Harga pakan ternak mulai stabil.", catalyst: "Permintaan unggas jelang musim ramai" },
     ],
-    long_term: [
-      { ticker: "BBCA", action: "BUY", price_at_fetch: 10250, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Fundamental perbankan terkuat, historis tahan gejolak politik jangka pendek.", catalyst: "Konsistensi laba & kualitas aset",
-        fundamentals: { pe_ratio: 24.3, pbv_ratio: 4.8, roe_pct: 21.5, der_pct: 45.2, dividend_yield_pct: 2.1, last_dividend_value: 220, ex_dividend_date: "2026-07-15", cum_dividend_date: "2026-07-14", data_note: null } },
-      { ticker: "TLKM", action: "BUY", price_at_fetch: 2890, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Dividen stabil, posisi dominan infrastruktur digital.", catalyst: "Pertumbuhan data & digitalisasi",
-        fundamentals: { pe_ratio: 13.8, pbv_ratio: 2.9, roe_pct: 18.2, der_pct: 78.5, dividend_yield_pct: 4.5, last_dividend_value: 132, ex_dividend_date: "2026-06-20", cum_dividend_date: "2026-06-19", data_note: null } },
-      { ticker: "AMRT", action: "BUY", price_at_fetch: 2760, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Ekspansi gerai konsisten, daya beli domestik relatif tahan gejolak politik.", catalyst: "Pertumbuhan konsumsi domestik",
-        fundamentals: { pe_ratio: 28.1, pbv_ratio: 6.2, roe_pct: 24.8, der_pct: 55.0, dividend_yield_pct: null, last_dividend_value: null, ex_dividend_date: null, cum_dividend_date: null, data_note: "Data tidak lengkap dari sumber untuk: tanggal dividen" } },
-      { ticker: "JPFA", action: "BUY", price_at_fetch: 1380, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Integrasi bisnis pangan menguntungkan jangka panjang.", catalyst: "Pertumbuhan konsumsi protein",
-        fundamentals: { pe_ratio: 9.4, pbv_ratio: 1.8, roe_pct: 19.6, der_pct: 62.3, dividend_yield_pct: 3.2, last_dividend_value: 45, ex_dividend_date: "2026-05-10", cum_dividend_date: "2026-05-08", data_note: null } },
-      { ticker: "CTRA", action: "BUY", price_at_fetch: 1050, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Land bank luas, siklus properti mulai membaik.", catalyst: "Penurunan suku bunga KPR",
-        fundamentals: { pe_ratio: 11.2, pbv_ratio: null, roe_pct: 10.5, der_pct: null, dividend_yield_pct: 1.5, last_dividend_value: 16, ex_dividend_date: "2026-08-01", cum_dividend_date: "2026-07-31", data_note: "Data tidak lengkap dari sumber untuk: PBV, DER" } },
-      { ticker: "INDF", action: "BUY", price_at_fetch: 7200, entry_range: "-", target: "12 bulan+", stop_loss: "-", risk_level: "sedang", reason: "Bisnis consumer staples defensif terhadap gejolak politik.", catalyst: "Stabilitas harga pangan",
-        fundamentals: { pe_ratio: 7.1, pbv_ratio: 1.1, roe_pct: 15.8, der_pct: 88.4, dividend_yield_pct: 3.8, last_dividend_value: 274, ex_dividend_date: "2026-06-05", cum_dividend_date: "2026-06-04", data_note: null } },
-    ],
   },
   all_prices: [
     { ticker: "BUMI", last_close: 144 }, { ticker: "GOTO", last_close: 59 }, { ticker: "PGEO", last_close: 850 },
@@ -470,10 +520,52 @@ const DEMO_DIGEST = {
   disclaimer: "Ini adalah hasil analisis otomatis berbasis AI, bukan nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi.",
 };
 
+// Data demo untuk hasil riset MINGGUAN Investasi Jangka Panjang (struktur sama
+// persis dengan output backend/longterm_agent.py)
+const DEMO_LONGTERM = {
+  review_date: "2026-09-01",
+  next_review_date: "2026-09-08",
+  horizon_note: "Analisis untuk horizon investasi ~6 bulan. Di-review ulang tiap minggu (bukan tiap beberapa jam) supaya rankingnya stabil dan bisa dijadikan pegangan jangka panjang, bukan gonta-ganti tiap saat.",
+  disclaimer: "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Skor 'worth to buy' adalah estimasi kualitatif AI, bukan jaminan/prediksi ilmiah.",
+  ranking: [
+    { rank: 1, ticker: "BBCA", worth_to_buy_pct: 84, price_at_review: 10200,
+      fundamental_note: "ROE tinggi (21,5%), valuasi premium tapi wajar untuk kualitas asetnya.",
+      company_project_note: "Ekspansi layanan digital banking terus tumbuh double-digit.",
+      economic_note: "Sektor perbankan besar relatif tahan terhadap gejolak politik jangka pendek.",
+      dividend_note: "Dividend yield stabil sekitar 2%, histori pembayaran konsisten tiap tahun.",
+      fundamentals: { pe_ratio: 24.3, pbv_ratio: 4.8, roe_pct: 21.5, der_pct: 45.2, dividend_yield_pct: 2.1, last_dividend_value: 220, ex_dividend_date: "2026-07-15", cum_dividend_date: "2026-07-14", data_note: null } },
+    { rank: 2, ticker: "TLKM", worth_to_buy_pct: 78, price_at_review: 2890,
+      fundamental_note: "P/E rendah (13,8x) dibanding sektornya, ROE sehat.",
+      company_project_note: "Investasi data center & infrastruktur digital terus berlanjut.",
+      economic_note: "Permintaan data domestik terus tumbuh seiring digitalisasi.",
+      dividend_note: "Dividend yield menarik (4,5%), salah satu tertinggi di sektor telko.",
+      fundamentals: { pe_ratio: 13.8, pbv_ratio: 2.9, roe_pct: 18.2, der_pct: 78.5, dividend_yield_pct: 4.5, last_dividend_value: 132, ex_dividend_date: "2026-06-20", cum_dividend_date: "2026-06-19", data_note: null } },
+    { rank: 3, ticker: "JPFA", worth_to_buy_pct: 71, price_at_review: 1380,
+      fundamental_note: "Valuasi murah (P/E 9,4x), ROE di atas rata-rata sektor.",
+      company_project_note: "Integrasi bisnis pakan-ternak-pangan memperkuat margin jangka panjang.",
+      economic_note: "Konsumsi protein domestik terus naik seiring pertumbuhan kelas menengah.",
+      dividend_note: "Dividend yield 3,2%, histori pembayaran cukup konsisten.",
+      fundamentals: { pe_ratio: 9.4, pbv_ratio: 1.8, roe_pct: 19.6, der_pct: 62.3, dividend_yield_pct: 3.2, last_dividend_value: 45, ex_dividend_date: "2026-05-10", cum_dividend_date: "2026-05-08", data_note: null } },
+    { rank: 4, ticker: "INDF", worth_to_buy_pct: 68, price_at_review: 7200,
+      fundamental_note: "Valuasi sangat murah (P/E 7,1x), bisnis defensif consumer staples.",
+      company_project_note: "Tidak ada berita ekspansi besar dalam 30 hari terakhir, bisnis berjalan stabil.",
+      economic_note: "Permintaan pangan pokok relatif stabil terlepas dari gejolak politik.",
+      dividend_note: "Dividend yield 3,8%, salah satu yang tertinggi di kandidat ini.",
+      fundamentals: { pe_ratio: 7.1, pbv_ratio: 1.1, roe_pct: 15.8, der_pct: 88.4, dividend_yield_pct: 3.8, last_dividend_value: 274, ex_dividend_date: "2026-06-05", cum_dividend_date: "2026-06-04", data_note: null } },
+    { rank: 5, ticker: "CTRA", worth_to_buy_pct: 60, price_at_review: 1050,
+      fundamental_note: "Valuasi murah, tapi beberapa data (PBV, DER) tidak tersedia dari sumber.",
+      company_project_note: "Peluncuran proyek residensial baru di beberapa kota besar.",
+      economic_note: "Sentimen penurunan suku bunga KPR jadi tailwind untuk sektor properti.",
+      dividend_note: "Dividend yield kecil (1,5%), bukan fokus utama saham ini.",
+      fundamentals: { pe_ratio: 11.2, pbv_ratio: null, roe_pct: 10.5, der_pct: null, dividend_yield_pct: 1.5, last_dividend_value: 16, ex_dividend_date: "2026-08-01", cum_dividend_date: "2026-07-31", data_note: "Data tidak lengkap dari sumber untuk: PBV, DER" } },
+  ],
+};
+
 const PROFILE_LABELS = { day_trade: "Day Trade", swing_trade: "Swing Trade", long_term: "Investasi Panjang" };
 let digest = DEMO_DIGEST;
 let isLiveData = false;
 let lastFetchError = null;
+let longtermDigest = DEMO_LONGTERM;
 
 // Samakan 2 daftar ini dengan backend/config.py setiap kali diubah.
 const SCHEDULE_HOURS_WIB = [9, 13, 16];
@@ -653,12 +745,78 @@ function renderPicks(tab) {
   });
 }
 
+function renderLongTermPicks() {
+  const container = document.getElementById('picks-container');
+  const lt = longtermDigest;
+
+  if (!lt || !lt.ranking || lt.ranking.length === 0) {
+    container.innerHTML = `<div class="section-empty">Riset jangka panjang belum tersedia.</div>`;
+    return;
+  }
+
+  const reviewInfo = `
+    <div class="longterm-info">
+      📅 Terakhir di-review: <b>${lt.review_date || '-'}</b> &middot; Review berikutnya: <b>${lt.next_review_date || '-'}</b><br>
+      <span class="longterm-note">${lt.horizon_note || ''}</span>
+    </div>
+  `;
+
+  let items = lt.ranking;
+  if (currentBudgetCap > 0) {
+    items = items.filter(p => {
+      const price = findCurrentPrice(p.ticker) || p.price_at_review;
+      return price && (price * 100) <= currentBudgetCap;
+    });
+  }
+  currentRenderedItems = items;
+
+  if (items.length === 0) {
+    container.innerHTML = reviewInfo + `<div class="section-empty">Tidak ada saham yang cocok di budget &le; ${fmtRupiah(currentBudgetCap)}/lot.</div>`;
+    return;
+  }
+
+  container.innerHTML = reviewInfo + items.map((p, i) => {
+    const currentPrice = findCurrentPrice(p.ticker) || p.price_at_review;
+    return `
+    <div class="pick-card">
+      <div class="pick-num">${p.rank || (i + 1)}</div>
+      <div class="pick-body">
+        <div class="pick-head">
+          <span class="pick-ticker">${p.ticker}</span>
+          <span class="pick-price">${fmtRupiah(currentPrice)}</span>
+          <span class="worth-badge">${p.worth_to_buy_pct != null ? p.worth_to_buy_pct + '%' : '-'} worth-to-buy</span>
+        </div>
+        <div class="pick-head" style="margin-bottom:10px;">
+          <button class="chart-btn" data-ticker="${p.ticker}">📈 Chart</button>
+          <button class="chart-btn detail-btn" data-detail-idx="${i}">📋 Fundamental</button>
+        </div>
+        <p class="fund-note-block"><b>Fundamental:</b> ${p.fundamental_note || '-'}</p>
+        <p class="fund-note-block"><b>Proyek perusahaan:</b> ${p.company_project_note || '-'}</p>
+        <p class="fund-note-block"><b>Ekonomi:</b> ${p.economic_note || '-'}</p>
+        <p class="fund-note-block"><b>Dividen:</b> ${p.dividend_note || '-'}</p>
+      </div>
+    </div>
+  `;
+  }).join('');
+
+  container.querySelectorAll('.chart-btn[data-ticker]').forEach(btn => {
+    btn.addEventListener('click', () => openChart(btn.dataset.ticker));
+  });
+  container.querySelectorAll('[data-detail-idx]').forEach(btn => {
+    btn.addEventListener('click', () => openDetail(currentRenderedItems[parseInt(btn.dataset.detailIdx, 10)]));
+  });
+}
+
 document.getElementById('tabs').addEventListener('click', (e) => {
   const btn = e.target.closest('button[data-tab]');
   if (!btn) return;
   document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderPicks(btn.dataset.tab);
+  if (btn.dataset.tab === 'long_term') {
+    renderLongTermPicks();
+  } else {
+    renderPicks(btn.dataset.tab);
+  }
 });
 
 async function loadDigest() {
@@ -973,9 +1131,66 @@ document.getElementById('exportJournalBtn').addEventListener('click', async () =
   }
 });
 
-loadDigest().then(() => {
+async function loadLongtermDigest() {
+  if (GITHUB_USER === "USERNAME_GITHUB_KAMU") return;
+  try {
+    const res = await fetch(LONGTERM_DIGEST_URL + `?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} dari ${LONGTERM_DIGEST_URL}`);
+    longtermDigest = await res.json();
+  } catch (err) {
+    console.warn("Gagal ambil riset jangka panjang live, pakai data demo:", err);
+    longtermDigest = DEMO_LONGTERM;
+  }
+}
+
+Promise.all([loadDigest(), loadLongtermDigest()]).then(() => {
   updateStatusBanner();
   setInterval(updateStatusBanner, 1000);
+});
+
+// ==== Bubble & panel Tanya AI ====
+document.getElementById('aiBubbleBtn').addEventListener('click', () => {
+  document.getElementById('aiChatPanel').classList.add('open');
+});
+document.getElementById('closeAiChatBtn').addEventListener('click', () => {
+  document.getElementById('aiChatPanel').classList.remove('open');
+});
+
+document.getElementById('aiChatForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const input = document.getElementById('aiChatInput');
+  const question = input.value.trim();
+  if (!question) return;
+  input.value = '';
+
+  const messagesEl = document.getElementById('aiChatMessages');
+
+  const userMsg = document.createElement('div');
+  userMsg.className = 'ai-msg ai-msg-user';
+  userMsg.textContent = question;
+  messagesEl.appendChild(userMsg);
+
+  const loadingMsg = document.createElement('div');
+  loadingMsg.className = 'ai-msg ai-msg-loading';
+  loadingMsg.textContent = 'Mengetik...';
+  messagesEl.appendChild(loadingMsg);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+
+  if (!JOURNAL_SHEET_URL) {
+    loadingMsg.className = 'ai-msg ai-msg-bot';
+    loadingMsg.textContent = 'Fitur ini belum disambungkan. Isi dulu JOURNAL_SHEET_URL di kode & GEMINI_API_KEY di Script Properties Apps Script (lihat README).';
+    return;
+  }
+
+  try {
+    const res = await fetch(`${JOURNAL_SHEET_URL}?type=chat&q=${encodeURIComponent(question)}`);
+    const data = await res.json();
+    loadingMsg.className = 'ai-msg ai-msg-bot';
+    loadingMsg.textContent = data.answer || data.error || 'Maaf, tidak ada jawaban dari AI.';
+  } catch (err) {
+    loadingMsg.textContent = 'Gagal menghubungi AI: ' + err.message;
+  }
+  messagesEl.scrollTop = messagesEl.scrollHeight;
 });
 
 if ('serviceWorker' in navigator) {

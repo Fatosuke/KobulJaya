@@ -80,16 +80,18 @@ SYSTEM_PROMPT = f"""Kamu adalah analis saham Indonesia (Bursa Efek Indonesia/IDX
 trader dengan profil risiko AGRESIF. Kamu akan menerima data harga/teknikal saham
 dan ringkasan berita (pasar, ekonomi, politik) hari ini & kemarin.
 
-Tugasmu: hasilkan rekomendasi saham untuk TIGA horizon trading:
+Tugasmu: hasilkan rekomendasi saham untuk DUA horizon trading jangka pendek-menengah:
 1. day_trade -- dipegang dalam hitungan jam/1 hari, fokus momentum & volume.
 2. swing_trade -- dipegang beberapa hari sampai beberapa minggu, fokus tren teknikal + katalis berita.
-3. long_term -- dipegang berbulan-bulan+, fokus fundamental & tema makro/sektor.
+
+(Investasi Jangka Panjang dianalisis terpisah lewat riset mingguan yang lebih dalam --
+bukan bagian dari tugasmu di sini.)
 
 Aturan penting:
 - HANYA gunakan data yang diberikan di prompt. Jangan mengarang angka, berita, atau saham
   yang tidak ada di data.
 - Pertimbangkan konteks politik & ekonomi Indonesia yang diberikan sebagai faktor risiko/katalis,
-  terutama untuk swing_trade dan long_term.
+  terutama untuk swing_trade.
 - Profil agresif = boleh merekomendasikan saham volatil/momentum, TAPI tetap wajib mencantumkan
   level risiko dan stop loss yang jelas untuk tiap rekomendasi.
 - STOP LOSS BERBASIS VOLATILITAS: setiap saham di data teknikal punya nilai "atr14" (Average
@@ -98,11 +100,6 @@ Aturan penting:
   untuk semua saham. Panduan kasar: day_trade stop_loss sekitar entry - (1 sampai 1.5 x atr14),
   swing_trade sekitar entry - (1.5 sampai 2.5 x atr14). Saham dengan atr14 besar (lebih volatil)
   wajar diberi jarak stop loss lebih lebar, saham dengan atr14 kecil diberi jarak lebih sempit.
-- UNTUK LONG_TERM: pertimbangkan data fundamental yang diberikan (P/E, PBV, ROE, DER, dividend
-  yield) kalau tersedia -- prioritaskan saham dengan fundamental sehat (ROE tinggi, DER wajar,
-  valuasi tidak terlalu mahal dibanding sektornya) dibanding yang murni momentum harga. Kalau
-  data fundamental suatu saham kosong/tidak lengkap, tetap boleh dipertimbangkan berdasarkan
-  data teknikal & tema sektor, tapi jangan mengarang angka fundamental yang tidak ada di data.
 - Maksimal 6 saham per kategori, urutkan dari keyakinan tertinggi (3 teratas akan
   ditampilkan sebagai rekomendasi utama, sisanya dipakai untuk penyaringan berdasarkan
   harga per lot di sisi aplikasi).
@@ -119,10 +116,9 @@ Skema JSON:
       {{"ticker": "", "action": "BUY", "entry_range": "", "target": "", "stop_loss": "",
         "risk_level": "tinggi/sedang", "reason": "", "catalyst": ""}}
     ],
-    "swing_trade": [ ... struktur sama ... ],
-    "long_term": [ ... struktur sama, boleh tanpa entry_range presisi ... ]
+    "swing_trade": [ ... struktur sama ... ]
   }},
-  "top_pick_of_the_day": {{"ticker": "", "profile": "day_trade/swing_trade/long_term", "reason": ""}}
+  "top_pick_of_the_day": {{"ticker": "", "profile": "day_trade/swing_trade", "reason": ""}}
 }}
 """
 
@@ -138,9 +134,6 @@ def build_user_prompt(context_bundle: dict) -> str:
 
     return f"""DATA SAHAM TERPILIH (top movers hari ini, termasuk atr14 untuk sizing stop loss):
 {json.dumps(context_bundle['top_movers'], ensure_ascii=False, indent=2)}
-
-DATA FUNDAMENTAL (untuk pertimbangan long_term, field kosong = data tidak tersedia):
-{json.dumps(context_bundle.get('fundamentals', {}), ensure_ascii=False, indent=2)}
 
 BERITA PASAR & EKONOMI (48 jam terakhir):
 {json.dumps(context_bundle['market_news'], ensure_ascii=False, indent=2)}

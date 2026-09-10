@@ -2,7 +2,7 @@
 // Cache dasar supaya app bisa dibuka offline + handler untuk push notification
 // dari Firebase Cloud Messaging (lihat backend/notify.py di sisi server).
 
-const CACHE_NAME = "sinyal-saham-v1";
+const CACHE_NAME = "sinyal-saham-v2";
 const ASSETS = ["./index.html", "./manifest.json"];
 
 self.addEventListener("install", (event) => {
