@@ -22,6 +22,23 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 log = logging.getLogger(__name__)
 
 
+def _atr(hist: pd.DataFrame, period: int = 14) -> float:
+    """Average True Range -- ukuran seberapa 'liar' saham bergerak harian
+    (dalam Rupiah). Dipakai AI untuk menentukan stop loss yang proporsional
+    per saham, bukan persentase tetap yang sama untuk semua saham.
+    """
+    high = hist["High"]
+    low = hist["Low"]
+    prev_close = hist["Close"].shift(1)
+    true_range = pd.concat([
+        high - low,
+        (high - prev_close).abs(),
+        (low - prev_close).abs(),
+    ], axis=1).max(axis=1)
+    atr = true_range.rolling(period).mean()
+    return round(float(atr.iloc[-1]), 1) if not atr.empty and not pd.isna(atr.iloc[-1]) else None
+
+
 def _rsi(series: pd.Series, period: int = 14) -> float:
     delta = series.diff()
     gain = delta.clip(lower=0)
@@ -74,6 +91,7 @@ def fetch_price_data(tickers: list[str] = None) -> list[dict[str, Any]]:
                 "trend": "above_sma20" if last_close > sma20 else "below_sma20",
                 "volume_vs_avg20": vol_ratio,
                 "rsi14": _rsi(close, config.RSI_PERIOD),
+                "atr14": _atr(hist),
             })
         except Exception as e:
             log.warning("Gagal ambil data %s: %s", code, e)
@@ -96,6 +114,76 @@ def fetch_market_index() -> dict[str, Any] | None:
     except Exception as e:
         log.warning("Gagal ambil data IHSG: %s", e)
         return None
+
+
+def fetch_fundamentals(ticker: str) -> dict[str, Any]:
+    """Ambil data fundamental dasar (P/E, PBV, ROE, DER, dividen) untuk 1 saham.
+    Data yfinance untuk saham Indonesia kadang tidak lengkap -- field yang
+    kosong diisi None, dan dicatat ringkasannya di 'data_note' biar transparan.
+    """
+    result = {
+        "pe_ratio": None, "pbv_ratio": None, "roe_pct": None, "der_pct": None,
+        "dividend_yield_pct": None, "last_dividend_value": None,
+        "ex_dividend_date": None, "cum_dividend_date": None, "data_note": None,
+    }
+    missing = []
+    try:
+        info = yf.Ticker(f"{ticker}.JK").info
+    except Exception as e:
+        result["data_note"] = f"Gagal ambil data fundamental: {e}"
+        return result
+
+    def as_pct(key):
+        v = info.get(key)
+        return round(v * 100, 2) if isinstance(v, (int, float)) else None
+
+    result["pe_ratio"] = info.get("trailingPE")
+    if result["pe_ratio"] is None:
+        missing.append("P/E")
+
+    result["pbv_ratio"] = info.get("priceToBook")
+    if result["pbv_ratio"] is None:
+        missing.append("PBV")
+
+    result["roe_pct"] = as_pct("returnOnEquity")
+    if result["roe_pct"] is None:
+        missing.append("ROE")
+
+    der_raw = info.get("debtToEquity")
+    result["der_pct"] = round(der_raw, 1) if isinstance(der_raw, (int, float)) else None
+    if result["der_pct"] is None:
+        missing.append("DER")
+
+    result["dividend_yield_pct"] = as_pct("dividendYield")
+    result["last_dividend_value"] = info.get("lastDividendValue")
+
+    ex_ts = info.get("exDividendDate")
+    if isinstance(ex_ts, (int, float)) and ex_ts > 0:
+        ex_date = dt.datetime.utcfromtimestamp(ex_ts).date()
+        result["ex_dividend_date"] = ex_date.isoformat()
+        cum_date = ex_date - dt.timedelta(days=1)
+        while cum_date.weekday() >= 5:  # mundur kalau kena Sabtu/Minggu
+            cum_date -= dt.timedelta(days=1)
+        result["cum_dividend_date"] = cum_date.isoformat()
+    else:
+        missing.append("tanggal dividen")
+
+    if missing:
+        result["data_note"] = "Data tidak lengkap dari sumber untuk: " + ", ".join(missing)
+
+    return result
+
+
+def fetch_fundamentals_batch(tickers: list[str]) -> dict[str, dict]:
+    """Ambil fundamental untuk beberapa saham sekaligus -> dict {ticker: data}."""
+    out = {}
+    for t in tickers:
+        try:
+            out[t] = fetch_fundamentals(t)
+        except Exception as e:
+            log.warning("Gagal ambil fundamental %s: %s", t, e)
+            out[t] = {"data_note": f"Gagal ambil data fundamental: {e}"}
+    return out
 
 
 def rank_top_movers(price_data: list[dict[str, Any]], top_n: int = None) -> list[dict[str, Any]]:
@@ -150,6 +238,9 @@ def build_context_bundle() -> dict[str, Any]:
     top_movers = rank_top_movers(price_data)
     market_index = fetch_market_index()
 
+    log.info("Mengambil data fundamental untuk kandidat teratas...")
+    fundamentals = fetch_fundamentals_batch([m["ticker"] for m in top_movers])
+
     log.info("Mengambil berita pasar & ekonomi...")
     market_news = fetch_market_news()
 
@@ -161,6 +252,7 @@ def build_context_bundle() -> dict[str, Any]:
         "market_index": market_index,
         "all_price_data": price_data,
         "top_movers": top_movers,
+        "fundamentals": fundamentals,
         "market_news": market_news[:10],
         "politics_news": politics_news[:10],
     }
