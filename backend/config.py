@@ -15,6 +15,9 @@ STOCK_UNIVERSE = [
     "CPIN", "JPFA", "SMGR", "INTP", "PGAS", "MEDC", "ELSA", "PGEO",
     "BRIS", "ARTO", "BBTN", "AKRA", "UNTR", "HRUM", "DEWA", "BUMI",
     "ACES", "ERAA", "SCMA", "MNCN", "CTRA",
+    # Perluasan -- sektor telko/menara, konstruksi, consumer, kesehatan, finance
+    "EXCL", "ISAT", "TOWR", "MTEL", "WIKA", "PTPP", "MYOR", "ULTJ",
+    "MIKA", "HEAL", "BFIN", "LPPF", "SRTG", "RAJA", "ESSA", "KAEF", "PANI",
 ]
 
 # --- SUMBER BERITA (RSS) ---
@@ -75,7 +78,7 @@ OUTPUT_JSON_PATH = os.path.join(_BACKEND_DIR, "output", "daily_digest.json")
 # Isi dengan URL Web App Google Apps Script kamu (lihat README bagian "Sinkron
 # Jurnal ke Spreadsheet") supaya AI ikut belajar dari histori transaksimu.
 # Kosongkan "" kalau belum mau pakai fitur ini.
-JOURNAL_SHEET_URL = "https://script.google.com/macros/s/AKfycbzXP3ILF7mmuwXty-apInc2d5ulClaNTFruom_xqurmUOGH6moDsEF8yAQ6gow6ZOwfqA/exec"
+JOURNAL_SHEET_URL = ""
 
 # --- GOOGLE GEMINI API (gratis, tanpa kartu kredit) ---
 # Ambil API key gratis di aistudio.google.com -> "Get API key".
