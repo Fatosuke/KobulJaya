@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-09-10T07:40:28.291701",
+  "review_date": "2026-09-10",
+  "next_review_date": "2026-09-17",
+  "horizon_note": "Analisis untuk horizon investasi ~6 bulan. Di-review ulang tiap minggu (bukan tiap beberapa jam) supaya rankingnya stabil dan bisa dijadikan pegangan jangka panjang, bukan gonta-ganti tiap saat.",
+  "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Skor 'worth to buy' adalah estimasi kualitatif AI, bukan jaminan/prediksi ilmiah. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi.",
+  "ranking": [
+    {
+      "rank": 1,
+      "ticker": "BMRI",
+      "worth_to_buy_pct": 88,
+      "fundamental_note": "Valuasi sangat atraktif dengan P/E 6,52x dan ROE tinggi mencapai 22,38%.",
+      "company_project_note": "Bank Mandiri mencatatkan pertumbuhan laba 22,3% YoY dalam 8 bulan 2026 dan segera membagikan dividen interim Rp6,16 triliun.",
+      "economic_note": "Sektor perbankan publik menjadi penopang utama IHSG di tengah arus modal asing yang kembali masuk.",
+      "dividend_note": "Profil dividen sangat solid dengan yield tinggi serta adanya dividen interim Rp66 per saham.",
+      "price_at_review": 4350.0,
+      "fundamentals": {
+        "pe_ratio": 6.5190024,
+        "pbv_ratio": 1.4265966,
+        "roe_pct": 22.38,
+        "der_pct": null,
+        "dividend_yield_pct": 1237.0,
+        "last_dividend_value": 66.0,
+        "ex_dividend_date": "2026-09-16",
+        "cum_dividend_date": "2026-09-15",
+        "data_note": "Data tidak lengkap dari sumber untuk: DER"
+      }
+    },
+    {
+      "rank": 2,
+      "ticker": "ASII",
+      "worth_to_buy_pct": 86,
+      "fundamental_note": "Valuasi sangat murah tercermin dari PBV 0,85x dan P/E 6,59x dengan DER terkendali di 41,1%.",
+      "company_project_note": "Astra menyiapkan aksi buyback saham senilai Rp8 triliun dan memperkuat kepemilikan di AUTO untuk mengoptimalkan mesin profit.",
+      "economic_note": "Diversifikasi bisnis Astra di otomotif, alat berat, dan jasa keuangan memberi ketahanan di tengah dinamika ekonomi lokal.",
+      "dividend_note": "Histori dividen tergolong sangat royal dengan yield menarik yang menjadi daya tarik investor jangka panjang.",
+      "price_at_review": 4890.0,
+      "fundamentals": {
+        "pe_ratio": 6.5936146,
+        "pbv_ratio": 0.8467492,
+        "roe_pct": 11.98,
+        "der_pct": 41.1,
+        "dividend_yield_pct": 804.0,
+        "last_dividend_value": 292.0,
+        "ex_dividend_date": "2026-05-05",
+        "cum_dividend_date": "2026-05-04",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 3,
+      "ticker": "TINS",
+      "worth_to_buy_pct": 85,
+      "fundamental_note": "Kinerja fundamental tergolong sangat kuat dengan ROE mencapai 41,79% dan DER rendah sebesar 11,6%.",
+      "company_project_note": "PT Timah merevisi RKAP 2026 ke atas setelah mencatatkan lonjakan laba bersih mencapai 805%.",
+      "economic_note": "Sektor pertambangan timah diuntungkan oleh tren pemulihan permintaan komoditas global dan inflow investor asing.",
+      "dividend_note": "Lonjakan laba bersih memberikan ruang ekspansi pembagian dividen yang jauh lebih tinggi di masa mendatang.",
+      "price_at_review": 4690.0,
+      "fundamentals": {
+        "pe_ratio": 9.399624,
+        "pbv_ratio": 3.3188293,
+        "roe_pct": 41.79,
+        "der_pct": 11.6,
+        "dividend_yield_pct": 192.0,
+        "last_dividend_value": 88.189,
+        "ex_dividend_date": "2026-06-24",
+        "cum_dividend_date": "2026-06-23",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 4,
+      "ticker": "BBRI",
+      "worth_to_buy_pct": 84,
+      "fundamental_note": "Kinerja fundamental tetap kokoh dengan ROE 18,99% dan P/E yang masih moderat di 8,18x.",
+      "company_project_note": "Mendapat sentimen positif dari S&P serta komitmen menjaga kontinuitas dividen di tengah ekspansi bisnis.",
+      "economic_note": "Pemulihan daya beli masyarakat bawah dan segmen UMKM menjadi katalis utama pertumbuhan kredit perbankan.",
+      "dividend_note": "Menawarkan indikasi dividend yield sangat tinggi sebesar 12,22% yang mempertebal total return.",
+      "price_at_review": 3330.0,
+      "fundamentals": {
+        "pe_ratio": 8.18222,
+        "pbv_ratio": 1.5670278,
+        "roe_pct": 18.99,
+        "der_pct": null,
+        "dividend_yield_pct": 1222.0,
+        "last_dividend_value": 209.0,
+        "ex_dividend_date": "2026-04-21",
+        "cum_dividend_date": "2026-04-20",
+        "data_note": "Data tidak lengkap dari sumber untuk: DER"
+      }
+    },
+    {
+      "rank": 5,
+      "ticker": "ANTM",
+      "worth_to_buy_pct": 83,
+      "fundamental_note": "Kondisi keuangan sehat dipadukan dengan ROE tinggi 26,83% serta DER minim sebesar 15,6%.",
+      "company_project_note": "Saham ANTM gencar diakumulasi oleh investor asing di tengah penguatan indeks dan momentum permintaan nikel/emas.",
+      "economic_note": "Penguatan harga emas dan prospek hilirisasi mineral memberikan tailwind kuat bagi sektor pertambangan logam.",
+      "dividend_note": "Menawarkan dividend yield yang menarik dengan rekam jejak pembagian dividen berkala.",
+      "price_at_review": 3260.0,
+      "fundamentals": {
+        "pe_ratio": 8.797496,
+        "pbv_ratio": 2.1019661,
+        "roe_pct": 26.83,
+        "der_pct": 15.6,
+        "dividend_yield_pct": 656.0,
+        "last_dividend_value": 209.98866,
+        "ex_dividend_date": "2026-06-22",
+        "cum_dividend_date": "2026-06-19",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 6,
+      "ticker": "JPFA",
+      "worth_to_buy_pct": 81,
+      "fundamental_note": "Valuasi sangat murah dengan P/E terendah di sektornya sebesar 5,08x serta ROE cemerlang 29,18%.",
+      "company_project_note": "Prospek pertumbuhan kinerja didorong oleh efisiensi operasional dan potensi pemulihan harga unggas.",
+      "economic_note": "Sektor unggas dan pakan ternak diuntungkan oleh potensi dorongan konsumsi domestik dan program pangan pemerintah.",
+      "dividend_note": "Mempunyai imbal hasil dividen konsisten yang diperkuat oleh profitabilitas perusahaan yang membaik.",
+      "price_at_review": 2280.0,
+      "fundamentals": {
+        "pe_ratio": 5.077386,
+        "pbv_ratio": 1.3462908,
+        "roe_pct": 29.18,
+        "der_pct": 76.2,
+        "dividend_yield_pct": 598.0,
+        "last_dividend_value": 140.0,
+        "ex_dividend_date": "2026-05-11",
+        "cum_dividend_date": "2026-05-08",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 7,
+      "ticker": "AKRA",
+      "worth_to_buy_pct": 80,
+      "fundamental_note": "Kinerja fundamental teruji stabil dengan ROE 19,52% dan struktur permodalan yang sehat.",
+      "company_project_note": "Perusahaan memberi sinyal dividen jumbo yang disokong akumulasi saldo laba mencapai Rp10 triliun.",
+      "economic_note": "Bisnis distribusi BBM industri dan pengembangan kawasan terpadu JIIPE memberikan arus kas defensif.",
+      "dividend_note": "Komitmen manajemen membagikan dividen minimal 30% dari laba menjamin kepastian return investor.",
+      "price_at_review": 1500.0,
+      "fundamentals": {
+        "pe_ratio": 10.885341,
+        "pbv_ratio": 2.2919273,
+        "roe_pct": 19.52,
+        "der_pct": 33.3,
+        "dividend_yield_pct": 645.0,
+        "last_dividend_value": 50.0,
+        "ex_dividend_date": "2026-08-03",
+        "cum_dividend_date": "2026-07-31",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 8,
+      "ticker": "ERAA",
+      "worth_to_buy_pct": 78,
+      "fundamental_note": "Valuasi tergolong undervalue dengan PBV 0,98x dan P/E 6,63x, disokong tingkat ROE 15,51%.",
+      "company_project_note": "Peluncuran produk iPhone seri terbaru menjadi katalis utama lonjakan penjualan ritel pada semester kedua.",
+      "economic_note": "Momentum perbaikan konsumsi gadget dan barang elektronik konsumen memperkuat pendapatan ritel.",
+      "dividend_note": "Secara historis membagikan dividen secara rutin dengan imbal hasil yang cukup menarik.",
+      "price_at_review": 595.0,
+      "fundamentals": {
+        "pe_ratio": 6.626573,
+        "pbv_ratio": 0.98177207,
+        "roe_pct": 15.51,
+        "der_pct": 72.9,
+        "dividend_yield_pct": 410.0,
+        "last_dividend_value": 25.0,
+        "ex_dividend_date": "2026-07-08",
+        "cum_dividend_date": "2026-07-07",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 9,
+      "ticker": "ITMG",
+      "worth_to_buy_pct": 77,
+      "fundamental_note": "Nisbah utang DER sangat rendah sebesar 5,2% dengan P/E rendah di level 7,81x.",
+      "company_project_note": "ITMG mengalokasikan capex US$50 juta untuk diversifikasi agresif ke mineral strategis nikel dan proyek PLTS.",
+      "economic_note": "Langkah diversifikasi ke energi hijau dan mineral strategis dapat menutupi risiko penurunan harga batu bara.",
+      "dividend_note": "Terkenal sebagai emiten pembagi dividen dengan yield tinggi berkat kepemilikan posisi kas yang sangat kuat.",
+      "price_at_review": 26225.0,
+      "fundamentals": {
+        "pe_ratio": 7.808359,
+        "pbv_ratio": 15220.545,
+        "roe_pct": 11.12,
+        "der_pct": 5.2,
+        "dividend_yield_pct": 652.0,
+        "last_dividend_value": 992.0,
+        "ex_dividend_date": "2026-04-28",
+        "cum_dividend_date": "2026-04-27",
+        "data_note": null
+      }
+    },
+    {
+      "rank": 10,
+      "ticker": "PTBA",
+      "worth_to_buy_pct": 76,
+      "fundamental_note": "Tingkat profitabilitas solid dengan ROE 21,11% dan tingkat utang DER sangat rendah di 11,8%.",
+      "company_project_note": "PTBA mencatatkan tren kenaikan harga yang kuat seiring dorongan rekomendasi positif dari para analis.",
+      "economic_note": "Stabilitas kebutuhan batu bara untuk PLN dan ekspor menjaga volume penjualan emiten batu bara BUMN.",
+      "dividend_note": "Memiliki reputasi sebagai pembagi dividen dengan payout ratio jumbo yang menjadi penahan risiko harga.",
+      "price_at_review": 3150.0,
+      "fundamentals": {
+        "pe_ratio": 7.645817,
+        "pbv_ratio": 1.5412384,
+        "roe_pct": 21.11,
+        "der_pct": 11.8,
+        "dividend_yield_pct": 369.0,
+        "last_dividend_value": 114.508,
+        "ex_dividend_date": "2026-06-23",
+        "cum_dividend_date": "2026-06-22",
+        "data_note": null
+      }
+    }
+  ]
+}
