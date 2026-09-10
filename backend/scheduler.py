@@ -38,11 +38,33 @@ def attach_fetch_prices(digest: dict, bundle: dict) -> dict:
     return digest
 
 
+def attach_fundamentals(digest: dict, bundle: dict) -> dict:
+    """Tempel data fundamental AKURAT (dari data_ingestion, BUKAN tulisan AI)
+    ke tiap pick long_term, biar angka P/E, ROE, dividen dll selalu sesuai
+    sumber data, tidak berisiko dikarang model.
+    """
+    fundamentals_lookup = bundle.get("fundamentals", {})
+    for pick in digest.get("profiles", {}).get("long_term", []):
+        ticker = pick.get("ticker")
+        if ticker in fundamentals_lookup:
+            pick["fundamentals"] = fundamentals_lookup[ticker]
+        elif ticker:
+            # jaga-jaga kalau AI pilih ticker di luar top_movers yang sudah di-fetch
+            try:
+                pick["fundamentals"] = data_ingestion.fetch_fundamentals(ticker)
+            except Exception:
+                pick["fundamentals"] = {"data_note": "Gagal ambil data fundamental untuk saham ini."}
+    return digest
+
+
 def run_daily_pipeline():
+    force_run = os.environ.get("FORCE_RUN") == "true"
     reason = market_hours.skip_reason()
-    if reason:
+    if reason and not force_run:
         log.info("Skip pipeline: %s", reason)
         return None
+    if reason and force_run:
+        log.info("Hari ini sebenarnya libur bursa (%s), tapi tetap dijalankan karena FORCE_RUN=true.", reason)
 
     log.info("=== Mulai pipeline (jam berjalan sesuai jadwal cron) ===")
 
@@ -54,6 +76,13 @@ def run_daily_pipeline():
     digest["market_index"] = bundle.get("market_index")
     digest["date"] = bundle["generated_at"][:10]
     digest = attach_fetch_prices(digest, bundle)
+    digest = attach_fundamentals(digest, bundle)
+    # Semua harga (bukan cuma yang direkomendasikan) -- dipakai fitur jurnal biar
+    # bisa cek harga saham apa pun yang kamu catat, bukan cuma pick dari AI.
+    digest["all_prices"] = [
+        {"ticker": d["ticker"], "last_close": d["last_close"]}
+        for d in bundle.get("all_price_data", [])
+    ]
 
     os.makedirs(os.path.dirname(config.OUTPUT_JSON_PATH), exist_ok=True)
     with open(config.OUTPUT_JSON_PATH, "w") as f:
