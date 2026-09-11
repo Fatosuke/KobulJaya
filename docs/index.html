@@ -283,6 +283,40 @@
   }
   .detail-btn { background: rgba(242,169,59,0.12); border-color: var(--accent-dim); color: var(--accent); }
 
+  /* --- Bubble & panel Tanya Kobul --- */
+  .ai-bubble-btn {
+    position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px;
+    border-radius: 50%; background: var(--accent); color: #1A1200; border: none;
+    font-size: 26px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+    z-index: 70; display: flex; align-items: center; justify-content: center;
+  }
+  .ai-chat-panel {
+    display: none; position: fixed; inset: 0; background: var(--bg); z-index: 75;
+    flex-direction: column;
+  }
+  .ai-chat-panel.open { display: flex; }
+  .ai-chat-messages {
+    flex: 1; overflow-y: auto; padding: 16px 20px; max-width: 480px; margin: 0 auto; width: 100%;
+    box-sizing: border-box; display: flex; flex-direction: column; gap: 12px;
+  }
+  .ai-msg { max-width: 78%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+  .ai-msg-bot { background: var(--surface); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .ai-msg-user { background: var(--accent); color: #1A1200; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .ai-msg-photo { padding: 6px; }
+  .ai-msg-photo img { max-width: 100%; border-radius: 10px; display: block; }
+  .ai-chat-input-row {
+    display: flex; gap: 8px; padding: 12px 20px; border-top: 1px solid var(--border);
+    max-width: 480px; margin: 0 auto; width: 100%; box-sizing: border-box;
+  }
+  .ai-chat-input-row input {
+    flex: 1; background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    padding: 10px 14px; border-radius: 20px; font-size: 14px; font-family: inherit;
+  }
+  .ai-chat-input-row button {
+    background: var(--accent); color: #1A1200; border: none; padding: 10px 18px;
+    border-radius: 20px; font-weight: 700; cursor: pointer; font-family: inherit;
+  }
+
   /* --- Tab Investasi Jangka Panjang (riset mingguan) --- */
   .longterm-info {
     font-size: 12.5px; color: var(--text-muted); background: var(--surface);
@@ -457,18 +491,18 @@
   <div class="detail-modal-body" id="detailModalBody"></div>
 </div>
 
-<button class="ai-bubble-btn" id="aiBubbleBtn" aria-label="Tanya AI">💬</button>
+<button class="ai-bubble-btn" id="aiBubbleBtn" aria-label="Tanya Kobul">🐱</button>
 
 <div class="ai-chat-panel" id="aiChatPanel">
   <div class="chart-modal-top">
-    <span>🤖 Tanya AI Seputar Saham</span>
+    <span>🐱 Tanya Kobul</span>
     <button class="icon-btn" id="closeAiChatBtn">✕</button>
   </div>
   <div class="ai-chat-messages" id="aiChatMessages">
-    <div class="ai-msg ai-msg-bot">Halo! Tanya apa aja seputar saham Indonesia, istilah trading, atau pandangan umum soal suatu saham. Ini bukan nasihat investasi resmi ya 🙂</div>
+    <div class="ai-msg ai-msg-bot">Meong! Tanya apa aja, Kobul bakal jawab... dengan caranya sendiri 😼</div>
   </div>
   <form class="ai-chat-input-row" id="aiChatForm">
-    <input type="text" id="aiChatInput" placeholder="Tanya sesuatu..." autocomplete="off" required>
+    <input type="text" id="aiChatInput" placeholder="Tanya Kobul..." autocomplete="off" required>
     <button type="submit">Kirim</button>
   </form>
 </div>
@@ -1148,7 +1182,17 @@ Promise.all([loadDigest(), loadLongtermDigest()]).then(() => {
   setInterval(updateStatusBanner, 1000);
 });
 
-// ==== Bubble & panel Tanya AI ====
+// ==== Bubble & panel Tanya Kobul (random, bukan AI beneran -- gratis & offline) ====
+const KOBUL_SOUNDS = [
+  "Meong~", "Ngeeeong...", "Mrrrow!", "Miaaaw~", "Prrrt prrrt~",
+  "Meow meow!", "Ngeong ngeong~", "Mrrp?", "Meong meong meong!!",
+  "*menguap* ...meong.", "*kucing tidur, tidak menjawab* 😴",
+  "*ngelus-ngelus kaki* meong!", "Miauu~ (artinya: rahasia)",
+  "Ngong~ ngong~", "*nowel-nowel meja* meong meong", "Mrreeeow!!",
+];
+const KOBUL_PHOTOS = Array.from({ length: 13 }, (_, i) => `kobul/kobul-${String(i + 1).padStart(2, '0')}.jpg`);
+const KOBUL_PHOTO_CHANCE = 0.4;
+
 document.getElementById('aiBubbleBtn').addEventListener('click', () => {
   document.getElementById('aiChatPanel').classList.add('open');
 });
@@ -1156,7 +1200,7 @@ document.getElementById('closeAiChatBtn').addEventListener('click', () => {
   document.getElementById('aiChatPanel').classList.remove('open');
 });
 
-document.getElementById('aiChatForm').addEventListener('submit', async (e) => {
+document.getElementById('aiChatForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.getElementById('aiChatInput');
   const question = input.value.trim();
@@ -1169,28 +1213,26 @@ document.getElementById('aiChatForm').addEventListener('submit', async (e) => {
   userMsg.className = 'ai-msg ai-msg-user';
   userMsg.textContent = question;
   messagesEl.appendChild(userMsg);
-
-  const loadingMsg = document.createElement('div');
-  loadingMsg.className = 'ai-msg ai-msg-loading';
-  loadingMsg.textContent = 'Mengetik...';
-  messagesEl.appendChild(loadingMsg);
   messagesEl.scrollTop = messagesEl.scrollHeight;
 
-  if (!JOURNAL_SHEET_URL) {
-    loadingMsg.className = 'ai-msg ai-msg-bot';
-    loadingMsg.textContent = 'Fitur ini belum disambungkan. Isi dulu JOURNAL_SHEET_URL di kode & GEMINI_API_KEY di Script Properties Apps Script (lihat README).';
-    return;
-  }
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'ai-msg ai-msg-bot';
+    botMsg.textContent = KOBUL_SOUNDS[Math.floor(Math.random() * KOBUL_SOUNDS.length)];
+    messagesEl.appendChild(botMsg);
 
-  try {
-    const res = await fetch(`${JOURNAL_SHEET_URL}?type=chat&q=${encodeURIComponent(question)}`);
-    const data = await res.json();
-    loadingMsg.className = 'ai-msg ai-msg-bot';
-    loadingMsg.textContent = data.answer || data.error || 'Maaf, tidak ada jawaban dari AI.';
-  } catch (err) {
-    loadingMsg.textContent = 'Gagal menghubungi AI: ' + err.message;
-  }
-  messagesEl.scrollTop = messagesEl.scrollHeight;
+    if (Math.random() < KOBUL_PHOTO_CHANCE) {
+      const photoMsg = document.createElement('div');
+      photoMsg.className = 'ai-msg ai-msg-bot ai-msg-photo';
+      const img = document.createElement('img');
+      img.src = KOBUL_PHOTOS[Math.floor(Math.random() * KOBUL_PHOTOS.length)];
+      img.alt = 'Kobul';
+      photoMsg.appendChild(img);
+      messagesEl.appendChild(photoMsg);
+    }
+
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }, 450);
 });
 
 if ('serviceWorker' in navigator) {
