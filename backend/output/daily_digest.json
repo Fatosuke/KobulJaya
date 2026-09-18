@@ -1,159 +1,148 @@
 {
   "date": "2026-09-18",
-  "market_context_summary": "Pergerakan pasar diwarnai penguatan terpilih pada saham ritel dan perbankan di tengah aktivitas perdagangan yang selektif. Keputusan OJK membatalkan pembatasan pendanaan pinjaman online memberikan kejelasan regulasi bagi industri perbankan digital dan konsumen. Peluang trading didominasi oleh saham-saham penembus rata-rata pergerakan harian yang didorong lonjakan volume signifikan.",
+  "market_context_summary": "Pasar IHSG secara umum berada dalam tekanan koreksi dengan mayoritas saham bergerak di bawah SMA20. Namun, momentum positif terkonsentrasi pada sektor ritel dan barang konsumsi seperti MAPI dan ULTJ yang mencatatkan lonjakan volume. Sentimen regulasi keuangan diwarnai keputusan OJK membatalkan pembatasan pendanaan pindar.",
   "profiles": {
     "day_trade": [
       {
         "ticker": "MAPI",
         "action": "BUY",
-        "entry_range": "1440 - 1460",
-        "target": "1515",
-        "stop_loss": "1390",
+        "entry_range": "1480 - 1500",
+        "target": "1560 - 1600",
+        "stop_loss": "1430",
         "risk_level": "sedang",
-        "reason": "Lonjakan volume tinggi mencapai 2.13x dari rata-rata 20 hari disertai penguatan +5.43% yang berhasil memotong ke atas SMA20. RSI 45.8 berada di area netral sehingga masih memiliki ruang kenaikan tinggi.",
-        "catalyst": "Breakout SMA20 yang terkonfirmasi oleh lonjakan volume perdagangan.",
-        "price_at_fetch": 1455.0
-      },
-      {
-        "ticker": "ERAA",
-        "action": "BUY",
-        "entry_range": "610 - 625",
-        "target": "650",
-        "stop_loss": "575",
-        "risk_level": "tinggi",
-        "reason": "Momentum kenaikan harian kuat +4.2% dengan volume 1.63x di atas rata-rata. Cocok untuk memanfaatkan kelanjutan momentum agresif jangka pendek.",
-        "catalyst": "Tren naik jangka pendek yang terakselerasi dengan kenaikan harga konsisten.",
-        "price_at_fetch": 620.0
+        "reason": "Mengalami kenaikan 2.75% dengan volume 1.43x di atas rata-rata 20 hari dan bertahan di atas SMA20 dengan RSI 61.2 yang masih ideal untuk lanjutan momentum.",
+        "catalyst": "Aktivitas belanja konsumen yang kuat dan breakout teknikal di atas SMA20.",
+        "price_at_fetch": 1495.0
       },
       {
         "ticker": "ULTJ",
         "action": "BUY",
-        "entry_range": "1880 - 1910",
-        "target": "2000",
-        "stop_loss": "1800",
+        "entry_range": "1890 - 1920",
+        "target": "2020 - 2080",
+        "stop_loss": "1815",
         "risk_level": "tinggi",
-        "reason": "Volume transaksi melonjak 2.28x di atas rata-rata harian dengan posisi di atas SMA5 dan SMA20, mengindikasikan tekanan beli harian yang sangat masif.",
-        "catalyst": "Akselerasi volume beli kuat yang mendorong penguatan harga.",
-        "price_at_fetch": 1900.0
+        "reason": "Volume sangat tinggi (2.16x rata-rata) dan tren penguatan 5 hari berturut-turut (+27.15%), cocok untuk trader agresif penunggang momentum.",
+        "catalyst": "Volume breakout dan reli kencang sektor barang konsumsi.",
+        "price_at_fetch": 1920.0
       },
       {
-        "ticker": "DEWA",
+        "ticker": "BRIS",
         "action": "BUY",
-        "entry_range": "378 - 384",
-        "target": "405",
-        "stop_loss": "360",
+        "entry_range": "1600 - 1620",
+        "target": "1670 - 1700",
+        "stop_loss": "1570",
         "risk_level": "tinggi",
-        "reason": "Potensi pantulan teknikal (technical rebound) dari zona sangat jenuh jual (RSI 28.4) didukung lonjakan volume 1.67x.",
-        "catalyst": "Technical rebound dari kondisi oversold.",
-        "price_at_fetch": 382.0
+        "reason": "Indikator RSI mencapai level jenuh jual ekstrem (16.7), memicu potensi technical rebound jangka pendek/day trade.",
+        "catalyst": "Kondisi deeply oversold yang siap memicu teknikal pantulan.",
+        "price_at_fetch": 1615.0
+      },
+      {
+        "ticker": "AVIA",
+        "action": "BUY",
+        "entry_range": "330 - 336",
+        "target": "348 - 355",
+        "stop_loss": "320",
+        "risk_level": "tinggi",
+        "reason": "RSI 22.2 mengindikasikan harga oversold diiringi akumulasi volume di atas rata-rata (1.2x).",
+        "catalyst": "Potensi technical rebound pasca penurunan tajam 5 hari.",
+        "price_at_fetch": 334.0
       }
     ],
     "swing_trade": [
       {
-        "ticker": "BMRI",
-        "action": "BUY",
-        "entry_range": "4300 - 4360",
-        "target": "4600",
-        "stop_loss": "4180",
-        "risk_level": "sedang",
-        "reason": "Tren naik jangka menengah sangat solid (+6.44% dalam 20 hari) dan bergerak stabil di atas SMA20 dan SMA5 dengan indikator RSI 61.7 yang sehat.",
-        "catalyst": "Tren bullish terkonfirmasi pada saham perbankan berkapitalisasi besar.",
-        "price_at_fetch": 4350.0
-      },
-      {
         "ticker": "MAPI",
         "action": "BUY",
-        "entry_range": "1430 - 1460",
-        "target": "1600",
-        "stop_loss": "1340",
+        "entry_range": "1460 - 1495",
+        "target": "1620 - 1680",
+        "stop_loss": "1385",
         "risk_level": "sedang",
-        "reason": "Sinyal pembalikan arah tren (trend reversal) kuat dari fase penurunan sebelumnya, ditandai keberhasilan menembus SMA20 dengan konfirmasi volume tinggi.",
-        "catalyst": "Sinyal awal akumulasi dan reversal tren harga.",
-        "price_at_fetch": 1455.0
+        "reason": "Tren swing berbalik positif (di atas SMA20) dengan akumulasi volume konsisten dan penguatan 11.57% dalam 5 hari terakhir.",
+        "catalyst": "Momentum pemulihan sektor ritel dan breakout tren menengah.",
+        "price_at_fetch": 1495.0
       },
       {
-        "ticker": "ERAA",
+        "ticker": "BFIN",
         "action": "BUY",
-        "entry_range": "600 - 620",
-        "target": "690",
-        "stop_loss": "545",
+        "entry_range": "945 - 965",
+        "target": "1030 - 1080",
+        "stop_loss": "865",
+        "risk_level": "sedang",
+        "reason": "Bertahan di atas SMA20 dengan struktur tren 20 hari naik (+9.09%) serta pembentukan support yang kokoh.",
+        "catalyst": "Keputusan OJK membatalkan batas pendanaan pindar yang memberikan sentimen positif bagi ekosistem pembiayaan/fintech.",
+        "price_at_fetch": 960.0
+      },
+      {
+        "ticker": "ULTJ",
+        "action": "BUY",
+        "entry_range": "1850 - 1920",
+        "target": "2150 - 2250",
+        "stop_loss": "1740",
         "risk_level": "tinggi",
-        "reason": "Performa 20 hari sangat impresif (+32.48%) dan terus menguat di atas SMA20 (546.4) serta SMA5 (599.0).",
-        "catalyst": "Kelanjutan tren bullish jangka menengah.",
-        "price_at_fetch": 620.0
-      },
-      {
-        "ticker": "ADRO",
-        "action": "BUY",
-        "entry_range": "2640 - 2680",
-        "target": "2820",
-        "stop_loss": "2500",
-        "risk_level": "sedang",
-        "reason": "Harga bertahan di atas SMA20 dengan konsolidasi yang matang dan posisi RSI di level 50.0 (netral).",
-        "catalyst": "Pertahanan support SMA20 yang kokoh mengindikasikan potensi kelanjutan tren naik.",
-        "price_at_fetch": 2670.0
+        "reason": "Uptrend jangka menengah sangat kuat (+28% dalam 20 hari) didukung peningkatan volume signifikan di atas SMA5 dan SMA20.",
+        "catalyst": "Rotasi modal ke saham sektor consumer staples berkapitalisasi menengah.",
+        "price_at_fetch": 1920.0
       }
     ]
   },
   "top_pick_of_the_day": {
     "ticker": "MAPI",
-    "profile": "day_trade",
-    "reason": "MAPI memperlihatkan kombinasi ideal antara lonjakan volume yang sangat tinggi (2.13x rata-rata) dan keberhasilan menembus garis resisten SMA20 (+5.43%), sementara nilai RSI 45.8 mengindikasikan harga belum overbought dan memiliki potensi ruang kenaikan besar.",
-    "price_at_fetch": 1455.0
+    "profile": "swing_trade",
+    "reason": "MAPI memperlihatkan kombinasi ideal antara lonjakan volume (1.43x), keberhasilan menembus SMA20, serta RSI 61.2 yang masih memberikan ruang kenaikan cukup luas baik untuk momentum harian maupun swing beberapa minggu.",
+    "price_at_fetch": 1495.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6436.9,
-    "change_pct": -0.38
+    "value": 6439.7,
+    "change_pct": -0.35
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 6350.0
+      "last_close": 6225.0
     },
     {
       "ticker": "BBRI",
-      "last_close": 3330.0
+      "last_close": 3270.0
     },
     {
       "ticker": "BMRI",
-      "last_close": 4350.0
+      "last_close": 4260.0
     },
     {
       "ticker": "BBNI",
-      "last_close": 3740.0
+      "last_close": 3660.0
     },
     {
       "ticker": "TLKM",
-      "last_close": 2590.0
+      "last_close": 2550.0
     },
     {
       "ticker": "ASII",
-      "last_close": 4900.0
+      "last_close": 4910.0
     },
     {
       "ticker": "UNVR",
-      "last_close": 1640.0
+      "last_close": 1630.0
     },
     {
       "ticker": "ICBP",
-      "last_close": 6950.0
+      "last_close": 6875.0
     },
     {
       "ticker": "INDF",
-      "last_close": 7175.0
+      "last_close": 7000.0
     },
     {
       "ticker": "KLBF",
-      "last_close": 775.0
+      "last_close": 755.0
     },
     {
       "ticker": "ADRO",
-      "last_close": 2670.0
+      "last_close": 2680.0
     },
     {
       "ticker": "PTBA",
-      "last_close": 3140.0
+      "last_close": 3120.0
     },
     {
       "ticker": "ITMG",
@@ -161,19 +150,19 @@
     },
     {
       "ticker": "ANTM",
-      "last_close": 3280.0
+      "last_close": 3270.0
     },
     {
       "ticker": "INCO",
-      "last_close": 4680.0
+      "last_close": 4730.0
     },
     {
       "ticker": "MDKA",
-      "last_close": 2870.0
+      "last_close": 2890.0
     },
     {
       "ticker": "TINS",
-      "last_close": 4700.0
+      "last_close": 4650.0
     },
     {
       "ticker": "GOTO",
@@ -181,111 +170,111 @@
     },
     {
       "ticker": "BUKA",
-      "last_close": 105.0
+      "last_close": 103.0
     },
     {
       "ticker": "EMTK",
-      "last_close": 494.0
+      "last_close": 484.0
     },
     {
       "ticker": "BRPT",
-      "last_close": 1610.0
+      "last_close": 1600.0
     },
     {
       "ticker": "TPIA",
-      "last_close": 1830.0
+      "last_close": 1825.0
     },
     {
       "ticker": "AVIA",
-      "last_close": 342.0
+      "last_close": 334.0
     },
     {
       "ticker": "AMRT",
-      "last_close": 1325.0
+      "last_close": 1300.0
     },
     {
       "ticker": "MAPI",
-      "last_close": 1455.0
-    },
-    {
-      "ticker": "CPIN",
-      "last_close": 3120.0
-    },
-    {
-      "ticker": "JPFA",
-      "last_close": 2320.0
-    },
-    {
-      "ticker": "SMGR",
-      "last_close": 1620.0
-    },
-    {
-      "ticker": "INTP",
-      "last_close": 5300.0
-    },
-    {
-      "ticker": "PGAS",
       "last_close": 1495.0
     },
     {
+      "ticker": "CPIN",
+      "last_close": 3100.0
+    },
+    {
+      "ticker": "JPFA",
+      "last_close": 2300.0
+    },
+    {
+      "ticker": "SMGR",
+      "last_close": 1570.0
+    },
+    {
+      "ticker": "INTP",
+      "last_close": 5250.0
+    },
+    {
+      "ticker": "PGAS",
+      "last_close": 1485.0
+    },
+    {
       "ticker": "MEDC",
-      "last_close": 1525.0
+      "last_close": 1505.0
     },
     {
       "ticker": "ELSA",
-      "last_close": 705.0
+      "last_close": 695.0
     },
     {
       "ticker": "PGEO",
-      "last_close": 1055.0
+      "last_close": 1045.0
     },
     {
       "ticker": "BRIS",
-      "last_close": 1645.0
+      "last_close": 1615.0
     },
     {
       "ticker": "ARTO",
-      "last_close": 945.0
+      "last_close": 925.0
     },
     {
       "ticker": "BBTN",
-      "last_close": 1170.0
+      "last_close": 1165.0
     },
     {
       "ticker": "AKRA",
-      "last_close": 1470.0
+      "last_close": 1455.0
     },
     {
       "ticker": "UNTR",
-      "last_close": 25700.0
+      "last_close": 25575.0
     },
     {
       "ticker": "HRUM",
-      "last_close": 895.0
+      "last_close": 900.0
     },
     {
       "ticker": "DEWA",
-      "last_close": 382.0
+      "last_close": 374.0
     },
     {
       "ticker": "BUMI",
-      "last_close": 202.0
+      "last_close": 195.0
     },
     {
       "ticker": "ACES",
-      "last_close": 352.0
+      "last_close": 348.0
     },
     {
       "ticker": "ERAA",
-      "last_close": 620.0
+      "last_close": 630.0
     },
     {
       "ticker": "SCMA",
-      "last_close": 196.0
+      "last_close": 193.0
     },
     {
       "ticker": "MNCN",
-      "last_close": 200.0
+      "last_close": 198.0
     },
     {
       "ticker": "CTRA",
@@ -293,19 +282,19 @@
     },
     {
       "ticker": "EXCL",
-      "last_close": 2580.0
+      "last_close": 2530.0
     },
     {
       "ticker": "ISAT",
-      "last_close": 2370.0
+      "last_close": 2340.0
     },
     {
       "ticker": "TOWR",
-      "last_close": 442.0
+      "last_close": 432.0
     },
     {
       "ticker": "MTEL",
-      "last_close": 478.0
+      "last_close": 480.0
     },
     {
       "ticker": "WIKA",
@@ -313,39 +302,39 @@
     },
     {
       "ticker": "PTPP",
-      "last_close": 197.0
+      "last_close": 196.0
     },
     {
       "ticker": "MYOR",
-      "last_close": 1515.0
+      "last_close": 1500.0
     },
     {
       "ticker": "ULTJ",
-      "last_close": 1900.0
+      "last_close": 1920.0
     },
     {
       "ticker": "MIKA",
-      "last_close": 1750.0
+      "last_close": 1690.0
     },
     {
       "ticker": "HEAL",
-      "last_close": 680.0
+      "last_close": 660.0
     },
     {
       "ticker": "BFIN",
-      "last_close": 985.0
+      "last_close": 960.0
     },
     {
       "ticker": "LPPF",
-      "last_close": 1615.0
+      "last_close": 1605.0
     },
     {
       "ticker": "SRTG",
-      "last_close": 1770.0
+      "last_close": 1775.0
     },
     {
       "ticker": "RAJA",
-      "last_close": 760.0
+      "last_close": 745.0
     },
     {
       "ticker": "ESSA",
@@ -353,11 +342,11 @@
     },
     {
       "ticker": "KAEF",
-      "last_close": 448.0
+      "last_close": 446.0
     },
     {
       "ticker": "PANI",
-      "last_close": 5450.0
+      "last_close": 5300.0
     }
   ]
 }
