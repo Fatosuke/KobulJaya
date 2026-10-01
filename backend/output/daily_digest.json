@@ -1,109 +1,98 @@
 {
   "date": "2026-10-01",
-  "market_context_summary": "Pasar saham domestik berada dalam tekanan jual cukup dalam dengan mayoritas saham berada di bawah SMA20 serta mengindikasikan kondisi oversold ekstrem. Peringatan politik nasional Hari Kesaktian Pancasila tidak memberikan pengaruh ekonomi signifikan terhadap pasar. Saham berbasis komoditas dan alat berat seperti UNTR menjadi penggerak utama pasar dengan penguatan signifikan di tengah volume tinggi.",
+  "market_context_summary": "Pasar saham secara umum sedang berada dalam tekanan koreksi yang kuat dengan mayoritas saham teknologis dan infrastruktur mencatatkan penurunan tajam. Namun, beberapa saham dengan RSI sangat oversold serta lonjakan volume ekstrim berpotensi mengalami teknikal rebound. Fokus trader agresif berada pada pemanfaatan rebound momentum harian dan saham yang bertahan di atas rata-rata pergerakan 20 hari (SMA20).",
   "profiles": {
     "day_trade": [
       {
-        "ticker": "UNTR",
-        "action": "BUY",
-        "entry_range": "26800 - 27100",
-        "target": "28200",
-        "stop_loss": "26200",
-        "risk_level": "sedang",
-        "reason": "Satu-satunya saham dalam tren di atas SMA20 dengan kenaikan harga 7.55% didukung lonjakan volume 2.16x rerata 20 hari.",
-        "catalyst": "Momentum pembeli mendominasi dan breakout teknikal di tengah pelemahan pasar secara umum.",
-        "price_at_fetch": 27075.0
-      },
-      {
-        "ticker": "TLKM",
-        "action": "BUY",
-        "entry_range": "2270 - 2300",
-        "target": "2370",
-        "stop_loss": "2200",
-        "risk_level": "tinggi",
-        "reason": "Volume transaksi tinggi (2.62x rerata) pada kondisi RSI oversold (18.5) berpotensi memicu Technical Rebound cepat.",
-        "catalyst": "Aktivitas akumulasi di area jenuh jual.",
-        "price_at_fetch": 2290.0
-      },
-      {
-        "ticker": "BRIS",
-        "action": "BUY",
-        "entry_range": "1400 - 1425",
-        "target": "1480",
-        "stop_loss": "1360",
-        "risk_level": "tinggi",
-        "reason": "RSI sangat jenuh jual (11.5) dengan lonjakan volume 2.28x membuka peluang pantulan momentum harian.",
-        "catalyst": "Tekanan jual mulai reda di area oversold ekstrem.",
-        "price_at_fetch": 1420.0
-      },
-      {
         "ticker": "GOTO",
         "action": "BUY",
-        "entry_range": "31 - 33",
-        "target": "36",
-        "stop_loss": "30",
+        "entry_range": "28 - 29",
+        "target": "32",
+        "stop_loss": "25.6",
         "risk_level": "tinggi",
-        "reason": "Volume sangat masif (12.64x rerata) dengan indikator RSI mencapai 0.0, berpotensi memicu dead cat bounce.",
-        "catalyst": "Volume klimaks di area jenuh jual ekstrem.",
-        "price_at_fetch": 32.0
+        "reason": "Volume perdagangan melonjak signifikan hingga 13.82 kali rata-rata 20 hari dengan RSI berada di angka 0.0 (ekstrim oversold), berpotensi tinggi memicu teknikal rebound cepat.",
+        "catalyst": "Lonjakan volume transaksi masif yang mengindikasikan akumulasi kian masif di area harga bawah.",
+        "price_at_fetch": 28.0
+      },
+      {
+        "ticker": "MNCN",
+        "action": "BUY",
+        "entry_range": "120 - 123",
+        "target": "132",
+        "stop_loss": "105",
+        "risk_level": "tinggi",
+        "reason": "Mengalami kenaikan +4.31% di tengah RSI yang sangat oversold (15.4), memberi sinyal pembalikan arah jangka sangat pendek.",
+        "catalyst": "Rebound dari area jenuh jual (oversold bounce) harian.",
+        "price_at_fetch": 121.0
+      },
+      {
+        "ticker": "BUKA",
+        "action": "BUY",
+        "entry_range": "105 - 108",
+        "target": "114",
+        "stop_loss": "102",
+        "risk_level": "sedang",
+        "reason": "Mencatatkan performa positif harian +1.9% dengan RSI 50.0 yang mulai netral bergerak naik di atas SMA5.",
+        "catalyst": "Ketahanan harga di tengah pelemahan IHSG secara keseluruhan.",
+        "price_at_fetch": 107.0
       }
     ],
     "swing_trade": [
       {
         "ticker": "UNTR",
         "action": "BUY",
-        "entry_range": "26500 - 27100",
-        "target": "29500",
-        "stop_loss": "25650",
+        "entry_range": "25800 - 26100",
+        "target": "27500",
+        "stop_loss": "24490",
         "risk_level": "sedang",
-        "reason": "Struktur tren teknikal paling kokoh (above_sma20) dengan konfirmasi volume tinggi dan kenaikan harian mendominasi pasar.",
-        "catalyst": "Tren naik terkonfirmasi serta momentum sektoral yang kuat.",
-        "price_at_fetch": 27075.0
+        "reason": "Masih mampu bertahan di atas tren SMA20 dengan kenaikan 5 hari sebesar +7.66%, menunjukkan tren teknikal yang relatif paling solid dibanding saham lainnya.",
+        "catalyst": "Tren teknikal kuat di atas SMA20 saat mayoritas saham pasar melemah.",
+        "price_at_fetch": 26000.0
       },
       {
-        "ticker": "TLKM",
+        "ticker": "MAPI",
         "action": "BUY",
-        "entry_range": "2250 - 2300",
-        "target": "2500",
-        "stop_loss": "2150",
-        "risk_level": "sedang",
-        "reason": "Kondisi oversold pada saham berkapitalisasi besar memberikan peluangan swing mean-reversion menuju area SMA20.",
-        "catalyst": "Lonjakan volume jual yang mulai direspon aksi beli akumulatif.",
-        "price_at_fetch": 2290.0
+        "entry_range": "1500 - 1525",
+        "target": "1650",
+        "stop_loss": "1393",
+        "risk_level": "tinggi",
+        "reason": "Memiliki tren positif di atas SMA20 dengan performa 20 hari mencapai +7.04% serta momentum bullish yang kuat.",
+        "catalyst": "Tren performa positif bulanan yang konsisten menguat.",
+        "price_at_fetch": 1520.0
       },
       {
         "ticker": "BRIS",
         "action": "BUY",
-        "entry_range": "1400 - 1430",
-        "target": "1600",
-        "stop_loss": "1320",
-        "risk_level": "tinggi",
-        "reason": "Indikator RSI 11.5 menunjukkan kondisi jenuh jual akut, berpotensi mengalami pemulihan harga menengah menuju SMA20.",
-        "catalyst": "Penurunan harga yang sudah melandai disertai volume tinggi.",
-        "price_at_fetch": 1420.0
+        "entry_range": "1370 - 1390",
+        "target": "1520",
+        "stop_loss": "1282",
+        "risk_level": "sedang",
+        "reason": "Tingkat RSI 11.5 berada pada area sangat oversold, memberikan ruang swing rebound menuju rata-rata pergerakan SMA5/SMA20.",
+        "catalyst": "Peluang koreksi sehat terhenti dan berpotensi memicu akumulasi dasar (bottoming).",
+        "price_at_fetch": 1385.0
       },
       {
-        "ticker": "EMTK",
+        "ticker": "TLKM",
         "action": "BUY",
-        "entry_range": "380 - 392",
-        "target": "450",
-        "stop_loss": "355",
-        "risk_level": "tinggi",
-        "reason": "RSI berada di angka 7.6 (ekstrem jenuh jual) dengan koreksi 20 hari mencapai -25.38%, berpeluang swing rebound.",
-        "catalyst": "Potensi pembalikan arah teknikal dari area support terendah.",
-        "price_at_fetch": 388.0
+        "entry_range": "2230 - 2260",
+        "target": "2450",
+        "stop_loss": "2105",
+        "risk_level": "sedang",
+        "reason": "Volume perdagangan cukup stabil (0.98x avg) dengan tingkat jenuh jual tinggi (RSI 18.2) untuk saham bluechip.",
+        "catalyst": "Potensi technical rebound saham big-cap dari zona oversold.",
+        "price_at_fetch": 2250.0
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "UNTR",
-    "profile": "swing_trade",
-    "reason": "UNTR menonjol sebagai satu-satunya saham dengan tren bullish (above_sma20), kenaikan harga +7.55%, serta didukung lonjakan volume 2.16x dari rata-rata harian di tengah koreksi pasar secara luas.",
-    "price_at_fetch": 27075.0
+    "ticker": "GOTO",
+    "profile": "day_trade",
+    "reason": "Lonjakan volume transaksi yang mencapai 13.8x rata-rata 20 hari dikombinasikan dengan indikator RSI di level 0.0 menjadi peluang spekulatif rebound terbaik untuk trader agresif.",
+    "price_at_fetch": 28.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 6071.1,
+    "value": 6020.7,
     "change_pct": -0.83
   },
   "all_prices": [
@@ -113,31 +102,31 @@
     },
     {
       "ticker": "BBRI",
-      "last_close": 3140.0
+      "last_close": 3110.0
     },
     {
       "ticker": "BMRI",
-      "last_close": 4010.0
+      "last_close": 4020.0
     },
     {
       "ticker": "BBNI",
-      "last_close": 3390.0
+      "last_close": 3400.0
     },
     {
       "ticker": "TLKM",
-      "last_close": 2290.0
+      "last_close": 2250.0
     },
     {
       "ticker": "ASII",
-      "last_close": 4600.0
+      "last_close": 4540.0
     },
     {
       "ticker": "UNVR",
-      "last_close": 1620.0
+      "last_close": 1615.0
     },
     {
       "ticker": "ICBP",
-      "last_close": 6675.0
+      "last_close": 6625.0
     },
     {
       "ticker": "INDF",
@@ -145,19 +134,19 @@
     },
     {
       "ticker": "KLBF",
-      "last_close": 730.0
+      "last_close": 725.0
     },
     {
       "ticker": "ADRO",
-      "last_close": 2430.0
+      "last_close": 2410.0
     },
     {
       "ticker": "PTBA",
-      "last_close": 3120.0
+      "last_close": 3070.0
     },
     {
       "ticker": "ITMG",
-      "last_close": 25200.0
+      "last_close": 24900.0
     },
     {
       "ticker": "ANTM",
@@ -165,35 +154,35 @@
     },
     {
       "ticker": "INCO",
-      "last_close": 4220.0
+      "last_close": 4160.0
     },
     {
       "ticker": "MDKA",
-      "last_close": 2880.0
+      "last_close": 2830.0
     },
     {
       "ticker": "TINS",
-      "last_close": 4650.0
+      "last_close": 4680.0
     },
     {
       "ticker": "GOTO",
-      "last_close": 32.0
+      "last_close": 28.0
     },
     {
       "ticker": "BUKA",
-      "last_close": 105.0
+      "last_close": 107.0
     },
     {
       "ticker": "EMTK",
-      "last_close": 388.0
+      "last_close": 394.0
     },
     {
       "ticker": "BRPT",
-      "last_close": 1405.0
+      "last_close": 1400.0
     },
     {
       "ticker": "TPIA",
-      "last_close": 1735.0
+      "last_close": 1710.0
     },
     {
       "ticker": "AVIA",
@@ -201,99 +190,99 @@
     },
     {
       "ticker": "AMRT",
-      "last_close": 1320.0
+      "last_close": 1310.0
     },
     {
       "ticker": "MAPI",
-      "last_close": 1550.0
+      "last_close": 1520.0
     },
     {
       "ticker": "CPIN",
-      "last_close": 2960.0
+      "last_close": 2940.0
     },
     {
       "ticker": "JPFA",
-      "last_close": 2030.0
+      "last_close": 2010.0
     },
     {
       "ticker": "SMGR",
-      "last_close": 1450.0
+      "last_close": 1460.0
     },
     {
       "ticker": "INTP",
-      "last_close": 4860.0
+      "last_close": 4840.0
     },
     {
       "ticker": "PGAS",
-      "last_close": 1395.0
-    },
-    {
-      "ticker": "MEDC",
       "last_close": 1390.0
     },
     {
+      "ticker": "MEDC",
+      "last_close": 1365.0
+    },
+    {
       "ticker": "ELSA",
-      "last_close": 645.0
+      "last_close": 630.0
     },
     {
       "ticker": "PGEO",
-      "last_close": 975.0
+      "last_close": 950.0
     },
     {
       "ticker": "BRIS",
-      "last_close": 1420.0
+      "last_close": 1385.0
     },
     {
       "ticker": "ARTO",
-      "last_close": 795.0
+      "last_close": 790.0
     },
     {
       "ticker": "BBTN",
-      "last_close": 1070.0
+      "last_close": 1055.0
     },
     {
       "ticker": "AKRA",
-      "last_close": 1450.0
+      "last_close": 1440.0
     },
     {
       "ticker": "UNTR",
-      "last_close": 27075.0
+      "last_close": 26000.0
     },
     {
       "ticker": "HRUM",
-      "last_close": 850.0
+      "last_close": 825.0
     },
     {
       "ticker": "DEWA",
-      "last_close": 342.0
-    },
-    {
-      "ticker": "BUMI",
-      "last_close": 175.0
-    },
-    {
-      "ticker": "ACES",
       "last_close": 334.0
     },
     {
+      "ticker": "BUMI",
+      "last_close": 174.0
+    },
+    {
+      "ticker": "ACES",
+      "last_close": 330.0
+    },
+    {
       "ticker": "ERAA",
-      "last_close": 595.0
+      "last_close": 580.0
     },
     {
       "ticker": "SCMA",
-      "last_close": 171.0
+      "last_close": 172.0
     },
     {
       "ticker": "MNCN",
-      "last_close": 116.0
+      "last_close": 121.0
     },
     {
       "ticker": "CTRA",
-      "last_close": 530.0
+      "last_close": 535.0
     },
     {
       "ticker": "EXCL",
-      "last_close": 2410.0
+      "last_close": 2400.0
     },
     {
       "ticker": "ISAT",
@@ -305,7 +294,7 @@
     },
     {
       "ticker": "MTEL",
-      "last_close": 450.0
+      "last_close": 442.0
     },
     {
       "ticker": "WIKA",
@@ -313,35 +302,35 @@
     },
     {
       "ticker": "PTPP",
-      "last_close": 169.0
+      "last_close": 165.0
     },
     {
       "ticker": "MYOR",
-      "last_close": 1390.0
+      "last_close": 1375.0
     },
     {
       "ticker": "ULTJ",
-      "last_close": 2050.0
+      "last_close": 2060.0
     },
     {
       "ticker": "MIKA",
-      "last_close": 1700.0
+      "last_close": 1665.0
     },
     {
       "ticker": "HEAL",
-      "last_close": 600.0
+      "last_close": 580.0
     },
     {
       "ticker": "BFIN",
-      "last_close": 920.0
+      "last_close": 925.0
     },
     {
       "ticker": "LPPF",
-      "last_close": 1575.0
+      "last_close": 1565.0
     },
     {
       "ticker": "SRTG",
-      "last_close": 1780.0
+      "last_close": 1755.0
     },
     {
       "ticker": "RAJA",
@@ -349,15 +338,15 @@
     },
     {
       "ticker": "ESSA",
-      "last_close": 570.0
+      "last_close": 560.0
     },
     {
       "ticker": "KAEF",
-      "last_close": 410.0
+      "last_close": 408.0
     },
     {
       "ticker": "PANI",
-      "last_close": 4470.0
+      "last_close": 4440.0
     }
   ]
 }
