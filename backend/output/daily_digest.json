@@ -1,300 +1,221 @@
 {
   "date": "2026-10-12",
-  "market_context_summary": "Pasar secara umum mengalami tekanan jual yang cukup dalam dengan mayoritas saham masuk ke area jenuh jual (oversold). Namun, saham di sektor semen seperti INTP dan SMGR berhasil tampil beda (outperform) dengan rebound kuat di atas garis SMA20 diiringi kenaikan volume.",
+  "market_context_summary": "Data teknikal saham terpilih saat ini tidak memuat harga penutupan, indikator RSI, maupun ATR (bernilai NaN/null). Selain itu, berita pasar yang tersedia tidak memberikan katalis ekonomi atau politik yang relevan bagi pergerakan saham.",
   "profiles": {
-    "day_trade": [
-      {
-        "ticker": "INTP",
-        "action": "BUY",
-        "entry_range": "5200 - 5225",
-        "target": "5400",
-        "stop_loss": "5030",
-        "risk_level": "sedang",
-        "reason": "Penguatan 3.47% menembus SMA20 didukung volume signifikan (1.79x rerata 20 hari) dan RSI netral-bullish (53.0).",
-        "catalyst": "Sektor semen bergerak naik melawan arus koreksi pasar.",
-        "price_at_fetch": 5225.0
-      },
-      {
-        "ticker": "SMGR",
-        "action": "BUY",
-        "entry_range": "1610 - 1630",
-        "target": "1710",
-        "stop_loss": "1565",
-        "risk_level": "sedang",
-        "reason": "Melanjutkan tren naik di atas SMA20 (+3.16%) dengan volume tinggi (1.45x rerata 20 hari).",
-        "catalyst": "Rotasi sektor ke saham semen yang menunjukkan kekuatan relatif.",
-        "price_at_fetch": 1630.0
-      },
-      {
-        "ticker": "TPIA",
-        "action": "BUY",
-        "entry_range": "1500 - 1515",
-        "target": "1620",
-        "stop_loss": "1425",
-        "risk_level": "tinggi",
-        "reason": "Peluang technical bounce setelah anjlok 9.55% ke area oversold (RSI 24.8) dengan volume kapitulasi tinggi (2.06x).",
-        "catalyst": "Pantulan jenuh jual (oversold bounce).",
-        "price_at_fetch": 1515.0
-      },
-      {
-        "ticker": "EXCL",
-        "action": "BUY",
-        "entry_range": "2120 - 2140",
-        "target": "2260",
-        "stop_loss": "2035",
-        "risk_level": "tinggi",
-        "reason": "Potensi dead cat bounce pasca koreksi tajam 8.55% dan RSI menyentuh level oversold 29.9.",
-        "catalyst": "Pantulan jenuh jual jangka pendek.",
-        "price_at_fetch": 2140.0
-      },
-      {
-        "ticker": "ISAT",
-        "action": "BUY",
-        "entry_range": "2030 - 2050",
-        "target": "2180",
-        "stop_loss": "1938",
-        "risk_level": "tinggi",
-        "reason": "Indikator RSI berada di kondisi extremely oversold (14.0), sangat rawan mengalami pantulan cepat.",
-        "catalyst": "Technical bounce dari jenuh jual ekstrem.",
-        "price_at_fetch": 2050.0
-      }
-    ],
-    "swing_trade": [
-      {
-        "ticker": "INTP",
-        "action": "BUY",
-        "entry_range": "5150 - 5225",
-        "target": "5550",
-        "stop_loss": "4900",
-        "risk_level": "sedang",
-        "reason": "Struktur teknikal berbalik membaik (trend above_sma20) dengan konfirmasi volume tinggi, menandakan akumulasi.",
-        "catalyst": "Outperformer di tengah penurunan pasar umum.",
-        "price_at_fetch": 5225.0
-      },
-      {
-        "ticker": "SMGR",
-        "action": "BUY",
-        "entry_range": "1600 - 1630",
-        "target": "1780",
-        "stop_loss": "1525",
-        "risk_level": "sedang",
-        "reason": "Berhasil membentuk tren naik jangka pendek di atas SMA5 & SMA20 dengan performa mingguan +7.24%.",
-        "catalyst": "Penguatan sektor semen secara umum.",
-        "price_at_fetch": 1630.0
-      }
-    ]
+    "day_trade": [],
+    "swing_trade": []
   },
   "top_pick_of_the_day": {
-    "ticker": "INTP",
-    "profile": "swing_trade",
-    "reason": "Menunjukkan kekuatan relatif paling menonjol dengan berhasil ditutup naik +3.47% di atas SMA20 diiringi volume lonjakan 1.79x rerata harian.",
-    "price_at_fetch": 5225.0
+    "ticker": "",
+    "profile": "",
+    "reason": "Tidak ada rekomendasi utama karena seluruh data teknikal bernilai NaN/null dan tidak terdapat katalis berita yang memadai untuk trading.",
+    "price_at_fetch": null
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 5946.2,
-    "change_pct": -2.42
+    "value": 6093.8,
+    "change_pct": 1.04
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 5975.0
+      "last_close": NaN
     },
     {
       "ticker": "BBRI",
-      "last_close": 3110.0
+      "last_close": NaN
     },
     {
       "ticker": "BMRI",
-      "last_close": 4020.0
+      "last_close": NaN
     },
     {
       "ticker": "BBNI",
-      "last_close": 3420.0
+      "last_close": NaN
     },
     {
       "ticker": "TLKM",
-      "last_close": 2290.0
+      "last_close": NaN
     },
     {
       "ticker": "ASII",
-      "last_close": 4830.0
+      "last_close": NaN
     },
     {
       "ticker": "UNVR",
-      "last_close": 1590.0
+      "last_close": NaN
     },
     {
       "ticker": "ICBP",
-      "last_close": 7025.0
+      "last_close": NaN
     },
     {
       "ticker": "INDF",
-      "last_close": 7025.0
+      "last_close": NaN
     },
     {
       "ticker": "KLBF",
-      "last_close": 775.0
+      "last_close": NaN
     },
     {
       "ticker": "ADRO",
-      "last_close": 2530.0
+      "last_close": NaN
     },
     {
       "ticker": "PTBA",
-      "last_close": 3260.0
+      "last_close": NaN
     },
     {
       "ticker": "ITMG",
-      "last_close": 25400.0
+      "last_close": NaN
     },
     {
       "ticker": "ANTM",
-      "last_close": 3120.0
+      "last_close": NaN
     },
     {
       "ticker": "INCO",
-      "last_close": 4130.0
+      "last_close": NaN
     },
     {
       "ticker": "MDKA",
-      "last_close": 2860.0
+      "last_close": NaN
     },
     {
       "ticker": "TINS",
-      "last_close": 4220.0
+      "last_close": NaN
     },
     {
       "ticker": "GOTO",
-      "last_close": 27.0
+      "last_close": NaN
     },
     {
       "ticker": "BUKA",
-      "last_close": 99.0
+      "last_close": NaN
     },
     {
       "ticker": "EMTK",
-      "last_close": 374.0
+      "last_close": NaN
     },
     {
       "ticker": "BRPT",
-      "last_close": 1345.0
+      "last_close": NaN
     },
     {
       "ticker": "TPIA",
-      "last_close": 1515.0
+      "last_close": NaN
     },
     {
       "ticker": "AVIA",
-      "last_close": 348.0
+      "last_close": NaN
     },
     {
       "ticker": "AMRT",
-      "last_close": 1240.0
+      "last_close": NaN
     },
     {
       "ticker": "MAPI",
-      "last_close": 1505.0
+      "last_close": NaN
     },
     {
       "ticker": "CPIN",
-      "last_close": 2980.0
+      "last_close": NaN
     },
     {
       "ticker": "JPFA",
-      "last_close": 1990.0
+      "last_close": NaN
     },
     {
       "ticker": "SMGR",
-      "last_close": 1630.0
+      "last_close": NaN
     },
     {
       "ticker": "INTP",
-      "last_close": 5225.0
+      "last_close": NaN
     },
     {
       "ticker": "PGAS",
-      "last_close": 1385.0
+      "last_close": NaN
     },
     {
       "ticker": "MEDC",
-      "last_close": 1450.0
+      "last_close": NaN
     },
     {
       "ticker": "ELSA",
-      "last_close": 630.0
+      "last_close": NaN
     },
     {
       "ticker": "PGEO",
-      "last_close": 985.0
+      "last_close": NaN
     },
     {
       "ticker": "BRIS",
-      "last_close": 1340.0
+      "last_close": NaN
     },
     {
       "ticker": "ARTO",
-      "last_close": 755.0
+      "last_close": NaN
     },
     {
       "ticker": "BBTN",
-      "last_close": 1040.0
+      "last_close": NaN
     },
     {
       "ticker": "AKRA",
-      "last_close": 1465.0
+      "last_close": NaN
     },
     {
       "ticker": "UNTR",
-      "last_close": 24500.0
+      "last_close": NaN
     },
     {
       "ticker": "HRUM",
-      "last_close": 825.0
+      "last_close": NaN
     },
     {
       "ticker": "DEWA",
-      "last_close": 338.0
+      "last_close": NaN
     },
     {
       "ticker": "BUMI",
-      "last_close": 170.0
+      "last_close": NaN
     },
     {
       "ticker": "ACES",
-      "last_close": 322.0
+      "last_close": NaN
     },
     {
       "ticker": "ERAA",
-      "last_close": 630.0
+      "last_close": NaN
     },
     {
       "ticker": "SCMA",
-      "last_close": 178.0
+      "last_close": NaN
     },
     {
       "ticker": "MNCN",
-      "last_close": 117.0
+      "last_close": NaN
     },
     {
       "ticker": "CTRA",
-      "last_close": 545.0
+      "last_close": NaN
     },
     {
       "ticker": "EXCL",
-      "last_close": 2140.0
+      "last_close": NaN
     },
     {
       "ticker": "ISAT",
-      "last_close": 2050.0
+      "last_close": NaN
     },
     {
       "ticker": "TOWR",
-      "last_close": 448.0
+      "last_close": NaN
     },
     {
       "ticker": "MTEL",
-      "last_close": 454.0
+      "last_close": NaN
     },
     {
       "ticker": "WIKA",
@@ -306,47 +227,47 @@
     },
     {
       "ticker": "MYOR",
-      "last_close": 1385.0
+      "last_close": NaN
     },
     {
       "ticker": "ULTJ",
-      "last_close": 2130.0
+      "last_close": NaN
     },
     {
       "ticker": "MIKA",
-      "last_close": 1740.0
+      "last_close": NaN
     },
     {
       "ticker": "HEAL",
-      "last_close": 610.0
+      "last_close": NaN
     },
     {
       "ticker": "BFIN",
-      "last_close": 910.0
+      "last_close": NaN
     },
     {
       "ticker": "LPPF",
-      "last_close": 1585.0
+      "last_close": NaN
     },
     {
       "ticker": "SRTG",
-      "last_close": 1710.0
+      "last_close": NaN
     },
     {
       "ticker": "RAJA",
-      "last_close": 600.0
+      "last_close": NaN
     },
     {
       "ticker": "ESSA",
-      "last_close": 575.0
+      "last_close": NaN
     },
     {
       "ticker": "KAEF",
-      "last_close": 432.0
+      "last_close": NaN
     },
     {
       "ticker": "PANI",
-      "last_close": 4610.0
+      "last_close": NaN
     }
   ]
 }
