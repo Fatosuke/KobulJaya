@@ -1,108 +1,119 @@
 {
   "date": "2026-10-30",
-  "market_context_summary": "Pasar secara umum berada dalam tekanan koreksi dengan mayoritas saham terkoreksi tajam di bawah SMA20 dan memasuki area jenuh jual (oversold). Namun, saham sektor energi seperti PGAS dan MEDC mencatatkan penguatan berlawanan arah dengan lonjakan volume transaksi yang signifikan.",
+  "market_context_summary": "Pasar secara umum mengalami tekanan jual tercermin dari mayoritas saham yang berada di bawah SMA20, namun saham momentum seperti PGAS dan PTBA mampu menguat signifikan dengan lonjakan volume. Kondisi oversold yang ekstrim pada beberapa saham memberikan peluang Rebound teknikal jangka pendek bagi trader agresif.",
   "profiles": {
     "day_trade": [
       {
         "ticker": "PGAS",
         "action": "BUY",
-        "entry_range": "1310 - 1330",
-        "target": "1400 - 1430",
-        "stop_loss": "1230",
-        "risk_level": "sedang",
-        "reason": "Momentum penguatan kuat +9.47% didukung oleh lonjakan volume tinggi sebesar 2.15x dari rata-rata 20 hari.",
-        "catalyst": "Spike volume dan momentum bullish kuat di sektor energi.",
-        "price_at_fetch": 1330.0
-      },
-      {
-        "ticker": "MEDC",
-        "action": "BUY",
-        "entry_range": "1380 - 1395",
-        "target": "1450 - 1480",
-        "stop_loss": "1290",
-        "risk_level": "sedang",
-        "reason": "Mencatatkan kenaikan +4.10% dan berada dalam tren positif jangka pendek bersama sektor energi.",
-        "catalyst": "Rotasi modal ke sektor energi dan penguatan harga harian.",
-        "price_at_fetch": 1395.0
-      },
-      {
-        "ticker": "ERAA",
-        "action": "BUY",
-        "entry_range": "474 - 484",
-        "target": "515 - 530",
-        "stop_loss": "435",
+        "entry_range": "1300 - 1325",
+        "target": "1390 - 1420",
+        "stop_loss": "1220",
         "risk_level": "tinggi",
-        "reason": "Volume transaksi di atas rata-rata (1.29x) dengan indikator RSI jenuh jual (28.8) membuka peluang rebound cepat.",
-        "catalyst": "Potential intraday oversold bounce.",
-        "price_at_fetch": 484.0
+        "reason": "Penguatan tajam +8.64% didukung volume luar biasa 2.74x dari rata-rata 20 hari, mengindikasikan momentum beli harian yang sangat kuat.",
+        "catalyst": "Volume breakout & momentum spekulatif harian.",
+        "price_at_fetch": 1320.0
+      },
+      {
+        "ticker": "PTBA",
+        "action": "BUY",
+        "entry_range": "3200 - 3250",
+        "target": "3380 - 3450",
+        "stop_loss": "3000",
+        "risk_level": "sedang",
+        "reason": "Harga bergerak di atas SMA20 dengan kenaikan harian +5.88% dan RSI netral 50.3, menandakan tren bullish jangka pendek yang sehat.",
+        "catalyst": "Breakout SMA20 dengan kenaikan volume harian.",
+        "price_at_fetch": 3240.0
+      },
+      {
+        "ticker": "EXCL",
+        "action": "BUY",
+        "entry_range": "1700 - 1725",
+        "target": "1800 - 1840",
+        "stop_loss": "1580",
+        "risk_level": "tinggi",
+        "reason": "Mengalami pantulan momentum +5.85% dari area jenuh jual (RSI 31.2) untuk memanfaatkan technical rebound harian.",
+        "catalyst": "Technical rebound dari kondisi oversold.",
+        "price_at_fetch": 1720.0
+      },
+      {
+        "ticker": "MIKA",
+        "action": "BUY",
+        "entry_range": "1290 - 1315",
+        "target": "1360 - 1390",
+        "stop_loss": "1220",
+        "risk_level": "tinggi",
+        "reason": "Volume perdagangan melonjak 2.67x dengan RSI sangat oversold (22.9), berpotensi memicu scalping rebound cepat.",
+        "catalyst": "Spike volume di area oversold ekstrim.",
+        "price_at_fetch": 1310.0
       }
     ],
     "swing_trade": [
       {
-        "ticker": "MDKA",
+        "ticker": "PTBA",
         "action": "BUY",
-        "entry_range": "1800 - 1840",
-        "target": "2100 - 2300",
-        "stop_loss": "1520",
-        "risk_level": "tinggi",
-        "reason": "RSI berada pada level jenuh jual ekstrem (9.4) dengan akumulasi volume mulai meningkat (1.2x avg20).",
-        "catalyst": "Peluang technical rebound tajam dari area ekstrem oversold.",
-        "price_at_fetch": 1840.0
-      },
-      {
-        "ticker": "ARTO",
-        "action": "BUY",
-        "entry_range": "500 - 515",
-        "target": "600 - 650",
-        "stop_loss": "425",
-        "risk_level": "tinggi",
-        "reason": "Terkoreksi -31.8% dalam 20 hari hingga RSI menyentuh level 18.7, memberi peluang mean reversion.",
-        "catalyst": "Mean reversion menuju garis rata-rata pergerakan SMA20.",
-        "price_at_fetch": 515.0
-      },
-      {
-        "ticker": "ISAT",
-        "action": "BUY",
-        "entry_range": "1330 - 1365",
-        "target": "1550 - 1650",
-        "stop_loss": "1140",
-        "risk_level": "tinggi",
-        "reason": "Penurunan dalam -39.3% dalam 20 hari menempatkan RSI di area jenuh jual (21.3) untuk swing rebound.",
-        "catalyst": "Bargain hunting pada saham telekomunikasi pasca koreksi dalam.",
-        "price_at_fetch": 1365.0
+        "entry_range": "3200 - 3250",
+        "target": "3500 - 3650",
+        "stop_loss": "2850",
+        "risk_level": "sedang",
+        "reason": "Satu-satunya saham dalam daftar yang mampu bertahan di atas SMA20 dengan tren 20 hari positif (+1.89%), menunjukkan kekuatan relatif dibanding pasar.",
+        "catalyst": "Konfirmasi tren naik di atas SMA20.",
+        "price_at_fetch": 3240.0
       },
       {
         "ticker": "PGAS",
         "action": "BUY",
         "entry_range": "1300 - 1330",
         "target": "1450 - 1500",
-        "stop_loss": "1170",
-        "risk_level": "sedang",
-        "reason": "Pola pembalikan arah setelah kembali menembus ke atas SMA5 disertai volume yang sangat dominan.",
-        "catalyst": "Breakout harga dan volume yang berpotensi mengubah tren jangka pendek.",
-        "price_at_fetch": 1330.0
+        "stop_loss": "1145",
+        "risk_level": "tinggi",
+        "reason": "Lonjakan volume tinggi mengindikasikan akumulasi agresif yang berpotensi mendorong reversal tren menuju SMA20 di level 1342.8 dan lebih tinggi.",
+        "catalyst": "Akumulasi volume besar pasca konsolidasi.",
+        "price_at_fetch": 1320.0
+      },
+      {
+        "ticker": "ISAT",
+        "action": "BUY",
+        "entry_range": "1340 - 1370",
+        "target": "1550 - 1600",
+        "stop_loss": "1125",
+        "risk_level": "tinggi",
+        "reason": "Telah terkoreksi dalam -39.33% selama 20 hari dengan RSI ekstrim 21.3, berpotensi mengalami mean reversion menuju level SMA5 (1557).",
+        "catalyst": "Potensi mean reversion dari level deeply oversold.",
+        "price_at_fetch": 1365.0
+      },
+      {
+        "ticker": "ARTO",
+        "action": "BUY",
+        "entry_range": "500 - 515",
+        "target": "580 - 620",
+        "stop_loss": "418",
+        "risk_level": "tinggi",
+        "reason": "Kondisi RSI sangat rendah (18.4) setelah penurunan tajam, menawarkan risk/reward ratio menarik bagi swing trader agresif.",
+        "catalyst": "Peluang swing bounce dari area bottom teknikal.",
+        "price_at_fetch": 510.0
       }
     ]
   },
   "top_pick_of_the_day": {
     "ticker": "PGAS",
     "profile": "day_trade",
-    "reason": "PGAS menunjukkan kombinasi paling ideal untuk trader agresif: kenaikan harga signifikan (+9.47%) yang tervalidasi oleh lonjakan volume 2.15x dari rerata 20 hari.",
-    "price_at_fetch": 1330.0
+    "reason": "PGAS menunjukkan kombinasi ideal momentum harga (+8.64%) dan lonjakan volume signifikan (2.74x rerata harian), menjadikannya kandidat terbaik untuk daya dorong momentum trading harian.",
+    "price_at_fetch": 1320.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 5047.8,
-    "change_pct": -0.99
+    "value": 5057.0,
+    "change_pct": -0.8
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 4970.0
+      "last_close": 4980.0
     },
     {
       "ticker": "BBRI",
-      "last_close": 2780.0
+      "last_close": 2800.0
     },
     {
       "ticker": "BMRI",
@@ -110,15 +121,15 @@
     },
     {
       "ticker": "BBNI",
-      "last_close": 3300.0
+      "last_close": 3320.0
     },
     {
       "ticker": "TLKM",
-      "last_close": 1970.0
+      "last_close": 1980.0
     },
     {
       "ticker": "ASII",
-      "last_close": 4810.0
+      "last_close": 4800.0
     },
     {
       "ticker": "UNVR",
@@ -126,27 +137,27 @@
     },
     {
       "ticker": "ICBP",
-      "last_close": 5500.0
+      "last_close": 5475.0
     },
     {
       "ticker": "INDF",
-      "last_close": 6350.0
+      "last_close": 6400.0
     },
     {
       "ticker": "KLBF",
-      "last_close": 735.0
+      "last_close": 730.0
     },
     {
       "ticker": "ADRO",
-      "last_close": 2390.0
+      "last_close": 2400.0
     },
     {
       "ticker": "PTBA",
-      "last_close": 3160.0
+      "last_close": 3240.0
     },
     {
       "ticker": "ITMG",
-      "last_close": 24775.0
+      "last_close": 24900.0
     },
     {
       "ticker": "ANTM",
@@ -154,15 +165,15 @@
     },
     {
       "ticker": "INCO",
-      "last_close": 3390.0
+      "last_close": 3420.0
     },
     {
       "ticker": "MDKA",
-      "last_close": 1840.0
+      "last_close": 1855.0
     },
     {
       "ticker": "TINS",
-      "last_close": 3630.0
+      "last_close": 3660.0
     },
     {
       "ticker": "GOTO",
@@ -170,11 +181,11 @@
     },
     {
       "ticker": "BUKA",
-      "last_close": 99.0
+      "last_close": 97.0
     },
     {
       "ticker": "EMTK",
-      "last_close": 300.0
+      "last_close": 296.0
     },
     {
       "ticker": "BRPT",
@@ -182,11 +193,11 @@
     },
     {
       "ticker": "TPIA",
-      "last_close": 1285.0
+      "last_close": 1280.0
     },
     {
       "ticker": "AVIA",
-      "last_close": 300.0
+      "last_close": 298.0
     },
     {
       "ticker": "AMRT",
@@ -194,31 +205,31 @@
     },
     {
       "ticker": "MAPI",
-      "last_close": 1245.0
+      "last_close": 1235.0
     },
     {
       "ticker": "CPIN",
-      "last_close": 2590.0
+      "last_close": 2550.0
     },
     {
       "ticker": "JPFA",
-      "last_close": 1735.0
+      "last_close": 1740.0
     },
     {
       "ticker": "SMGR",
-      "last_close": 1350.0
+      "last_close": 1335.0
     },
     {
       "ticker": "INTP",
-      "last_close": 5600.0
+      "last_close": 5575.0
     },
     {
       "ticker": "PGAS",
-      "last_close": 1330.0
+      "last_close": 1320.0
     },
     {
       "ticker": "MEDC",
-      "last_close": 1395.0
+      "last_close": 1390.0
     },
     {
       "ticker": "ELSA",
@@ -226,15 +237,15 @@
     },
     {
       "ticker": "PGEO",
-      "last_close": 920.0
+      "last_close": 905.0
     },
     {
       "ticker": "BRIS",
-      "last_close": 1015.0
+      "last_close": 1005.0
     },
     {
       "ticker": "ARTO",
-      "last_close": 515.0
+      "last_close": 510.0
     },
     {
       "ticker": "BBTN",
@@ -242,35 +253,35 @@
     },
     {
       "ticker": "AKRA",
-      "last_close": 1390.0
+      "last_close": 1375.0
     },
     {
       "ticker": "UNTR",
-      "last_close": 24450.0
+      "last_close": 24200.0
     },
     {
       "ticker": "HRUM",
-      "last_close": 685.0
+      "last_close": 680.0
     },
     {
       "ticker": "DEWA",
-      "last_close": 220.0
+      "last_close": 214.0
     },
     {
       "ticker": "BUMI",
-      "last_close": 121.0
+      "last_close": 119.0
     },
     {
       "ticker": "ACES",
-      "last_close": 326.0
+      "last_close": 324.0
     },
     {
       "ticker": "ERAA",
-      "last_close": 484.0
+      "last_close": 482.0
     },
     {
       "ticker": "SCMA",
-      "last_close": 121.0
+      "last_close": 130.0
     },
     {
       "ticker": "MNCN",
@@ -282,7 +293,7 @@
     },
     {
       "ticker": "EXCL",
-      "last_close": 1680.0
+      "last_close": 1720.0
     },
     {
       "ticker": "ISAT",
@@ -290,11 +301,11 @@
     },
     {
       "ticker": "TOWR",
-      "last_close": 364.0
+      "last_close": 366.0
     },
     {
       "ticker": "MTEL",
-      "last_close": 380.0
+      "last_close": 386.0
     },
     {
       "ticker": "WIKA",
@@ -306,7 +317,7 @@
     },
     {
       "ticker": "MYOR",
-      "last_close": 1345.0
+      "last_close": 1350.0
     },
     {
       "ticker": "ULTJ",
@@ -314,15 +325,15 @@
     },
     {
       "ticker": "MIKA",
-      "last_close": 1355.0
+      "last_close": 1310.0
     },
     {
       "ticker": "HEAL",
-      "last_close": 520.0
+      "last_close": 515.0
     },
     {
       "ticker": "BFIN",
-      "last_close": 740.0
+      "last_close": 745.0
     },
     {
       "ticker": "LPPF",
@@ -330,11 +341,11 @@
     },
     {
       "ticker": "SRTG",
-      "last_close": 1630.0
+      "last_close": 1615.0
     },
     {
       "ticker": "RAJA",
-      "last_close": 396.0
+      "last_close": 394.0
     },
     {
       "ticker": "ESSA",
@@ -346,7 +357,7 @@
     },
     {
       "ticker": "PANI",
-      "last_close": 3800.0
+      "last_close": 3950.0
     }
   ]
 }
