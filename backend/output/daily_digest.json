@@ -1,311 +1,256 @@
 {
   "date": "2026-11-02",
-  "market_context_summary": "IHSG bergerak menguat di tengah pelemahan Rupiah yang mendekati Rp18.200/USD dan kekhawatiran kenaikan suku bunga The Fed. Bursa Efek Indonesia melakukan pengeluaran 81 saham konsentrasi tinggi (HSC) dari indeks, sementara pasar merespons positif data kinerja emiten dan rencana insentif pemerintah.",
+  "market_context_summary": "Kondisi ekonomi makro dan manufaktur Indonesia dilaporkan tetap ekspansif di tengah tekanan pasar dan pergerakan fluktuatif IHSG. Sektor pertambangan diselimuti sentimen kebijakan evaluasi kuota RKAB dari Kementerian ESDM serta daya tarik dividen saham BUMN tambang.",
   "profiles": {
     "day_trade": [
       {
-        "ticker": "ISAT",
+        "ticker": "ICBP",
         "action": "BUY",
-        "entry_range": "1420 - 1440",
-        "target": "1510 - 1540",
-        "stop_loss": "1300",
+        "entry_range": "Area harga penutupan / konfirmasi momentum",
+        "target": "Resisten terdekat intraday",
+        "stop_loss": "Menyesuaikan ATR14 (Data ATR14 tidak tersedia pada feed)",
         "risk_level": "tinggi",
-        "reason": "Volume melonjak signifikan mencapai 2.37x rata-rata 20 hari dari kondisi RSI oversold (25.7), mengindikasikan momentum technical rebound yang kuat.",
-        "catalyst": "Kinerja pendapatan sektor telekomunikasi (Telkom Q3 naik 3,5%) memberikan sentimen positif bagi industri.",
-        "price_at_fetch": 1435.0
+        "reason": "Volume perdagangan harian melonjak signifikan hingga 1,44x di atas rata-rata 20 hari, mengindikasikan adanya akumulasi/momentum transaksi harian.",
+        "catalyst": "Lonjakan volume relatif (volume_vs_avg20 = 1.44).",
+        "price_at_fetch": NaN
       },
       {
-        "ticker": "DEWA",
+        "ticker": "UNVR",
         "action": "BUY",
-        "entry_range": "230 - 238",
-        "target": "252 - 260",
-        "stop_loss": "205",
+        "entry_range": "Area harga penutupan / konfirmasi momentum",
+        "target": "Resisten terdekat intraday",
+        "stop_loss": "Menyesuaikan ATR14 (Data ATR14 tidak tersedia pada feed)",
         "risk_level": "tinggi",
-        "reason": "Melonjak +10.28% dengan kenaikan volume 1.22x di atas rata-rata setelah mengalami kondisi RSI oversold (24.2).",
-        "catalyst": "Spekulasi akumulasi pasca koreksi tajam 20 hari (-31.79%).",
-        "price_at_fetch": 236.0
-      },
-      {
-        "ticker": "BUMI",
-        "action": "BUY",
-        "entry_range": "126 - 130",
-        "target": "138 - 142",
-        "stop_loss": "115",
-        "risk_level": "tinggi",
-        "reason": "Rebound +8.40% didukung volume 1.14x rata-rata dari level oversold (RSI 28.4).",
-        "catalyst": "Momentum perdagangan harian sektor komoditas dan saham populer ber-beta tinggi.",
-        "price_at_fetch": 129.0
-      },
-      {
-        "ticker": "BRPT",
-        "action": "BUY",
-        "entry_range": "1100 - 1130",
-        "target": "1200 - 1240",
-        "stop_loss": "970",
-        "risk_level": "tinggi",
-        "reason": "Rebound +5.14% dengan volume 1.14x setelah tertekan tajam (-20.77% dalam 5 hari), berpotensi melanjutkan pemulihan cepat.",
-        "catalyst": "Pergerakan harga teknikal pasca oversold ekstrem.",
-        "price_at_fetch": 1125.0
+        "reason": "Aktivitas perdagangan menunjukkan peningkatan volume di atas rata-rata harian (1,14x volume 20 hari).",
+        "catalyst": "Volume perdagangan harian melebihi rerata 20 hari (volume_vs_avg20 = 1.14).",
+        "price_at_fetch": NaN
       }
     ],
     "swing_trade": [
       {
-        "ticker": "PGAS",
+        "ticker": "ANTM",
         "action": "BUY",
-        "entry_range": "1350 - 1385",
-        "target": "1480 - 1520",
-        "stop_loss": "1220",
+        "entry_range": "Area support / penutupan saat ini",
+        "target": "Resisten swing terdekat",
+        "stop_loss": "Menyesuaikan 1.5x-2.5x ATR14 saat data live tersedia",
         "risk_level": "sedang",
-        "reason": "Satu-satunya emiten dalam daftar yang diperdagangkan di atas SMA20 dengan performa 5 hari positif (+4.94%), menandakan tren bullish yang lebih stabil.",
-        "catalyst": "Pelantikan Dirjen Ketenagalistrikan ESDM baru membawa kepastian regulasi energi dan transmisi gas.",
-        "price_at_fetch": 1380.0
-      },
-      {
-        "ticker": "ICBP",
-        "action": "BUY",
-        "entry_range": "5600 - 5700",
-        "target": "6150 - 6270",
-        "stop_loss": "5050",
-        "risk_level": "sedang",
-        "reason": "Saham consumer defensive dengan kondisi RSI sangat oversold (21.9) dan akumulasi volume 1.28x rata-rata, ideal untuk swing menuju target SMA20.",
-        "catalyst": "Daya tahan sektor barang konsumsi di tengah tekanan inflasi daerah.",
-        "price_at_fetch": 5675.0
-      },
-      {
-        "ticker": "ESSA",
-        "action": "BUY",
-        "entry_range": "515 - 530",
-        "target": "570 - 590",
-        "stop_loss": "458",
-        "risk_level": "sedang",
-        "reason": "Membentuk pola dasar (base building) stabil dengan imbal hasil 5 hari positif (+1.94%) dan mulai mendekati breakout SMA20.",
-        "catalyst": "Stabilitas harga energi dan manufaktur kimia domestik.",
-        "price_at_fetch": 525.0
-      },
-      {
-        "ticker": "SMGR",
-        "action": "BUY",
-        "entry_range": "1390 - 1430",
-        "target": "1540 - 1580",
-        "stop_loss": "1220",
-        "risk_level": "sedang",
-        "reason": "Kenaikan +6.37% mengindikasikan pembalikan arah teknikal awal dari dasar penurunannya menuju MA20.",
-        "catalyst": "Rencana insentif pemda Rp1T dan pengeluaran anggaran pemerintah menjelang akhir tahun.",
-        "price_at_fetch": 1420.0
+        "reason": "Memiliki katalis fundamental/korporasi yang sangat kuat terkait rencana pembagian dividen dengan potensi return menarik di tengah koreksi pasar.",
+        "catalyst": "Rencana pembagian dividen ANTM dengan potensi yield di atas 10% serta kebijakan pemangkasan RKAB oleh Kementerian ESDM.",
+        "price_at_fetch": NaN
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "ISAT",
-    "profile": "day_trade",
-    "reason": "Spike volume transaksi 2.37x dari rata-rata harian yang dikombinasikan dengan pembalikan dari RSI oversold (25.7) memberikan rasio risk/reward ideal untuk trading cepat hari ini.",
-    "price_at_fetch": 1435.0
+    "ticker": "ANTM",
+    "profile": "swing_trade",
+    "reason": "ANTM didukung katalis kuat dari publikasi potensi yield dividen di atas 10% yang menjadi daya tarik utama bagi investor di tengah tren koreksi pasar.",
+    "price_at_fetch": NaN
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 5107.9,
-    "change_pct": 1.01
+    "value": 5057.0,
+    "change_pct": -0.8
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 5025.0
+      "last_close": NaN
     },
     {
       "ticker": "BBRI",
-      "last_close": 2820.0
+      "last_close": NaN
     },
     {
       "ticker": "BMRI",
-      "last_close": 3710.0
+      "last_close": NaN
     },
     {
       "ticker": "BBNI",
-      "last_close": 3340.0
+      "last_close": NaN
     },
     {
       "ticker": "TLKM",
-      "last_close": 1960.0
+      "last_close": NaN
     },
     {
       "ticker": "ASII",
-      "last_close": 4830.0
+      "last_close": NaN
     },
     {
       "ticker": "UNVR",
-      "last_close": 1385.0
+      "last_close": NaN
     },
     {
       "ticker": "ICBP",
-      "last_close": 5675.0
+      "last_close": NaN
     },
     {
       "ticker": "INDF",
-      "last_close": 6525.0
+      "last_close": NaN
     },
     {
       "ticker": "KLBF",
-      "last_close": 720.0
+      "last_close": NaN
     },
     {
       "ticker": "ADRO",
-      "last_close": 2430.0
+      "last_close": NaN
     },
     {
       "ticker": "PTBA",
-      "last_close": 3130.0
+      "last_close": NaN
     },
     {
       "ticker": "ITMG",
-      "last_close": 24750.0
+      "last_close": NaN
     },
     {
       "ticker": "ANTM",
-      "last_close": 2610.0
+      "last_close": NaN
     },
     {
       "ticker": "INCO",
-      "last_close": 3350.0
+      "last_close": NaN
     },
     {
       "ticker": "MDKA",
-      "last_close": 1980.0
+      "last_close": NaN
     },
     {
       "ticker": "TINS",
-      "last_close": 3660.0
+      "last_close": NaN
     },
     {
       "ticker": "GOTO",
-      "last_close": 24.0
+      "last_close": NaN
     },
     {
       "ticker": "BUKA",
-      "last_close": 94.0
+      "last_close": NaN
     },
     {
       "ticker": "EMTK",
-      "last_close": 312.0
+      "last_close": NaN
     },
     {
       "ticker": "BRPT",
-      "last_close": 1125.0
+      "last_close": NaN
     },
     {
       "ticker": "TPIA",
-      "last_close": 1350.0
+      "last_close": NaN
     },
     {
       "ticker": "AVIA",
-      "last_close": 298.0
+      "last_close": NaN
     },
     {
       "ticker": "AMRT",
-      "last_close": 905.0
+      "last_close": NaN
     },
     {
       "ticker": "MAPI",
-      "last_close": 1210.0
+      "last_close": NaN
     },
     {
       "ticker": "CPIN",
-      "last_close": 2490.0
+      "last_close": NaN
     },
     {
       "ticker": "JPFA",
-      "last_close": 1730.0
+      "last_close": NaN
     },
     {
       "ticker": "SMGR",
-      "last_close": 1420.0
+      "last_close": NaN
     },
     {
       "ticker": "INTP",
-      "last_close": 5550.0
+      "last_close": NaN
     },
     {
       "ticker": "PGAS",
-      "last_close": 1380.0
+      "last_close": NaN
     },
     {
       "ticker": "MEDC",
-      "last_close": 1365.0
+      "last_close": NaN
     },
     {
       "ticker": "ELSA",
-      "last_close": 610.0
+      "last_close": NaN
     },
     {
       "ticker": "PGEO",
-      "last_close": 925.0
+      "last_close": NaN
     },
     {
       "ticker": "BRIS",
-      "last_close": 1025.0
+      "last_close": NaN
     },
     {
       "ticker": "ARTO",
-      "last_close": 520.0
+      "last_close": NaN
     },
     {
       "ticker": "BBTN",
-      "last_close": 900.0
+      "last_close": NaN
     },
     {
       "ticker": "AKRA",
-      "last_close": 1355.0
+      "last_close": NaN
     },
     {
       "ticker": "UNTR",
-      "last_close": 23925.0
+      "last_close": NaN
     },
     {
       "ticker": "HRUM",
-      "last_close": 705.0
+      "last_close": NaN
     },
     {
       "ticker": "DEWA",
-      "last_close": 236.0
+      "last_close": NaN
     },
     {
       "ticker": "BUMI",
-      "last_close": 129.0
+      "last_close": NaN
     },
     {
       "ticker": "ACES",
-      "last_close": 332.0
+      "last_close": NaN
     },
     {
       "ticker": "ERAA",
-      "last_close": 510.0
+      "last_close": NaN
     },
     {
       "ticker": "SCMA",
-      "last_close": 137.0
+      "last_close": NaN
     },
     {
       "ticker": "MNCN",
-      "last_close": 81.0
+      "last_close": NaN
     },
     {
       "ticker": "CTRA",
-      "last_close": 550.0
+      "last_close": NaN
     },
     {
       "ticker": "EXCL",
-      "last_close": 1695.0
+      "last_close": NaN
     },
     {
       "ticker": "ISAT",
-      "last_close": 1435.0
+      "last_close": NaN
     },
     {
       "ticker": "TOWR",
-      "last_close": 358.0
+      "last_close": NaN
     },
     {
       "ticker": "MTEL",
-      "last_close": 386.0
+      "last_close": NaN
     },
     {
       "ticker": "WIKA",
@@ -317,47 +262,47 @@
     },
     {
       "ticker": "MYOR",
-      "last_close": 1355.0
+      "last_close": NaN
     },
     {
       "ticker": "ULTJ",
-      "last_close": 2090.0
+      "last_close": NaN
     },
     {
       "ticker": "MIKA",
-      "last_close": 1305.0
+      "last_close": NaN
     },
     {
       "ticker": "HEAL",
-      "last_close": 500.0
+      "last_close": NaN
     },
     {
       "ticker": "BFIN",
-      "last_close": 750.0
+      "last_close": NaN
     },
     {
       "ticker": "LPPF",
-      "last_close": 1615.0
+      "last_close": NaN
     },
     {
       "ticker": "SRTG",
-      "last_close": 1605.0
+      "last_close": NaN
     },
     {
       "ticker": "RAJA",
-      "last_close": 420.0
+      "last_close": NaN
     },
     {
       "ticker": "ESSA",
-      "last_close": 525.0
+      "last_close": NaN
     },
     {
       "ticker": "KAEF",
-      "last_close": 356.0
+      "last_close": NaN
     },
     {
       "ticker": "PANI",
-      "last_close": 4040.0
+      "last_close": NaN
     }
   ]
 }
