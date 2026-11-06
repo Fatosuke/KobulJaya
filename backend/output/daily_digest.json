@@ -1,108 +1,119 @@
 {
   "date": "2026-11-06",
-  "market_context_summary": "Pasar dibayangi sensitivitas pergerakan nilai tukar Rupiah terhadap Dolar AS (Rp18.080/US$) serta penguatan aturan penempatan Devisa Hasil Ekspor (DHE) SDA oleh BI dan OJK. Sektor konsumer dan perbankan menunjukkan daya tahan dan momentum rebound teknikal, sementara sektor tambang dan komoditas masih mengalami tekanan volatalitas akibat penataan aturan ekspor.",
+  "market_context_summary": "Pasar saham domestik diwarnai oleh penguatan sektor perbankan dan konsumsi, di tengah ketegangan geopolitik Selat Hormuz yang memicu kekhawatiran pasokan minyak dunia. Selain itu, sentimen makro dipengaruhi lonjakan laba perbankan nasional, pelemahan nilai tukar Rupiah, serta rencana regulasi baru terkait ekspor SDA strategis.",
   "profiles": {
     "day_trade": [
       {
-        "ticker": "GOTO",
+        "ticker": "ICBP",
         "action": "BUY",
-        "entry_range": "26 - 27",
-        "target": "30 - 32",
-        "stop_loss": "24",
-        "risk_level": "tinggi",
-        "reason": "Saham melonjak 12.5% dalam 1 hari dan berhasil memotong ke atas SMA20 dengan RSI 66.7 yang menandakan momentum bullish kuat.",
-        "catalyst": "Lonjakan volume dan pergerakan teknikal breakout di atas SMA20.",
-        "price_at_fetch": 27.0
+        "entry_range": "6300 - 6350",
+        "target": "6600",
+        "stop_loss": "6040",
+        "risk_level": "sedang",
+        "reason": "Momentum kenaikan kuat +3.27% didukung konfirmasi volume di atas rata-rata 20 hari (1.32x) dan harga penutupan konsisten di atas SMA20.",
+        "catalyst": "Rotasi dana ke saham defensif sektor konsumen di tengah volatilitas makro.",
+        "price_at_fetch": 6325.0
       },
       {
         "ticker": "UNVR",
         "action": "BUY",
-        "entry_range": "1490 - 1510",
-        "target": "1590 - 1620",
-        "stop_loss": "1430",
-        "risk_level": "sedang",
-        "reason": "Tren teknikal berada di atas SMA20 dengan penguatan 3.78% harian dan RSI 76.8 menampakkan dorongan pembeli yang agresif.",
-        "catalyst": "Rotasi modal ke saham konsumer defensif di tengah isu kenaikan harga F&B.",
-        "price_at_fetch": 1510.0
+        "entry_range": "1500 - 1520",
+        "target": "1600",
+        "stop_loss": "1445",
+        "risk_level": "tinggi",
+        "reason": "Breakout teknikal tajam +4.12% menembus level SMA20 dengan RSI(14) mencatatkan momentum sangat tinggi (77.1).",
+        "catalyst": "Aksi beli jangka pendek pada emiten consumer goods yang baru rebound.",
+        "price_at_fetch": 1515.0
       },
       {
-        "ticker": "INCO",
+        "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "3380 - 3420",
-        "target": "3600 - 3650",
-        "stop_loss": "3150",
+        "entry_range": "1350 - 1375",
+        "target": "1420",
+        "stop_loss": "1290",
         "risk_level": "tinggi",
-        "reason": "Rebound harian +4.27% setelah penurunan tajam, memberikan ruang spekulatif teknikal bounce.",
-        "catalyst": "Sentimen kebijakan DHE SDA dan penunjukan bank devisa penampung hasil ekspor komoditas.",
-        "price_at_fetch": 3420.0
+        "reason": "Harga berhasil rebound +4.58% menembus di atas SMA20, memanfaatkan kenaikan harga energi.",
+        "catalyst": "Eskalasi konflik di Selat Hormuz memicu kenaikan harga minyak/energi.",
+        "price_at_fetch": 1370.0
       },
       {
         "ticker": "BBRI",
         "action": "BUY",
-        "entry_range": "2760 - 2800",
-        "target": "2920 - 2950",
-        "stop_loss": "2630",
+        "entry_range": "2790 - 2820",
+        "target": "2920",
+        "stop_loss": "2670",
         "risk_level": "sedang",
-        "reason": "Rebound +3.32% dalam sehari dengan indikator RSI menguat ke level 65.5 untuk trading momentum cepat.",
-        "catalyst": "Dukungan OJK dan perbankan dalam penampungan dana ekspor DHE SDA.",
-        "price_at_fetch": 2800.0
+        "reason": "Technical rebound harian +3.69% dari level terbawah dengan indicator RSI(14) naik ke 65.9.",
+        "catalyst": "Kabar positif pertumbuhan laba dan kualitas aset sehat dari sektor perbankan nasional.",
+        "price_at_fetch": 2810.0
       }
     ],
     "swing_trade": [
       {
         "ticker": "ICBP",
         "action": "BUY",
-        "entry_range": "6150 - 6250",
-        "target": "6700 - 6900",
-        "stop_loss": "5680",
+        "entry_range": "6200 - 6350",
+        "target": "6800",
+        "stop_loss": "5750",
         "risk_level": "sedang",
-        "reason": "Penguatan 5 hari berturut-turut (+14.16%), berada konsisten di atas SMA20 didukung volume transaksi 1.17x di atas rata-rata 20 hari.",
-        "catalyst": "Daya tahan sektor consumer goods menghadapi potensi penyesuaian harga F&B.",
-        "price_at_fetch": 6250.0
-      },
-      {
-        "ticker": "INDF",
-        "action": "BUY",
-        "entry_range": "6750 - 6900",
-        "target": "7300 - 7500",
-        "stop_loss": "6450",
-        "risk_level": "sedang",
-        "reason": "Saham bergerak di atas SMA5 dan SMA20, mengindikasikan struktur uptrend swing yang sehat dengan RSI 63.9.",
-        "catalyst": "Sentimen positif penguatan permodalan DSI untuk ekspor komoditas dan industri pangan.",
-        "price_at_fetch": 6900.0
+        "reason": "Struktur tren sangat solid (naik +15.53% dalam 5 hari), bergerak mantap di atas SMA20 dengan akumulasi volume.",
+        "catalyst": "Daya tahan emiten konsumer besar terhadap tekanan nilai tukar dan ketidakpastian pasar global.",
+        "price_at_fetch": 6325.0
       },
       {
         "ticker": "AKRA",
         "action": "BUY",
-        "entry_range": "1330 - 1360",
-        "target": "1450 - 1480",
-        "stop_loss": "1230",
+        "entry_range": "1340 - 1370",
+        "target": "1480",
+        "stop_loss": "1240",
+        "risk_level": "sedang",
+        "reason": "Trend berubah menjadi 'above_sma20' dengan indikator RSI menguat menuju 71.6, menandakan potensi kelanjutan tren pemulihan.",
+        "catalyst": "Isu geopolitik pasokan minyak dunia dan sosialisasi regulasi ekspor SDA.",
+        "price_at_fetch": 1370.0
+      },
+      {
+        "ticker": "MDKA",
+        "action": "BUY",
+        "entry_range": "1980 - 2030",
+        "target": "2250",
+        "stop_loss": "1690",
         "risk_level": "tinggi",
-        "reason": "Kondisi teknikal bertahan di atas SMA20 dengan penguatan +3.82% harian dan RSI 71.0.",
-        "catalyst": "Peluang volume distribusi logistik pendukung ekspor komoditas DSE.",
-        "price_at_fetch": 1360.0
+        "reason": "Telah mencatatkan kenaikan +8.89% dalam 5 hari terakhir setelah tertekan tajam, berpotensi membentuk pembalikan arah (bottoming phase).",
+        "catalyst": "Kenaikan harga komoditas tambang akibat ketegangan geopolitik global.",
+        "price_at_fetch": 2020.0
+      },
+      {
+        "ticker": "UNVR",
+        "action": "BUY",
+        "entry_range": "1480 - 1520",
+        "target": "1650",
+        "stop_loss": "1400",
+        "risk_level": "sedang",
+        "reason": "Memasuki tren naik jangka pendek-menengah setelah memotong ke atas SMA20 (1440.5) dengan gain 5 hari sebesar +8.99%.",
+        "catalyst": "Pemulihan margin dan akumulasi pada saham peritel/konsumer domestik.",
+        "price_at_fetch": 1515.0
       }
     ]
   },
   "top_pick_of_the_day": {
-    "ticker": "GOTO",
-    "profile": "day_trade",
-    "reason": "GOTO mencatatkan lonjakan harga terkuat (+12.5%) serta berhasil menembus indikator SMA20 secara teknikal, ideal untuk momentum trader agresif dengan batas stop loss terukur berbasis ATR.",
-    "price_at_fetch": 27.0
+    "ticker": "ICBP",
+    "profile": "swing_trade",
+    "reason": "ICBP menunjukkan struktur teknikal paling sehat di antara emiten lain, berhasil breakout di atas SMA20 dengan lonjakan volume 1.32x rata-rata 20 hari serta performa 5 hari (+15.53%) yang mencerminkan dominasi pembeli.",
+    "price_at_fetch": 6325.0
   },
   "disclaimer": "Ini adalah hasil analisis otomatis berbasis AI, BUKAN nasihat investasi resmi. Selalu lakukan riset mandiri (DYOR) dan pertimbangkan risiko sebelum bertransaksi. Saham berisiko tinggi bisa menyebabkan kerugian besar, termasuk kehilangan modal.",
   "market_index": {
-    "value": 5027.5,
-    "change_pct": -0.06
+    "value": 5050.4,
+    "change_pct": 0.4
   },
   "all_prices": [
     {
       "ticker": "BBCA",
-      "last_close": 5150.0
+      "last_close": 5200.0
     },
     {
       "ticker": "BBRI",
-      "last_close": 2800.0
+      "last_close": 2810.0
     },
     {
       "ticker": "BMRI",
@@ -110,39 +121,39 @@
     },
     {
       "ticker": "BBNI",
-      "last_close": 3320.0
+      "last_close": 3400.0
     },
     {
       "ticker": "TLKM",
-      "last_close": 1975.0
+      "last_close": 1980.0
     },
     {
       "ticker": "ASII",
-      "last_close": 4980.0
+      "last_close": 5000.0
     },
     {
       "ticker": "UNVR",
-      "last_close": 1510.0
+      "last_close": 1515.0
     },
     {
       "ticker": "ICBP",
-      "last_close": 6250.0
+      "last_close": 6325.0
     },
     {
       "ticker": "INDF",
-      "last_close": 6900.0
+      "last_close": 6875.0
     },
     {
       "ticker": "KLBF",
-      "last_close": 760.0
+      "last_close": 755.0
     },
     {
       "ticker": "ADRO",
-      "last_close": 2300.0
+      "last_close": 2310.0
     },
     {
       "ticker": "PTBA",
-      "last_close": 2990.0
+      "last_close": 2980.0
     },
     {
       "ticker": "ITMG",
@@ -150,11 +161,11 @@
     },
     {
       "ticker": "ANTM",
-      "last_close": 2680.0
+      "last_close": 2690.0
     },
     {
       "ticker": "INCO",
-      "last_close": 3420.0
+      "last_close": 3400.0
     },
     {
       "ticker": "MDKA",
@@ -162,43 +173,43 @@
     },
     {
       "ticker": "TINS",
-      "last_close": 3400.0
+      "last_close": 3390.0
     },
     {
       "ticker": "GOTO",
-      "last_close": 27.0
+      "last_close": 24.0
     },
     {
       "ticker": "BUKA",
-      "last_close": 98.0
+      "last_close": 97.0
     },
     {
       "ticker": "EMTK",
-      "last_close": 302.0
+      "last_close": 298.0
     },
     {
       "ticker": "BRPT",
-      "last_close": 860.0
+      "last_close": 850.0
     },
     {
       "ticker": "TPIA",
-      "last_close": 1250.0
+      "last_close": 1245.0
     },
     {
       "ticker": "AVIA",
-      "last_close": 300.0
+      "last_close": 304.0
     },
     {
       "ticker": "AMRT",
-      "last_close": 965.0
+      "last_close": 975.0
     },
     {
       "ticker": "MAPI",
-      "last_close": 1270.0
+      "last_close": 1275.0
     },
     {
       "ticker": "CPIN",
-      "last_close": 2340.0
+      "last_close": 2350.0
     },
     {
       "ticker": "JPFA",
@@ -206,7 +217,7 @@
     },
     {
       "ticker": "SMGR",
-      "last_close": 1400.0
+      "last_close": 1415.0
     },
     {
       "ticker": "INTP",
@@ -214,11 +225,11 @@
     },
     {
       "ticker": "PGAS",
-      "last_close": 1425.0
+      "last_close": 1430.0
     },
     {
       "ticker": "MEDC",
-      "last_close": 1190.0
+      "last_close": 1200.0
     },
     {
       "ticker": "ELSA",
@@ -226,11 +237,11 @@
     },
     {
       "ticker": "PGEO",
-      "last_close": 935.0
+      "last_close": 930.0
     },
     {
       "ticker": "BRIS",
-      "last_close": 1145.0
+      "last_close": 1150.0
     },
     {
       "ticker": "ARTO",
@@ -238,11 +249,11 @@
     },
     {
       "ticker": "BBTN",
-      "last_close": 925.0
+      "last_close": 920.0
     },
     {
       "ticker": "AKRA",
-      "last_close": 1360.0
+      "last_close": 1370.0
     },
     {
       "ticker": "UNTR",
@@ -250,51 +261,51 @@
     },
     {
       "ticker": "HRUM",
-      "last_close": 650.0
+      "last_close": 660.0
     },
     {
       "ticker": "DEWA",
-      "last_close": 222.0
+      "last_close": 224.0
     },
     {
       "ticker": "BUMI",
-      "last_close": 117.0
+      "last_close": 115.0
     },
     {
       "ticker": "ACES",
-      "last_close": 336.0
+      "last_close": 338.0
     },
     {
       "ticker": "ERAA",
-      "last_close": 496.0
-    },
-    {
-      "ticker": "SCMA",
-      "last_close": 135.0
-    },
-    {
-      "ticker": "MNCN",
-      "last_close": 68.0
-    },
-    {
-      "ticker": "CTRA",
       "last_close": 492.0
     },
     {
+      "ticker": "SCMA",
+      "last_close": 136.0
+    },
+    {
+      "ticker": "MNCN",
+      "last_close": 71.0
+    },
+    {
+      "ticker": "CTRA",
+      "last_close": 494.0
+    },
+    {
       "ticker": "EXCL",
-      "last_close": 1470.0
+      "last_close": 1495.0
     },
     {
       "ticker": "ISAT",
-      "last_close": 1415.0
+      "last_close": 1425.0
     },
     {
       "ticker": "TOWR",
-      "last_close": 348.0
+      "last_close": 352.0
     },
     {
       "ticker": "MTEL",
-      "last_close": 340.0
+      "last_close": 334.0
     },
     {
       "ticker": "WIKA",
@@ -306,11 +317,11 @@
     },
     {
       "ticker": "MYOR",
-      "last_close": 1330.0
+      "last_close": 1360.0
     },
     {
       "ticker": "ULTJ",
-      "last_close": 2040.0
+      "last_close": 2050.0
     },
     {
       "ticker": "MIKA",
@@ -318,15 +329,15 @@
     },
     {
       "ticker": "HEAL",
-      "last_close": 482.0
+      "last_close": 480.0
     },
     {
       "ticker": "BFIN",
-      "last_close": 730.0
+      "last_close": 720.0
     },
     {
       "ticker": "LPPF",
-      "last_close": 1620.0
+      "last_close": 1605.0
     },
     {
       "ticker": "SRTG",
@@ -334,7 +345,7 @@
     },
     {
       "ticker": "RAJA",
-      "last_close": 394.0
+      "last_close": 392.0
     },
     {
       "ticker": "ESSA",
@@ -346,7 +357,7 @@
     },
     {
       "ticker": "PANI",
-      "last_close": 3700.0
+      "last_close": 3710.0
     }
   ]
 }
